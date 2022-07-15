@@ -4,7 +4,7 @@ let canvas;
 let ctx;
 let logoColor;
 let text;
-let welcome = ['welcome', '환영하다', 'добро пожаловать']
+let welcome = ['welcome']
 var change = false
 let dvd = {
     x: 200,
@@ -76,8 +76,6 @@ function checkHitBox(){
         
         if (!change) {
             change = true
-            text = welcome[Math.floor(Math.random() * welcome.length)]
-            dvd.y = canvas.height - 1
         }
     }
 
@@ -86,8 +84,6 @@ function checkHitBox(){
 
         if (!change) {
             change = true
-            text = welcome[Math.floor(Math.random() * welcome.length)]
-            dvd.y += 1
         }
     }
 
