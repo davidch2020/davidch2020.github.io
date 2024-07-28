@@ -3,7 +3,7 @@ name: Deploy Jupyter Book to GitHub Pages
 on:
   push:
     branches:
-      - master  # Replace 'master' with the branch you want to trigger this workflow
+      - main  # Replace 'master' with the branch you want to trigger this workflow
 
 jobs:
   build-and-deploy:
