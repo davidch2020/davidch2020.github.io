@@ -3,20 +3,23 @@ name: Deploy Jupyter Book to GitHub Pages
 on:
   push:
     branches:
-      - main  # Replace 'master' with the branch you want to trigger this workflow
+      - main
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
-          python-version: '3.x'  # Specify the Python version
+          python-version: '3.11'
 
       - name: Install dependencies
         run: |
@@ -27,8 +30,17 @@ jobs:
         run: |
           jupyter-book build bond-bios-book  # Adjust the path if your book's source files are in a different directory
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Cache executed notebooks
+        uses: actions/cache@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./bond-bios-book/_build/html  # Adjust the path if needed
+          path: _build/.jupyter_cache
+          key: jupyter-book-cache-${{ hashFiles('requirements.txt') }}
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: "./bond-bios-book/_build/html"
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
