@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
   
@@ -168,7 +168,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Welcome to your Jupyter Book
+                    Welcome to the Bond Bios Book
                 </a>
             </li>
         </ul>
@@ -176,6 +176,7 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="BondBios%20-%20The%20Currency%20Sixes.html">Bond Biography: The Currency Sixes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="war_1812.html">Bonds and Treasury Notes of the War of 1812</a></li>
+
 
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Bond Bio: The Liberty and Victory Loans issued to fund WW1</a></li>
 
@@ -339,15 +340,16 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#th-liberty-loan">4th Liberty Loan</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#victory-loans">Victory Loans</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#price-drop-in-1920-1921">Price Drop in 1920-1921</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#events-leading-to-price-drop">Events leading to price drop:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#events-potentially-leading-to-price-drop">Events potentially leading to price drop:</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#supplementary-materials">Supplementary Materials:</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#supplementary-materials">Supplementary Materials</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figures">Figures</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataframe-format-notes">Dataframe format notes</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bondlist">BondList</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bondquant-and-bondprice">BondQuant and BondPrice</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#works-cited">Works Cited:</a></li>
@@ -379,6 +381,7 @@ document.write(`
 <span class="n">plt</span><span class="o">.</span><span class="n">ion</span><span class="p">()</span>
 
 <span class="kn">import</span> <span class="nn">matplotlib.patches</span> <span class="k">as</span> <span class="nn">mpatches</span>
+<span class="kn">import</span> <span class="nn">matplotlib.colors</span> <span class="k">as</span> <span class="nn">mcolors</span>
 <span class="kn">import</span> <span class="nn">datetime</span>
 <span class="o">%</span><span class="k">matplotlib</span> ipympl
 </pre></div>
@@ -387,72 +390,14 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">11</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="kn">import</span> <span class="nn">matplotlib.patches</span> <span class="k">as</span> <span class="nn">mpatches</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="kn">import</span> <span class="nn">datetime</span>
-<span class="ne">---&gt; </span><span class="mi">11</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s1">&#39;matplotlib&#39;</span><span class="p">,</span> <span class="s1">&#39;ipympl&#39;</span><span class="p">)</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">calendar</span> <span class="k">as</span> <span class="nn">cal</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">import</span> <span class="nn">random</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">plt</span><span class="o">.</span><span class="n">ion</span><span class="p">()</span>
 
-<span class="nn">File /opt/anaconda3/lib/python3.11/site-packages/IPython/core/interactiveshell.py:2456,</span> in <span class="ni">InteractiveShell.run_line_magic</span><span class="nt">(self, magic_name, line, _stack_depth)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2454</span>     <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;local_ns&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_local_scope</span><span class="p">(</span><span class="n">stack_depth</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2455</span> <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">builtin_trap</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">2456</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">fn</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2458</span> <span class="c1"># The code below prevents the output from being displayed</span>
-<span class="g g-Whitespace">   </span><span class="mi">2459</span> <span class="c1"># when using magics with decorator @output_can_be_silenced</span>
-<span class="g g-Whitespace">   </span><span class="mi">2460</span> <span class="c1"># when the last Python token in the expression is a &#39;;&#39;.</span>
-<span class="g g-Whitespace">   </span><span class="mi">2461</span> <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="n">magic</span><span class="o">.</span><span class="n">MAGIC_OUTPUT_CAN_BE_SILENCED</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
-
-<span class="nn">File /opt/anaconda3/lib/python3.11/site-packages/IPython/core/magics/pylab.py:99,</span> in <span class="ni">PylabMagics.matplotlib</span><span class="nt">(self, line)</span>
-<span class="g g-Whitespace">     </span><span class="mi">97</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Available matplotlib backends: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">backends_list</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">98</span> <span class="k">else</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">99</span>     <span class="n">gui</span><span class="p">,</span> <span class="n">backend</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">shell</span><span class="o">.</span><span class="n">enable_matplotlib</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">gui</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">else</span> <span class="n">args</span><span class="o">.</span><span class="n">gui</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">100</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_show_matplotlib_backend</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">gui</span><span class="p">,</span> <span class="n">backend</span><span class="p">)</span>
-
-<span class="nn">File /opt/anaconda3/lib/python3.11/site-packages/IPython/core/interactiveshell.py:3648,</span> in <span class="ni">InteractiveShell.enable_matplotlib</span><span class="nt">(self, gui)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3644</span>         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Warning: Cannot change to a different GUI toolkit: </span><span class="si">%s</span><span class="s1">.&#39;</span>
-<span class="g g-Whitespace">   </span><span class="mi">3645</span>                 <span class="s1">&#39; Using </span><span class="si">%s</span><span class="s1"> instead.&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">gui</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pylab_gui_select</span><span class="p">))</span>
-<span class="g g-Whitespace">   </span><span class="mi">3646</span>         <span class="n">gui</span><span class="p">,</span> <span class="n">backend</span> <span class="o">=</span> <span class="n">pt</span><span class="o">.</span><span class="n">find_gui_and_backend</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pylab_gui_select</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">3648</span> <span class="n">pt</span><span class="o">.</span><span class="n">activate_matplotlib</span><span class="p">(</span><span class="n">backend</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3649</span> <span class="n">configure_inline_support</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">backend</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3651</span> <span class="c1"># Now we must activate the gui pylab wants to use, and fix %run to take</span>
-<span class="g g-Whitespace">   </span><span class="mi">3652</span> <span class="c1"># plot updates into account</span>
-
-<span class="nn">File /opt/anaconda3/lib/python3.11/site-packages/IPython/core/pylabtools.py:368,</span> in <span class="ni">activate_matplotlib</span><span class="nt">(backend)</span>
-<span class="g g-Whitespace">    </span><span class="mi">363</span> <span class="c1"># Due to circular imports, pyplot may be only partially initialised</span>
-<span class="g g-Whitespace">    </span><span class="mi">364</span> <span class="c1"># when this function runs.</span>
-<span class="g g-Whitespace">    </span><span class="mi">365</span> <span class="c1"># So avoid needing matplotlib attribute-lookup to access pyplot.</span>
-<span class="g g-Whitespace">    </span><span class="mi">366</span> <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-<span class="ne">--&gt; </span><span class="mi">368</span> <span class="n">plt</span><span class="o">.</span><span class="n">switch_backend</span><span class="p">(</span><span class="n">backend</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">370</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="o">.</span><span class="n">_needmain</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="g g-Whitespace">    </span><span class="mi">371</span> <span class="c1"># We need to detect at runtime whether show() is called by the user.</span>
-<span class="g g-Whitespace">    </span><span class="mi">372</span> <span class="c1"># For this, we wrap it into a decorator which adds a &#39;called&#39; flag.</span>
-
-<span class="nn">File /opt/anaconda3/lib/python3.11/site-packages/matplotlib/pyplot.py:342,</span> in <span class="ni">switch_backend</span><span class="nt">(newbackend)</span>
-<span class="g g-Whitespace">    </span><span class="mi">339</span> <span class="c1"># have to escape the switch on access logic</span>
-<span class="g g-Whitespace">    </span><span class="mi">340</span> <span class="n">old_backend</span> <span class="o">=</span> <span class="nb">dict</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">(</span><span class="n">rcParams</span><span class="p">,</span> <span class="s1">&#39;backend&#39;</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">342</span> <span class="n">module</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="n">cbook</span><span class="o">.</span><span class="n">_backend_module_name</span><span class="p">(</span><span class="n">newbackend</span><span class="p">))</span>
-<span class="g g-Whitespace">    </span><span class="mi">343</span> <span class="n">canvas_class</span> <span class="o">=</span> <span class="n">module</span><span class="o">.</span><span class="n">FigureCanvas</span>
-<span class="g g-Whitespace">    </span><span class="mi">345</span> <span class="n">required_framework</span> <span class="o">=</span> <span class="n">canvas_class</span><span class="o">.</span><span class="n">required_interactive_framework</span>
-
-<span class="nn">File /opt/anaconda3/lib/python3.11/importlib/__init__.py:126,</span> in <span class="ni">import_module</span><span class="nt">(name, package)</span>
-<span class="g g-Whitespace">    </span><span class="mi">124</span>             <span class="k">break</span>
-<span class="g g-Whitespace">    </span><span class="mi">125</span>         <span class="n">level</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="ne">--&gt; </span><span class="mi">126</span> <span class="k">return</span> <span class="n">_bootstrap</span><span class="o">.</span><span class="n">_gcd_import</span><span class="p">(</span><span class="n">name</span><span class="p">[</span><span class="n">level</span><span class="p">:],</span> <span class="n">package</span><span class="p">,</span> <span class="n">level</span><span class="p">)</span>
-
-<span class="nn">File &lt;frozen importlib._bootstrap&gt;:1204,</span> in <span class="ni">_gcd_import</span><span class="nt">(name, package, level)</span>
-
-<span class="nn">File &lt;frozen importlib._bootstrap&gt;:1176,</span> in <span class="ni">_find_and_load</span><span class="nt">(name, import_)</span>
-
-<span class="nn">File &lt;frozen importlib._bootstrap&gt;:1126,</span> in <span class="ni">_find_and_load_unlocked</span><span class="nt">(name, import_)</span>
-
-<span class="nn">File &lt;frozen importlib._bootstrap&gt;:241,</span> in <span class="ni">_call_with_frames_removed</span><span class="nt">(f, *args, **kwds)</span>
-
-<span class="nn">File &lt;frozen importlib._bootstrap&gt;:1204,</span> in <span class="ni">_gcd_import</span><span class="nt">(name, package, level)</span>
-
-<span class="nn">File &lt;frozen importlib._bootstrap&gt;:1176,</span> in <span class="ni">_find_and_load</span><span class="nt">(name, import_)</span>
-
-<span class="nn">File &lt;frozen importlib._bootstrap&gt;:1140,</span> in <span class="ni">_find_and_load_unlocked</span><span class="nt">(name, import_)</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;ipympl&#39;
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;ipywidgets&#39;
 </pre></div>
 </div>
 </div>
@@ -539,79 +484,8 @@ document.write(`
   <span class="k">return</span> <span class="n">bond_row</span>
 
 <span class="c1">#Uncomment to print a summary of all bonds labeled &quot;Liberty Loan&quot;</span>
-<span class="n">liberty_loans</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">summarize_bond</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Done&quot;</span><span class="p">)</span> <span class="c1">#Print Done so the cell output does not include the dataframe snippet</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bond #162: 1st Liberty Loan of 1917 (3.5%), issued 1917-06-30 00:00:00
-   Term: 30 years, Redeemable: 1932-06-15 00:00:00, Payable: 1947-06-15 00:00:00
-   Coupon: 3.5, Frequency: 2.0/year, Scheduled Month: June
----------------------------------------------------
-Bond #166: 2nd Liberty Loan of 1917 (4%), issued 1917-10-31 00:00:00
-   Term: 25 years, Redeemable: 1927-11-15 00:00:00, Payable: 1942-11-15 00:00:00
-   Coupon: 4.0, Frequency: 2.0/year, Scheduled Month: May
----------------------------------------------------
-Bond #168: 3rd Liberty Loan, issued 1918-05-31 00:00:00
-   Term: 10 years, Redeemable: NaT, Payable: 1928-09-15 00:00:00
-   Coupon: 4.25, Frequency: 2.0/year, Scheduled Month: March
----------------------------------------------------
-Bond #169: 4th Liberty Loan, issued 1918-09-30 00:00:00
-   Term: 20 years, Redeemable: 1933-10-15 00:00:00, Payable: 1938-10-15 00:00:00
-   Coupon: 4.25, Frequency: 2.0/year, Scheduled Month: April
----------------------------------------------------
-Bond #165: 1st Liberty Loan Second Converted to 4.25%, issued 1918-10-24 00:00:00
-   Term: 30 years, Redeemable: 1932-06-15 00:00:00, Payable: 1947-06-15 00:00:00
-   Coupon: 4.25, Frequency: 2.0/year, Scheduled Month: June
----------------------------------------------------
-Bond #167: 2nd Liberty Loan Converted to 4.25%, issued 1918-11-30 00:00:00
-   Term: 25 years, Redeemable: 1927-11-15 00:00:00, Payable: 1942-11-15 00:00:00
-   Coupon: 4.25, Frequency: 2.0/year, Scheduled Month: May
----------------------------------------------------
-Bond #163: 1st Liberty Loan Converted to 4%, issued 1918-11-30 00:00:00
-   Term: 30 years, Redeemable: 1932-06-15 00:00:00, Payable: 1947-06-15 00:00:00
-   Coupon: 4.0, Frequency: 2.0/year, Scheduled Month: June
----------------------------------------------------
-Bond #164: 1st Liberty Loan Converted to 4.25%, issued 1918-11-30 00:00:00
-   Term: 30 years, Redeemable: 1932-06-15 00:00:00, Payable: 1947-06-15 00:00:00
-   Coupon: 4.25, Frequency: 2.0/year, Scheduled Month: June
----------------------------------------------------
-Bond #170: Victory Liberty Loan (4 3/4%), issued 1919-05-20 00:00:00
-   Term: 4 years, Redeemable: 1922-06-15 00:00:00, Payable: 1923-05-20 00:00:00
-   Coupon: 4.75, Frequency: 2.0/year, Scheduled Month: June
----------------------------------------------------
-Bond #171: Victory Liberty Loan (3 3/4%), issued 1919-05-20 00:00:00
-   Term: 4 years, Redeemable: 1922-12-15 00:00:00, Payable: 1923-05-20 00:00:00
-   Coupon: 3.75, Frequency: 2.0/year, Scheduled Month: June
----------------------------------------------------
-Bond #176: Vic Lib Loan 4.75s, called, issued 1919-05-20 00:00:00
-   No further information
-Bond #177: Vic Lib Loan 4.75s, 1922-23, issued 1919-05-20 00:00:00
-   No further information
-Bond #178: Vic Lib Loan 4.75 of 1922-1923 and 3.75 of 1922-1923, issued 1919-05-20 00:00:00
-   No further information
-Bond #1928: 3.5%, 4%, and 4.25% First Liberty Loan
-   No further information
-Bond #1929:  4% and 4.25% Second Liberty Loan of 1927-42
-   No further information
-Bond #1930: Liberty Bonds and Victory Loans
-   No further information
-Bond #1934: 4.75%  Notes of 1922-23 (with Serial letters &quot;A&quot; to &quot;F&quot;)
-   No further information
-Bond #1935: 4.75% Notes of 1922-23 (with Serial letters &quot;G&quot; to &quot;L&quot;)
-   No further information
-Bond #1936: Sum of &quot;A&quot; to &quot;F&quot; and &quot;G&quot; to &quot;L&quot; of 4.75% Notes of 1922-23
-   No further information
-Bond #1937: 3.75 Notes of 1922-23
-   No further information
-Bond #1938: 3.75% and 4.75% Victory Notes
-   No further information
-Bond #2801: First Liberty bonds, at various rates
-   No further information
-Bond #2802: Liberty Bonds and Victory Notes
-   No further information
-Done
+<span class="c1">#liberty_loans.apply(summarize_bond, axis=1)</span>
+<span class="c1">#print(&quot;Done&quot;) #Print Done so the cell output does not include the dataframe snippet</span>
 </pre></div>
 </div>
 </div>
@@ -664,9 +538,8 @@ Done
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Taking a list of bond IDs, create a graph of their priceities in the Public Holdings category</span>
-<span class="c1">#Note that this clears the figure and shows it, so no need to use plt. functions outside</span>
-<span class="c1">#of this function.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Taking a list of bond IDs, create a graph of their quantities in the Public Holdings category</span>
+<span class="c1">#Creates a new figure for each graph</span>
 <span class="k">def</span> <span class="nf">graph_public_for_bqs</span><span class="p">(</span><span class="n">bond_ids</span><span class="p">,</span> <span class="n">axes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">num</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10000</span><span class="p">))</span>
     <span class="n">current_ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
@@ -684,8 +557,6 @@ Done
     <span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
     <span class="n">current_ax</span> <span class="o">=</span> <span class="kc">None</span>
-
-<span class="c1">#ax.plot(first_liberty_series.index.to_list()[17])</span>
 </pre></div>
 </div>
 </div>
@@ -693,8 +564,7 @@ Done
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Taking a list of bond IDs, create a graph of their average price on the secondary market.</span>
-<span class="c1">#Note that this clears the figure and shows it, so no need to use plt. functions outside</span>
-<span class="c1">#of this function.</span>
+<span class="c1">#Creates a new figure for each graph</span>
 <span class="k">def</span> <span class="nf">graph_avg_price</span><span class="p">(</span><span class="n">bond_ids</span><span class="p">,</span> <span class="n">axes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">num</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10000</span><span class="p">))</span>
     <span class="n">current_ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
@@ -703,7 +573,7 @@ Done
         <span class="n">series</span> <span class="o">=</span> <span class="n">BondPrice_Transposed</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="nb">id</span><span class="p">,</span> <span class="s1">&#39;Average&#39;</span><span class="p">)]</span>
         <span class="n">series</span> <span class="o">=</span> <span class="n">series</span><span class="p">[</span><span class="n">series</span><span class="o">.</span><span class="n">notna</span><span class="p">()]</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">series</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Warning: bond id </span><span class="si">{</span><span class="nb">id</span><span class="si">}</span><span class="s2"> could not be graphed, no prices are recorded&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Warning: bond </span><span class="si">{</span><span class="n">liberty_loans</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="nb">id</span><span class="p">][</span><span class="s2">&quot;Treasury&#39;s Name Of Issue&quot;</span><span class="p">]</span><span class="si">}</span><span class="s2"> could not be graphed, no prices are recorded&quot;</span><span class="p">)</span>
             <span class="k">continue</span>
         <span class="n">ax</span> <span class="o">=</span> <span class="n">series</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">current_ax</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span>
                               <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;Time&quot;</span><span class="p">,</span>
@@ -722,7 +592,7 @@ Done
 </section>
 <section id="st-liberty-loan-of-1917">
 <h2>1st Liberty Loan of 1917<a class="headerlink" href="#st-liberty-loan-of-1917" title="Link to this heading">#</a></h2>
-<p>This loan was the first bond used to fund World War I. It also featured the option to convert it so that it would have a higher coupon rate. Generally, convertible bonds are normally corporate bonds. However, in this case, when a bond is <strong>convertible</strong>, it is able to be converted into an issue with a higher coupon rate (Kang, 2015). Thus, it was converted to having a coupon rate of 4% once and 4.25% twice in 1918. This loan had 4 million subscribers, and offered 2 billon dollars while 3.035 billion dollars were subscribed, but only 2 billion dollars were accepted (Rockoff, 2012). An average of 759 dollars were subscribed (Kang, 2015).</p>
+<p>This loan was the first bond used to fund World War I. It also featured the option to convert it so that it would have a higher coupon rate. Generally, convertible bonds are normally corporate bonds. However, in this case, when a bond is <strong>convertible</strong>, it is able to be converted into an issue with a higher coupon rate (Kang, 2015). Thus, it was converted to having a coupon rate of 4% once and 4.25% twice in 1918. This loan had 4 million subscribers, and offered 2 billion dollars while 3.035 billion dollars were subscribed, but only 2 billion dollars were accepted (Rockoff, 2012). An average of 759 dollars were subscribed (Kang, 2015).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> ipympl
@@ -740,39 +610,6 @@ Done
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Done&quot;</span><span class="p">)</span>
 <span class="n">graph_avg_price</span><span class="p">(</span><span class="n">bond_ids</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;First Liberty Loan(s) Secondary Market Price&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Done&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bond #162: 1st Liberty Loan of 1917 (3.5%), issued 1917-06-30 00:00:00
-   Term: 30 years, Redeemable: 1932-06-15 00:00:00, Payable: 1947-06-15 00:00:00
-   Coupon: 3.5, Frequency: 2.0/year, Scheduled Month: June
----------------------------------------------------
-Bond #163: 1st Liberty Loan Converted to 4%, issued 1918-11-30 00:00:00
-   Term: 30 years, Redeemable: 1932-06-15 00:00:00, Payable: 1947-06-15 00:00:00
-   Coupon: 4.0, Frequency: 2.0/year, Scheduled Month: June
----------------------------------------------------
-Bond #164: 1st Liberty Loan Converted to 4.25%, issued 1918-11-30 00:00:00
-   Term: 30 years, Redeemable: 1932-06-15 00:00:00, Payable: 1947-06-15 00:00:00
-   Coupon: 4.25, Frequency: 2.0/year, Scheduled Month: June
----------------------------------------------------
-Bond #165: 1st Liberty Loan Second Converted to 4.25%, issued 1918-10-24 00:00:00
-   Term: 30 years, Redeemable: 1932-06-15 00:00:00, Payable: 1947-06-15 00:00:00
-   Coupon: 4.25, Frequency: 2.0/year, Scheduled Month: June
----------------------------------------------------
-</pre></div>
-</div>
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "844bc707fa8047e082ffe5c8df381406", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Done
-</pre></div>
-</div>
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "d2304a10d90847f5935db9bab53dd239", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Done
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span>
 </pre></div>
 </div>
 </div>
@@ -801,20 +638,6 @@ The increase at the beginning can be attributed to many liberty bonds being sold
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bond #166: 2nd Liberty Loan of 1917 (4%), issued 1917-10-31 00:00:00
-   Term: 25 years, Redeemable: 1927-11-15 00:00:00, Payable: 1942-11-15 00:00:00
-   Coupon: 4.0, Frequency: 2.0/year, Scheduled Month: May
-   Is callable: True
----------------------------------------------------
-Bond #167: 2nd Liberty Loan Converted to 4.25%, issued 1918-11-30 00:00:00
-   Term: 25 years, Redeemable: 1927-11-15 00:00:00, Payable: 1942-11-15 00:00:00
-   Coupon: 4.25, Frequency: 2.0/year, Scheduled Month: May
-   Is callable: True
----------------------------------------------------
-</pre></div>
-</div>
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "29a4255826c443dfb75c842dbff77cb1", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "29a4255826c443dfb75c842dbff77cb1", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 </section>
 <section id="rd-liberty-loan">
@@ -838,15 +661,6 @@ Bond #167: 2nd Liberty Loan Converted to 4.25%, issued 1918-11-30 00:00:00
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bond #168: 3rd Liberty Loan, issued 1918-05-31 00:00:00
-   Term: 10 years, Redeemable: NaT, Payable: 1928-09-15 00:00:00
-   Coupon: 4.25, Frequency: 2.0/year, Scheduled Month: March
-   Is callable: False
----------------------------------------------------
-</pre></div>
-</div>
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "29a4255826c443dfb75c842dbff77cb1", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "29a4255826c443dfb75c842dbff77cb1", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 </section>
 <section id="th-liberty-loan">
@@ -870,20 +684,11 @@ Bond #167: 2nd Liberty Loan Converted to 4.25%, issued 1918-11-30 00:00:00
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bond #169: 4th Liberty Loan, issued 1918-09-30 00:00:00
-   Term: 20 years, Redeemable: 1933-10-15 00:00:00, Payable: 1938-10-15 00:00:00
-   Coupon: 4.25, Frequency: 2.0/year, Scheduled Month: April
-   Is callable: True
----------------------------------------------------
-</pre></div>
-</div>
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "29a4255826c443dfb75c842dbff77cb1", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "29a4255826c443dfb75c842dbff77cb1", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 </section>
 <section id="victory-loans">
 <h2>Victory Loans<a class="headerlink" href="#victory-loans" title="Link to this heading">#</a></h2>
-<p>These were victory loans used after WWI. This differs from the other bonds as they were issued after WWI rather than during it. Like the third and fourth loans, they didn’t have convertible options (Kang, 2015). These loan had 11.803 million subscribers, and offered 4.5 billion dollars while 5.25 billion dollars were subscribed, and only 4.5 billion dollars were accepted (Rockoff, 2012). An average of 445 dollars were subscribed (Kang, 2015).</p>
+<p>These were victory loans used after WWI. This differs from the other bonds as they were issued after WWI rather than during it. Like the third and fourth loans, they didn’t have convertible options (Kang, 2015). These loans had 11.803 million subscribers, and offered 4.5 billion dollars while 5.25 billion dollars were subscribed, and only 4.5 billion dollars were accepted (Rockoff, 2012). An average of 445 dollars were subscribed (Kang, 2015).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> ipympl
@@ -902,49 +707,26 @@ Bond #167: 2nd Liberty Loan Converted to 4.25%, issued 1918-11-30 00:00:00
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bond #170: Victory Liberty Loan (4 3/4%), issued 1919-05-20 00:00:00
-   Term: 4 years, Redeemable: 1922-06-15 00:00:00, Payable: 1923-05-20 00:00:00
-   Coupon: 4.75, Frequency: 2.0/year, Scheduled Month: June
-   Is callable: True
----------------------------------------------------
-Bond #171: Victory Liberty Loan (3 3/4%), issued 1919-05-20 00:00:00
-   Term: 4 years, Redeemable: 1922-12-15 00:00:00, Payable: 1923-05-20 00:00:00
-   Coupon: 3.75, Frequency: 2.0/year, Scheduled Month: June
-   Is callable: True
----------------------------------------------------
-Bond #176: Vic Lib Loan 4.75s, called, issued 1919-05-20 00:00:00
-   No further information
-Bond #177: Vic Lib Loan 4.75s, 1922-23, issued 1919-05-20 00:00:00
-   No further information
-Bond #178: Vic Lib Loan 4.75 of 1922-1923 and 3.75 of 1922-1923, issued 1919-05-20 00:00:00
-   No further information
-</pre></div>
-</div>
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "29a4255826c443dfb75c842dbff77cb1", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning: bond id 20178 could not be graphed, no prices are recorded
-</pre></div>
-</div>
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "29a4255826c443dfb75c842dbff77cb1", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 </section>
 <section id="price-drop-in-1920-1921">
 <h2>Price Drop in 1920-1921<a class="headerlink" href="#price-drop-in-1920-1921" title="Link to this heading">#</a></h2>
-<p>As seen with all of the Liberty and Victory Loans, there was a big drop in bond prices from 1920-1921 for all of these loans. This can be attributed to the Depression of 1920-1921. During this period, unemployment rates rose to 12%, prices saw a 15% rise (“In,” 2021). Overall, the economy suffered a large recession. Consequently, the US government lost a significant amount of credibility, meaning higher yields and lower prices for the bonds were demanded. However, the US quickly recovered from this in 1922, meaning the government was able to gain credit back. Thus, yield demand wasn’t as high, and prices as a result rose back up again.</p>
-<section id="events-leading-to-price-drop">
-<h3>Events leading to price drop:<a class="headerlink" href="#events-leading-to-price-drop" title="Link to this heading">#</a></h3>
-<p>Initially, when the US came out of WWI, the economy was expanding largely: unemployment decreased to 1.4% while productivity &amp; inflation both increased (“In,” 2021). However, the Federal Reserve, in order to finance military operations, was trying to keep interest rates low (as this would decrease coupon rates), thus “inflation increased unchecked, to the growing consternation of policy advisors” (“In,” 2021). Due to reforms initiated to decrease inflation, which included a government spending cut by 75% and an increase of the discount rate which, a recession ensued (“In,” 2021).</p>
+<p>As seen with the Secondary Market Price graphs of the Liberty and Victory Loans, there was a big drop in bond prices from 1920-1921 for all of these loans. This can be attributed to the Depression of 1920-1921. During this period, unemployment rates rose to 12%, and prices saw a 15% rise (“In,” 2021). Overall, the economy suffered a large recession. Consequently, the US government lost a significant amount of credibility, meaning higher yields and lower prices for the bonds were demanded. However, the US quickly recovered from this in 1922, meaning the government was able to gain credit back. Thus, yield demand wasn’t as high, and prices as a result rose back up again.</p>
+<section id="events-potentially-leading-to-price-drop">
+<h3>Events potentially leading to price drop:<a class="headerlink" href="#events-potentially-leading-to-price-drop" title="Link to this heading">#</a></h3>
+<p>Initially, when the US came out of WWI, the economy was expanding largely: unemployment decreased to 1.4% while productivity &amp; inflation both increased (“In,” 2021). However, the Federal Reserve, in order to finance military operations, was trying to keep interest rates low (as this would decrease coupon rates), thus “inflation increased unchecked, to the growing consternation of policy advisors” (“In,” 2021). Due to reforms initiated to decrease inflation, which included a government spending cut by 75% and an increase of the discount rate, a recession ensued (“In,” 2021).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Interactive graph: select a bond by its name, plot it with interactive (ie. hover over points)</span>
-<span class="c1">#Make check marks to show/unshow wartime + depression</span>
-<span class="c1">#dropdown to select which ones you want to show price and quantity for</span>
-<span class="c1">#price is shown by default, if neither are selected to show for a bond then the bond is completely unshown</span>
-<span class="c1">#price and quant for a bond are the same color, however the price points are square and quant points are triangle</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Interactive graph: select a bond by its name, and select the checkboxes to show</span>
+<span class="c1">#their price and/or quantity history</span>
+<span class="c1">#Use check marks to show/unshow wartime and 1920-21 depression patches (red and purple respectively)</span>
 <span class="o">%</span><span class="k">matplotlib</span> ipympl
 
-<span class="n">selected_char</span> <span class="o">=</span> <span class="s2">&quot; (SHOWING)&quot;</span>
-
 <span class="n">plt</span><span class="o">.</span><span class="n">ioff</span><span class="p">()</span>
+
+<span class="n">war_patch</span> <span class="o">=</span> <span class="n">mpatches</span><span class="o">.</span><span class="n">Patch</span><span class="p">(</span><span class="n">fc</span><span class="o">=</span><span class="s2">&quot;#ed7784&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;US time in WW1&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.65</span><span class="p">)</span>
+<span class="n">depression_patch</span> <span class="o">=</span> <span class="n">mpatches</span><span class="o">.</span><span class="n">Patch</span><span class="p">(</span><span class="n">fc</span><span class="o">=</span><span class="s2">&quot;#ad2df7&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Depression&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.65</span><span class="p">)</span>
+<span class="n">possible_colors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;aqua&quot;</span><span class="p">,</span> <span class="s2">&quot;aquamarine&quot;</span><span class="p">,</span> <span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="s2">&quot;brown&quot;</span><span class="p">,</span> <span class="s2">&quot;crimson&quot;</span><span class="p">,</span> <span class="s2">&quot;darkblue&quot;</span><span class="p">,</span> <span class="s2">&quot;darkgreen&quot;</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="s2">&quot;indigo&quot;</span><span class="p">,</span> <span class="s2">&quot;maroon&quot;</span><span class="p">,</span> <span class="s2">&quot;navy&quot;</span><span class="p">,</span> <span class="s2">&quot;orangered&quot;</span><span class="p">,</span> <span class="s2">&quot;purple&quot;</span><span class="p">,</span> <span class="s2">&quot;teal&quot;</span><span class="p">]</span>
 
 <span class="k">def</span> <span class="nf">bond_name_to_id</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">liberty_loans</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">liberty_loans</span><span class="p">[</span><span class="s2">&quot;Treasury&#39;s Name Of Issue&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -955,194 +737,168 @@ Bond #178: Vic Lib Loan 4.75 of 1922-1923 and 3.75 of 1922-1923, issued 1919-05-
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">num</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10000</span><span class="p">))</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">header_visible</span> <span class="o">=</span> <span class="kc">False</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
-<span class="n">lock</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">big_numbers_format</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Time&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Quantity&quot;</span><span class="p">)</span>
+<span class="n">twinx</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+<span class="n">twinx</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="o">=</span><span class="p">[</span><span class="n">war_patch</span><span class="p">,</span> <span class="n">depression_patch</span><span class="p">],</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mf">0.2</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Events&quot;</span><span class="p">)</span>
+<span class="n">twinx</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">big_dollars_format</span><span class="p">)</span>
+<span class="n">twinx</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Price&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="n">initial_options</span> <span class="o">=</span> <span class="p">[</span><span class="n">id_to_bond_name</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">liberty_loans</span><span class="o">.</span><span class="n">index</span><span class="p">]</span>
-<span class="n">bond_name_picker_dropdown</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span>
+<span class="n">name_dropdown</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span>
     <span class="n">options</span><span class="o">=</span><span class="n">initial_options</span><span class="p">,</span>
     <span class="n">value</span><span class="o">=</span><span class="n">initial_options</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
     <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Name:&quot;</span><span class="p">)</span>
-<span class="n">bond_show_quant_dropdown</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span>
-    <span class="n">options</span><span class="o">=</span><span class="p">[],</span>
-    <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Quantity:&quot;</span><span class="p">)</span>
-<span class="n">bond_show_price_dropdown</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span>
-    <span class="n">options</span><span class="o">=</span><span class="p">[],</span>
-    <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Price:&quot;</span><span class="p">)</span>
-<span class="n">show_wartime_checkbox</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Checkbox</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">show_depression_checkbox</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Checkbox</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">show_quant_checkbox</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Checkbox</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Show Quantity&quot;</span><span class="p">)</span>
+<span class="n">show_price_checkbox</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Checkbox</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Show Price&quot;</span><span class="p">)</span>
+<span class="n">show_wartime_checkbox</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Checkbox</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Show Wartime&quot;</span><span class="p">)</span>
+<span class="n">show_wartime_checkbox</span><span class="o">.</span><span class="n">style</span>
+<span class="n">show_depression_checkbox</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Checkbox</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Show Depression&quot;</span><span class="p">)</span>
+<span class="n">legend_textbox</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">HTML</span><span class="p">()</span>
 
-<span class="n">shown_bond_names</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">#should these be ids?</span>
-<span class="n">shown_price_names</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">shown_quant_names</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">current_depression_polygon</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">current_war_polygon</span> <span class="o">=</span> <span class="kc">None</span>
 
-<span class="k">def</span> <span class="nf">redraw</span><span class="p">():</span>
-    <span class="k">global</span> <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">shown_bond_names</span><span class="p">,</span> <span class="n">shown_price_names</span><span class="p">,</span> <span class="n">shown_quant_names</span>
-    <span class="c1">#go through shown_price_names and shown_quant_names and plot whatever is selected</span>
-    <span class="c1">#then add the annotations if applicable</span>
+<span class="n">shown_price_names_and_lines</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">shown_quant_names_and_lines</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">used_colors</span> <span class="o">=</span> <span class="p">[]</span>
 
-    <span class="n">closer_date</span> <span class="o">=</span> <span class="n">graph_start_ts</span>
-    <span class="k">for</span> <span class="n">bond_name</span> <span class="ow">in</span> <span class="n">shown_price_names</span><span class="p">:</span>
-        <span class="nb">id</span> <span class="o">=</span> <span class="n">bond_name_to_id</span><span class="p">(</span><span class="n">bond_name</span><span class="p">)</span>
-        <span class="n">series</span> <span class="o">=</span> <span class="n">BondQuant_Transposed</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="nb">id</span><span class="p">,</span> <span class="s1">&#39;Public Holdings&#39;</span><span class="p">)]</span>
-        <span class="n">series</span> <span class="o">=</span> <span class="n">series</span><span class="p">[</span><span class="n">series</span><span class="o">.</span><span class="n">notna</span><span class="p">()]</span>
-        <span class="n">series</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
-                         <span class="n">legend</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;Time&quot;</span><span class="p">,</span>
-                         <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;Price of Bonds&quot;</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="s1">&#39;marker&#39;</span><span class="p">:</span> <span class="s1">&#39;.&#39;</span><span class="p">})</span>
-        <span class="n">closer_date</span> <span class="o">=</span> <span class="n">series</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">series</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="n">series</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">series</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">closer_date</span> <span class="k">else</span> <span class="n">closer_date</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">big_dollars_format</span><span class="p">)</span>
+<span class="n">using_dropdown_lock</span> <span class="o">=</span> <span class="kc">False</span>
 
-    <span class="n">twinx</span> <span class="o">=</span> <span class="n">ax</span>
-    <span class="k">for</span> <span class="n">bond_name</span> <span class="ow">in</span> <span class="n">shown_quant_names</span><span class="p">:</span>
-        <span class="nb">id</span> <span class="o">=</span> <span class="n">bond_name_to_id</span><span class="p">(</span><span class="n">bond_name</span><span class="p">)</span>
-        <span class="n">series</span> <span class="o">=</span> <span class="n">BondPrice_Transposed</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="nb">id</span><span class="p">,</span> <span class="s1">&#39;Average&#39;</span><span class="p">)]</span>
-        <span class="n">series</span> <span class="o">=</span> <span class="n">series</span><span class="p">[</span><span class="n">series</span><span class="o">.</span><span class="n">notna</span><span class="p">()]</span>
-        <span class="n">twinx</span> <span class="o">=</span> <span class="n">series</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
-                         <span class="n">legend</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;Time&quot;</span><span class="p">,</span>
-                         <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;Quantity of Bonds&quot;</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="s1">&#39;marker&#39;</span><span class="p">:</span> <span class="s1">&#39;^&#39;</span><span class="p">},</span> <span class="n">secondary_y</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-        <span class="n">closer_date</span> <span class="o">=</span> <span class="n">series</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">series</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="n">series</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">series</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">closer_date</span> <span class="k">else</span> <span class="n">closer_date</span>
-    <span class="n">twinx</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">big_numbers_format</span><span class="p">)</span>
-    
-    <span class="n">legend_labels</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">legend_labels</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">x</span> <span class="o">+</span> <span class="s2">&quot; (Price)&quot;</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">shown_price_names</span><span class="p">])</span>
-    <span class="n">legend_labels</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">x</span> <span class="o">+</span> <span class="s2">&quot; (Quantity)&quot;</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">shown_quant_names</span><span class="p">])</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="n">legend_labels</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">0.65</span><span class="p">,</span><span class="o">-</span><span class="mf">0.2</span><span class="p">))</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">get_legend</span><span class="p">()</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Color, Bond ID&quot;</span><span class="p">)</span>
-    
+<span class="c1">#Gets a random color that is not already being used</span>
+<span class="k">def</span> <span class="nf">_get_available_color</span><span class="p">():</span>
+    <span class="n">available</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">color</span> <span class="ow">in</span> <span class="n">possible_colors</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">color</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">used_colors</span><span class="p">:</span> <span class="n">available</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">available</span><span class="p">)</span>
+    <span class="n">used_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">color</span>
+
+<span class="c1">#Plots a series, handles NaN values</span>
+<span class="k">def</span> <span class="nf">_plot_line</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">series</span><span class="p">,</span> <span class="n">marker</span><span class="p">):</span>
+    <span class="n">series</span> <span class="o">=</span> <span class="n">series</span><span class="p">[</span><span class="n">series</span><span class="o">.</span><span class="n">notna</span><span class="p">()]</span>
+    <span class="n">random_color</span> <span class="o">=</span> <span class="n">_get_available_color</span><span class="p">()</span>
+    <span class="n">line2d</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+            <span class="p">[</span><span class="n">series</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">to_pydatetime</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">series</span><span class="o">.</span><span class="n">index</span><span class="p">))],</span>
+            <span class="p">[</span><span class="n">series</span><span class="o">.</span><span class="n">loc</span><span class="p">[:][</span><span class="n">x</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">series</span><span class="o">.</span><span class="n">index</span><span class="p">))],</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="n">marker</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">random_color</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">line2d</span>
+
+<span class="c1">#The legend is an HTML element with a &lt;table&gt; in it</span>
+<span class="k">def</span> <span class="nf">_update_legend</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">legend_textbox</span>
+    <span class="n">strs</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">strs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;&lt;table&gt;&lt;tbody&gt;&quot;</span><span class="p">)</span>
+    <span class="n">strs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;&lt;tr&gt;&lt;th&gt;Bond name&lt;/th&gt;&lt;th&gt;Color&lt;/th&gt;&lt;/tr&gt;&quot;</span><span class="p">)</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">shown_price_names_and_lines</span><span class="o">.</span><span class="n">values</span><span class="p">())</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">shown_quant_names_and_lines</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+    <span class="k">for</span> <span class="n">line2d</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+        <span class="n">strs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;&lt;tr style=&quot;color: </span><span class="si">{</span><span class="n">line2d</span><span class="o">.</span><span class="n">get_color</span><span class="p">()</span><span class="si">}</span><span class="s1">&quot;&gt;&lt;td&gt;</span><span class="si">{</span><span class="n">line2d</span><span class="o">.</span><span class="n">get_label</span><span class="p">()</span><span class="si">}</span><span class="s1">&lt;/td&gt;&lt;td&gt;</span><span class="si">{</span><span class="n">line2d</span><span class="o">.</span><span class="n">get_color</span><span class="p">()</span><span class="si">}</span><span class="s1">&lt;/td&gt;&lt;/tr&gt;&#39;</span><span class="p">)</span>
+    <span class="n">strs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;&lt;/table&gt;&lt;/tbody&gt;&quot;</span><span class="p">)</span>
+    <span class="n">legend_textbox</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">strs</span><span class="p">)</span>
+
+<span class="c1">#Plot a bond, quantity or price</span>
+<span class="k">def</span> <span class="nf">add_bond</span><span class="p">(</span><span class="n">bond_name</span><span class="p">,</span> <span class="n">quant</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">twinx</span>
+    <span class="n">bond_id</span> <span class="o">=</span> <span class="n">bond_name_to_id</span><span class="p">(</span><span class="n">bond_name</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">quant</span><span class="p">:</span>
+        <span class="n">series</span> <span class="o">=</span> <span class="n">BondQuant_Transposed</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">bond_id</span><span class="p">,</span> <span class="s1">&#39;Public Holdings&#39;</span><span class="p">)]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">series</span> <span class="o">=</span> <span class="n">BondPrice_Transposed</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">bond_id</span><span class="p">,</span> <span class="s1">&#39;Average&#39;</span><span class="p">)]</span>
+    <span class="n">line2d</span> <span class="o">=</span> <span class="n">_plot_line</span><span class="p">((</span><span class="n">ax</span> <span class="k">if</span> <span class="n">quant</span> <span class="k">else</span> <span class="n">twinx</span><span class="p">),</span> <span class="n">bond_name</span> <span class="o">+</span> <span class="p">(</span><span class="s2">&quot; (Quantity)&quot;</span> <span class="k">if</span> <span class="n">quant</span> <span class="k">else</span> <span class="s2">&quot; (Price)&quot;</span><span class="p">),</span> <span class="n">series</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;^&quot;</span> <span class="k">if</span> <span class="n">quant</span> <span class="k">else</span> <span class="s2">&quot;.&quot;</span><span class="p">)</span>
+    <span class="p">(</span><span class="n">shown_quant_names_and_lines</span> <span class="k">if</span> <span class="n">quant</span> <span class="k">else</span> <span class="n">shown_price_names_and_lines</span><span class="p">)[</span><span class="n">bond_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">line2d</span>
     <span class="n">fig</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
     <span class="n">fig</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">flush_events</span><span class="p">()</span>
 
-<span class="k">def</span> <span class="nf">_remove_from_options</span><span class="p">(</span><span class="n">dropdown</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-    <span class="n">options</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">dropdown</span><span class="o">.</span><span class="n">options</span><span class="p">)</span>
-    <span class="n">options</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-    <span class="n">dropdown</span><span class="o">.</span><span class="n">options</span> <span class="o">=</span> <span class="n">options</span>
-
-<span class="k">def</span> <span class="nf">_append_to_options</span><span class="p">(</span><span class="n">dropdown</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-    <span class="n">options</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">dropdown</span><span class="o">.</span><span class="n">options</span><span class="p">)</span>
-    <span class="n">options</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
-    <span class="n">dropdown</span><span class="o">.</span><span class="n">options</span> <span class="o">=</span> <span class="n">options</span>
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">options</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span> <span class="n">dropdown</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
-
-<span class="k">def</span> <span class="nf">_check_if_should_remove</span><span class="p">(</span><span class="n">bond_name</span><span class="p">):</span>
-    <span class="k">global</span> <span class="n">bond_show_quant_dropdown</span><span class="p">,</span> <span class="n">bond_show_price_dropdown</span><span class="p">,</span> <span class="n">bond_name_picker_dropdown</span>
-    <span class="k">if</span> <span class="n">bond_name</span> <span class="ow">in</span> <span class="n">bond_show_quant_dropdown</span><span class="o">.</span><span class="n">options</span> <span class="ow">and</span> <span class="n">bond_name</span> <span class="ow">in</span> <span class="n">bond_show_price_dropdown</span><span class="o">.</span><span class="n">options</span><span class="p">:</span>
-        <span class="n">_remove_from_options</span><span class="p">(</span><span class="n">bond_show_quant_dropdown</span><span class="p">,</span> <span class="n">bond_name</span><span class="p">)</span>
-        <span class="n">_remove_from_options</span><span class="p">(</span><span class="n">bond_show_price_dropdown</span><span class="p">,</span> <span class="n">bond_name</span><span class="p">)</span>
-        <span class="n">_remove_from_options</span><span class="p">(</span><span class="n">bond_name_picker_dropdown</span><span class="p">,</span> <span class="n">bond_name</span> <span class="o">+</span> <span class="n">selected_char</span><span class="p">)</span>
+<span class="c1">#Remove the plot of a bond, quantity or price</span>
+<span class="k">def</span> <span class="nf">remove_bond</span><span class="p">(</span><span class="n">bond_name</span><span class="p">,</span> <span class="n">quant</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">fig</span>
+    <span class="n">names_and_lines</span> <span class="o">=</span> <span class="n">shown_quant_names_and_lines</span> <span class="k">if</span> <span class="n">quant</span> <span class="k">else</span> <span class="n">shown_price_names_and_lines</span>
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">names_and_lines</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">get_label</span><span class="p">()</span> <span class="o">==</span> <span class="n">bond_name</span><span class="p">:</span>
+            <span class="n">used_colors</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">get_color</span><span class="p">())</span>
+            <span class="n">line</span><span class="o">.</span><span class="n">remove</span><span class="p">()</span>
+            <span class="n">ref2</span> <span class="o">=</span> <span class="n">names_and_lines</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+            <span class="k">del</span> <span class="n">ref2</span>
+            <span class="k">del</span> <span class="n">line</span>
+            <span class="k">break</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">flush_events</span><span class="p">()</span>
 
 <span class="k">def</span> <span class="nf">bond_name_dropdown_handler</span><span class="p">(</span><span class="n">unused_arg</span><span class="p">):</span>
-    <span class="k">global</span> <span class="n">bond_name_picker_dropdown</span><span class="p">,</span> <span class="n">bond_show_price_dropdown</span><span class="p">,</span> <span class="n">bond_show_quant_dropdown</span><span class="p">,</span> <span class="n">shown_price_names</span><span class="p">,</span> <span class="n">shown_quant_names</span><span class="p">,</span> <span class="n">lock</span>
-    <span class="k">if</span> <span class="n">lock</span><span class="p">:</span> <span class="k">return</span>
-    <span class="n">lock</span> <span class="o">=</span> <span class="kc">True</span>
-    <span class="c1">#check what the new value is, and if it has the selected char</span>
-    <span class="c1">#if it doesn&#39;t, redraw with that bond selected for price, and update options</span>
-    <span class="c1">#of both this dropdown and price</span>
-    <span class="c1">#if it does have the selection character, then remove it from the price and quant options</span>
-    <span class="c1">#and redraw</span>
-    <span class="n">value</span> <span class="o">=</span> <span class="n">bond_name_picker_dropdown</span><span class="o">.</span><span class="n">value</span>
-    <span class="n">clean_name</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">selected_char</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;bond name handler handling this value: </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">selected_char</span> <span class="ow">in</span> <span class="n">value</span><span class="p">:</span>
-        <span class="n">_remove_from_options</span><span class="p">(</span><span class="n">bond_name_picker_dropdown</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
-        <span class="n">_append_to_options</span><span class="p">(</span><span class="n">bond_name_picker_dropdown</span><span class="p">,</span> <span class="n">clean_name</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">bond_show_price_dropdown</span><span class="o">.</span><span class="n">options</span><span class="p">:</span> <span class="n">_remove_from_options</span><span class="p">(</span><span class="n">bond_show_price_dropdown</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">clean_name</span> <span class="ow">in</span> <span class="n">bond_show_price_dropdown</span><span class="o">.</span><span class="n">options</span><span class="p">:</span> <span class="n">_remove_from_options</span><span class="p">(</span><span class="n">bond_show_price_dropdown</span><span class="p">,</span> <span class="n">clean_name</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">clean_name</span> <span class="ow">in</span> <span class="n">shown_price_names</span><span class="p">:</span> <span class="n">shown_price_names</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">clean_name</span><span class="p">)</span>
+    <span class="k">global</span> <span class="n">using_dropdown_lock</span>
+    <span class="n">using_dropdown_lock</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">name_dropdown</span><span class="o">.</span><span class="n">value</span>
+    <span class="n">show_price_checkbox</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">shown_price_names_and_lines</span>
+    <span class="n">show_quant_checkbox</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">shown_quant_names_and_lines</span>
+    <span class="n">using_dropdown_lock</span> <span class="o">=</span> <span class="kc">False</span>
 
-        <span class="k">if</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">bond_show_quant_dropdown</span><span class="o">.</span><span class="n">options</span><span class="p">:</span> <span class="n">_remove_from_options</span><span class="p">(</span><span class="n">bond_show_quant_dropdown</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">clean_name</span> <span class="ow">in</span> <span class="n">bond_show_quant_dropdown</span><span class="o">.</span><span class="n">options</span><span class="p">:</span> <span class="n">_remove_from_options</span><span class="p">(</span><span class="n">bond_show_quant_dropdown</span><span class="p">,</span> <span class="n">clean_name</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">clean_name</span> <span class="ow">in</span> <span class="n">shown_quant_names</span><span class="p">:</span> <span class="n">shown_quant_names</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">clean_name</span><span class="p">)</span>
-        <span class="n">redraw</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">quant_checkbox_handler</span><span class="p">(</span><span class="n">unused_arg</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">using_dropdown_lock</span><span class="p">:</span> <span class="k">return</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">name_dropdown</span><span class="o">.</span><span class="n">value</span>
+    <span class="k">if</span> <span class="n">show_quant_checkbox</span><span class="o">.</span><span class="n">value</span><span class="p">:</span> <span class="n">add_bond</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span> <span class="n">remove_bond</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+    <span class="n">_update_legend</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">price_checkbox_handler</span><span class="p">(</span><span class="n">unused_arg</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">using_dropdown_lock</span><span class="p">:</span> <span class="k">return</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">name_dropdown</span><span class="o">.</span><span class="n">value</span>
+    <span class="k">if</span> <span class="n">show_price_checkbox</span><span class="o">.</span><span class="n">value</span><span class="p">:</span> <span class="n">add_bond</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span> <span class="n">remove_bond</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+    <span class="n">_update_legend</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">wartime_checkbox_handler</span><span class="p">(</span><span class="n">unused_arg</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">current_war_polygon</span>
+    <span class="k">if</span> <span class="n">current_war_polygon</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">current_war_polygon</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">axvspan</span><span class="p">(</span><span class="n">xmin</span><span class="o">=</span><span class="n">join_ts</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="n">armistice_ts</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="s2">&quot;#ed7784&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.65</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">_remove_from_options</span><span class="p">(</span><span class="n">bond_name_picker_dropdown</span><span class="p">,</span> <span class="n">clean_name</span><span class="p">)</span>
-        <span class="n">_append_to_options</span><span class="p">(</span><span class="n">bond_name_picker_dropdown</span><span class="p">,</span> <span class="n">clean_name</span> <span class="o">+</span> <span class="n">selected_char</span><span class="p">)</span>
-        <span class="n">_append_to_options</span><span class="p">(</span><span class="n">bond_show_price_dropdown</span><span class="p">,</span> <span class="n">clean_name</span> <span class="o">+</span> <span class="n">selected_char</span><span class="p">)</span>
-        <span class="n">_append_to_options</span><span class="p">(</span><span class="n">bond_show_quant_dropdown</span><span class="p">,</span> <span class="n">clean_name</span><span class="p">)</span>
-        <span class="n">shown_price_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">clean_name</span><span class="p">)</span>
-        <span class="n">redraw</span><span class="p">()</span>
-    <span class="n">lock</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">current_war_polygon</span><span class="o">.</span><span class="n">remove</span><span class="p">()</span>
+        <span class="n">current_war_polygon</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">flush_events</span><span class="p">()</span>
 
-<span class="k">def</span> <span class="nf">show_quant_handler</span><span class="p">(</span><span class="n">unused_arg</span><span class="p">):</span>
-    <span class="c1">#check what the new value is, and if it has the selected char</span>
-    <span class="c1">#if yes, remove it from options and _check_if_should_remove</span>
-    <span class="c1">#if no, add it to shown and update options with it selected</span>
-    <span class="k">global</span> <span class="n">bond_show_quant_dropdown</span><span class="p">,</span> <span class="n">shown_quant_names</span><span class="p">,</span> <span class="n">lock</span>
-    <span class="k">if</span> <span class="n">lock</span><span class="p">:</span> <span class="k">return</span>
-    <span class="n">lock</span> <span class="o">=</span> <span class="kc">True</span>
-
-    <span class="n">value</span> <span class="o">=</span> <span class="n">bond_show_quant_dropdown</span><span class="o">.</span><span class="n">value</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;bond quant handler handling this value: </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">selected_char</span> <span class="ow">in</span> <span class="n">value</span><span class="p">:</span>
-        <span class="n">_remove_from_options</span><span class="p">(</span><span class="n">bond_show_quant_dropdown</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
-        <span class="n">_append_to_options</span><span class="p">(</span><span class="n">bond_show_quant_dropdown</span><span class="p">,</span> <span class="n">value</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">selected_char</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">))</span>
-        <span class="n">_check_if_should_remove</span><span class="p">(</span><span class="n">value</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">selected_char</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">))</span>
-        <span class="n">redraw</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">depression_checkbox_handler</span><span class="p">(</span><span class="n">unused_arg</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">current_depression_polygon</span>
+    <span class="k">if</span> <span class="n">current_depression_polygon</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">current_depression_polygon</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">axvspan</span><span class="p">(</span><span class="n">xmin</span><span class="o">=</span><span class="n">depression_begin_ts</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="n">depression_end_ts</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="s2">&quot;#ad2df7&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.65</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">shown_quant_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-        <span class="n">_remove_from_options</span><span class="p">(</span><span class="n">bond_show_quant_dropdown</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
-        <span class="n">_append_to_options</span><span class="p">(</span><span class="n">bond_show_quant_dropdown</span><span class="p">,</span> <span class="n">value</span> <span class="o">+</span> <span class="n">selected_char</span><span class="p">)</span>
-        <span class="n">redraw</span><span class="p">()</span>
-    <span class="n">lock</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">current_depression_polygon</span><span class="o">.</span><span class="n">remove</span><span class="p">()</span>
+        <span class="n">current_depression_polygon</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">flush_events</span><span class="p">()</span>
 
-<span class="k">def</span> <span class="nf">show_price_handler</span><span class="p">(</span><span class="n">unused_arg</span><span class="p">):</span>
-    <span class="c1">#check what the new value is, and if it has the selected char</span>
-    <span class="c1">#if yes, remove it from options and _check_if_should_remove</span>
-    <span class="c1">#if no, add it to shown and update options with it selected</span>
-    <span class="k">global</span> <span class="n">bond_show_price_dropdown</span><span class="p">,</span> <span class="n">shown_price_names</span><span class="p">,</span> <span class="n">lock</span>
-    <span class="k">if</span> <span class="n">lock</span><span class="p">:</span> <span class="k">return</span>
-    <span class="n">lock</span> <span class="o">=</span> <span class="kc">True</span>
-
-    <span class="n">value</span> <span class="o">=</span> <span class="n">bond_show_price_dropdown</span><span class="o">.</span><span class="n">value</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;bond price handler handling this value: </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">selected_char</span> <span class="ow">in</span> <span class="n">value</span><span class="p">:</span>
-        <span class="n">_remove_from_options</span><span class="p">(</span><span class="n">bond_show_price_dropdown</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
-        <span class="n">_append_to_options</span><span class="p">(</span><span class="n">bond_show_price_dropdown</span><span class="p">,</span> <span class="n">value</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">selected_char</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">))</span>
-        <span class="n">_check_if_should_remove</span><span class="p">(</span><span class="n">value</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">selected_char</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">))</span>
-        <span class="n">redraw</span><span class="p">()</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">shown_price_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-        <span class="n">_remove_from_options</span><span class="p">(</span><span class="n">bond_show_price_dropdown</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
-        <span class="n">_append_to_options</span><span class="p">(</span><span class="n">bond_show_price_dropdown</span><span class="p">,</span> <span class="n">value</span> <span class="o">+</span> <span class="n">selected_char</span><span class="p">)</span>
-        <span class="n">redraw</span><span class="p">()</span>
-    <span class="n">lock</span> <span class="o">=</span> <span class="kc">False</span>
-
-<span class="n">bond_name_picker_dropdown</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">bond_name_dropdown_handler</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;value&quot;</span><span class="p">])</span>
-<span class="n">bond_show_quant_dropdown</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">show_quant_handler</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;value&quot;</span><span class="p">])</span>
-<span class="n">bond_show_price_dropdown</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">show_price_handler</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;value&quot;</span><span class="p">])</span>
-<span class="n">bond_name_dropdown_handler</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span> <span class="c1">#draws first plot</span>
-
-<span class="n">grid</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">GridspecLayout</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="n">grid</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">bond_name_picker_dropdown</span>
-<span class="n">grid</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">bond_show_price_dropdown</span>
-<span class="n">grid</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">bond_show_quant_dropdown</span>
-<span class="n">grid</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">canvas</span>
-<span class="n">grid</span><span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">show_wartime_checkbox</span>
-<span class="n">grid</span><span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">show_depression_checkbox</span>
-<span class="n">grid</span>
-<span class="c1">#TODO: add checkbox beneath the show price and quantity to toggle the show state of that dropdown&#39;s value</span>
-<span class="c1">#ie. add event listeners to checkbox instead of the dropdown, event listeners can be very similar to what they are now</span>
-<span class="c1">#Also I want to preserve colors in between redraws? probably create a dictionary with names, colors and then methods to add/remove</span>
+<span class="n">name_dropdown</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">bond_name_dropdown_handler</span><span class="p">)</span>
+<span class="n">show_quant_checkbox</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">quant_checkbox_handler</span><span class="p">)</span>
+<span class="n">show_price_checkbox</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">price_checkbox_handler</span><span class="p">)</span>
+<span class="n">show_wartime_checkbox</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">wartime_checkbox_handler</span><span class="p">)</span>
+<span class="n">show_depression_checkbox</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">depression_checkbox_handler</span><span class="p">)</span>
+<span class="n">wartime_checkbox_handler</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">depression_checkbox_handler</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">AppLayout</span><span class="p">(</span>
+    <span class="n">header</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">HBox</span><span class="p">([</span><span class="n">name_dropdown</span><span class="p">,</span> <span class="n">show_quant_checkbox</span><span class="p">,</span> <span class="n">show_price_checkbox</span><span class="p">]),</span>
+    <span class="n">center</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">HBox</span><span class="p">([</span><span class="n">fig</span><span class="o">.</span><span class="n">canvas</span><span class="p">,</span> <span class="n">legend_textbox</span><span class="p">]),</span>
+    <span class="n">footer</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">HBox</span><span class="p">([</span><span class="n">show_wartime_checkbox</span><span class="p">,</span> <span class="n">show_depression_checkbox</span><span class="p">]),</span>
+    <span class="n">merge</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">pane_heights</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;30px&quot;</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="s2">&quot;30px&quot;</span><span class="p">]</span>
+<span class="p">)</span>
+<span class="n">app</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>bond name handler handling this value: 1st Liberty Loan of 1917 (3.5%)
-</pre></div>
-</div>
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "c4baace8b4114447ae26cb98e90ee27f", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 </section>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="supplementary-materials">
-<h1>Supplementary Materials:<a class="headerlink" href="#supplementary-materials" title="Link to this heading">#</a></h1>
+<h1>Supplementary Materials<a class="headerlink" href="#supplementary-materials" title="Link to this heading">#</a></h1>
 <section id="figures">
 <h2>Figures<a class="headerlink" href="#figures" title="Link to this heading">#</a></h2>
-<p>Each bond has one cell dedicated to it. This cell outputs three items: a worded summary of the features of each bond, a graph of its quantity over time, and a graph of its quant on the secondary market over time. Note that many bonds have differing options for interest rates, which is why most worded summaries and figures will show different bond entries for the same bond.</p>
+<p>Each bond has one cell dedicated to it. This cell outputs three items: a worded summary of the features of each bond, a graph of its quantity over time, and a graph of its price on the secondary market over time. Note that many bonds have differing options for interest rates (the convertible bonds), which is why most worded summaries and figures will show different bond entries for the same bond name.</p>
 </section>
 <section id="dataframe-format-notes">
 <h2>Dataframe format notes<a class="headerlink" href="#dataframe-format-notes" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>PDF Readme on the dataframe’s github <a class="reference external" href="https://github.com/jepayne/US-Federal-Debt-Public/blob/master/Industrial-Suite/Documentation/ReadMe_Pub_20180910.pdf">here</a></p></li>
+<li><p>A PDF ReadMe for the dataframe is available on github <a class="reference external" href="https://github.com/jepayne/US-Federal-Debt-Public/blob/master/Industrial-Suite/Documentation/ReadMe_Pub_20180910.pdf">here</a></p></li>
 <li><p>The order in which the categories are listed is not necessarily the same; some are switched to make the list read more logically</p></li>
 </ul>
 <section id="bondlist">
@@ -1154,6 +910,13 @@ Bond #178: Vic Lib Loan 4.75 of 1922-1923 and 3.75 of 1922-1923, issued 1919-05-
 <li><p>Issue IDs are the numeric ID of a bond within its category</p></li>
 <li><p>L* ID is the bond’s ID within level L* (therefore, L1 ID is the unique id for each bond because it is the highest category, so it is the index)</p></li>
 <li><p>Very few of the Authorizing Act Date entries are actually in the raw data, they may need imputing from the Authorizing Act string - for now, if we need an “issuance date” of the security, we use the “First Issue Date” column</p></li>
+</ul>
+</section>
+<section id="bondquant-and-bondprice">
+<h3>BondQuant and BondPrice<a class="headerlink" href="#bondquant-and-bondprice" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>By default, the rows are months and the columns are numbers for these dataframes; I find it easier to work with them transposed</p></li>
+<li><p>Always use <code class="docutils literal notranslate"><span class="pre">series</span> <span class="pre">=</span> <span class="pre">series[series.notna()]</span></code> to filter NaN values reliably</p></li>
 </ul>
 </section>
 </section>
@@ -1232,15 +995,16 @@ Bond #178: Vic Lib Loan 4.75 of 1922-1923 and 3.75 of 1922-1923, issued 1919-05-
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#th-liberty-loan">4th Liberty Loan</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#victory-loans">Victory Loans</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#price-drop-in-1920-1921">Price Drop in 1920-1921</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#events-leading-to-price-drop">Events leading to price drop:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#events-potentially-leading-to-price-drop">Events potentially leading to price drop:</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#supplementary-materials">Supplementary Materials:</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#supplementary-materials">Supplementary Materials</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figures">Figures</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataframe-format-notes">Dataframe format notes</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bondlist">BondList</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bondquant-and-bondprice">BondQuant and BondPrice</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#works-cited">Works Cited:</a></li>
