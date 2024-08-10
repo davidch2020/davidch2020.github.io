@@ -28,7 +28,7 @@ jobs:
 
       - name: Build Jupyter Book
         run: |
-          jupyter-book build bond-bios-book  # Adjust the path if your book's source files are in a different directory
+          jupyter-book build project2024/bond-bios-book  # Adjust the path if your book's source files are in a different directory
 
       - name: Cache executed notebooks
         uses: actions/cache@v3
@@ -39,7 +39,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
-          path: "./bond-bios-book/_build/html"
+          path: "./project2024/bond-bios-book/_build/html"
 
       - name: Deploy to GitHub Pages
         id: deployment
