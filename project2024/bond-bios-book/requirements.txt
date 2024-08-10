@@ -6,3 +6,6 @@ ipywidgets
 mplcursors
 #pytables required for using h5 file
 tables
+matplotlib
+seaborn
+openpyxl
