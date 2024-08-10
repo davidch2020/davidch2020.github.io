@@ -1,0 +1,10 @@
+format: jb-book
+root: intro
+
+parts:
+  - caption: Bond Bios
+    chapters:
+      - file: Final Louisiana Purchase Bonds Notebook
+      - file: war_1812
+      - file: BondBios - The Currency Sixes
+      - file: ww1_vic_lib
