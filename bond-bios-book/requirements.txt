@@ -4,4 +4,5 @@ numpy
 pandas
 ipywidgets
 mplcursors
-openpyxl
+#pytables required for using h5 file
+pytables
