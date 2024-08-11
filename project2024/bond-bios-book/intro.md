@@ -10,3 +10,6 @@ Explore the team's analyses of US Treasury bonds through the following sections.
 - [War of 1812 Bonds and Treasury Notes](./war_1812.ipynb) by David and Alex
 - [The Liberty and Victory Loans Issued to Fund World War I](./ww1_vic_lib.ipynb) by Liam and Elan
 
+<iframe width="640" height="480"
+    src="https://www.youtube.com/watch?v=VhE1DWHOvQQ">
+</iframe>
