@@ -2,15 +2,15 @@ format: jb-book
 root: intro
 
 parts:
-  - caption: Bond Bios
+  - caption: Bond Bios 
     chapters:
-      - file: Final Louisiana Purchase Bonds Notebook
-        title: Louisiana Purchase Bonds 
-      - file: war_1812
-        title: War of 1812 Bonds and Treasury Notes
-      - file: BondBios - The Currency Sixes
-        title: The Currency Sixes
-      - file: ww1_vic_lib
-        title: The Liberty and Victory Loans Issued to Fund World War I
-      - file: 5-20s bonds (1) 
-        title: 5-20s of the Civil War 
+    - file: Final Louisiana Purchase Bonds Notebook
+      title: Louisiana Purchase Bonds 
+    - file: war_1812
+      title: War of 1812 Bonds and Treasury Notes
+    - file: BondBios - The Currency Sixes
+      title: The Currency Sixes
+    - file: ww1_vic_lib
+      title: The Liberty and Victory Loans Issued to Fund World War I
+    - file: 5-20s bonds (1) 
+      title: 5-20s of the Civil War 
