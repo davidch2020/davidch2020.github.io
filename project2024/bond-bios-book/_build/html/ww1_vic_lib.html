@@ -60,6 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'ww1_vic_lib';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Bond List" href="5-20s%20bonds%20%281%29.html" />
     <link rel="prev" title="Bond Biography: The Currency Sixes" href="BondBios%20-%20The%20Currency%20Sixes.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -180,6 +181,17 @@
 
 <li class="toctree-l1"><a class="reference internal" href="BondBios%20-%20The%20Currency%20Sixes.html">Bond Biography: The Currency Sixes</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Bond Bio: The Liberty and Victory Loans issued to fund WW1</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="5-20s%20bonds%20%281%29.html">Bond List</a></li>
+
+
+
+
+
+
+
+
+
 
 </ul>
 
@@ -534,6 +546,20 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">float_format</span> <span class="o">=</span> <span class="s1">&#39;$</span><span class="si">{:,.0f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1">#Define the liberty loans sub-dataframe</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">BondList</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;First Issue Date&quot;</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">liberty_loans</span> <span class="o">=</span> <span class="n">BondList</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">BondList</span><span class="p">[</span><span class="s1">&#39;Category L3&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Liberty Loan&quot;</span><span class="p">)]</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">BondList</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+
+<span class="ne">NameError</span>: name &#39;BondList&#39; is not defined
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -577,6 +603,20 @@ document.write(`
     <span class="n">twinx</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="o">=</span><span class="p">[</span><span class="n">war_patch</span><span class="p">,</span> <span class="n">depression_patch</span><span class="p">],</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mf">0.2</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Events&quot;</span><span class="p">)</span>
     <span class="n">twinx</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">14</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span>     <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;$</span><span class="si">{</span><span class="n">big_numbers_format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kc">None</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="c1">#BondQuant_Transposed is months x bond, as opposed to bond x months</span>
+<span class="ne">---&gt; </span><span class="mi">14</span> <span class="n">BondQuant_Transposed</span> <span class="o">=</span> <span class="n">BondQuant</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="c1">#Do the same for BondPrice</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="n">BondPrice_Transposed</span> <span class="o">=</span> <span class="n">BondPrice</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+
+<span class="ne">NameError</span>: name &#39;BondQuant&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -660,28 +700,16 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bond #162: 1st Liberty Loan of 1917 (3.5%), issued 1917-06-30 00:00:00
-   Term: 30 years, Redeemable: 1932-06-15 00:00:00, Payable: 1947-06-15 00:00:00
-   Coupon: 3.5, Frequency: 2.0/year, Scheduled Month: June
----------------------------------------------------
-Bond #163: 1st Liberty Loan Converted to 4%, issued 1918-11-30 00:00:00
-   Term: 30 years, Redeemable: 1932-06-15 00:00:00, Payable: 1947-06-15 00:00:00
-   Coupon: 4.0, Frequency: 2.0/year, Scheduled Month: June
----------------------------------------------------
-Bond #164: 1st Liberty Loan Converted to 4.25%, issued 1918-11-30 00:00:00
-   Term: 30 years, Redeemable: 1932-06-15 00:00:00, Payable: 1947-06-15 00:00:00
-   Coupon: 4.25, Frequency: 2.0/year, Scheduled Month: June
----------------------------------------------------
-Bond #165: 1st Liberty Loan Second Converted to 4.25%, issued 1918-10-24 00:00:00
-   Term: 30 years, Redeemable: 1932-06-15 00:00:00, Payable: 1947-06-15 00:00:00
-   Coupon: 4.25, Frequency: 2.0/year, Scheduled Month: June
----------------------------------------------------
-</pre></div>
-</div>
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "377bedf2e97c4d5c82899f8b310cb62a", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Done
-</pre></div>
-</div>
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "39a61d8c9b6047ccb8c162736494bb72", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Done
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="n">line</span> <span class="mi">10</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span>         <span class="k">return</span> <span class="n">summarize_bond</span><span class="p">(</span><span class="n">bond_row</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="k">return</span> <span class="n">bond_row</span>
+<span class="ne">---&gt; </span><span class="mi">10</span> <span class="n">liberty_loans</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">summarize_only_first</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="n">graph_public_for_bqs</span><span class="p">(</span><span class="n">bond_ids</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;First Liberty Loan(s) Public Holdings&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Done&quot;</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;liberty_loans&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -1087,6 +1115,15 @@ Bond #178: Vic Lib Loan 4.75 of 1922-1923 and 3.75 of 1922-1923, issued 1919-05-
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title">Bond Biography: The Currency Sixes</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="5-20s%20bonds%20%281%29.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Bond List</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
