@@ -5,12 +5,7 @@ parts:
   - caption: Bond Bios 
     chapters:
     - file: louisiana_purchase
-      title: Louisiana Purchase Bonds 
     - file: war_1812
-      title: War of 1812 Bonds and Treasury Notes
     - file: currency_sixes
-      title: The Currency Sixes
     - file: ww1_vic_lib
-      title: The Liberty and Victory Loans Issued to Fund World War I
     - file: 520s 
-      title: 5-20s of the Civil War 
