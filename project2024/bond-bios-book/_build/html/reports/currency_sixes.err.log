@@ -18,114 +18,130 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-prices_file_path = 'data/Macaulay_table2_railroad_bond_prices.xlsx'
-yields_file_path = 'data/Macaulay_table3_railroad_bond_yields.xlsx'
+notable_events = [
+    {'date': '1862-07-01', 'event': 'Pacific Railway Act'},
+    {'date': '1864-07-02', 'event': '1864 Amendment'},
+    {'date': '1869-05-10', 'event': 'Completion of Transcontinental Railroad'},
+    {'date': '1873-09-18', 'event': 'Panic of 1873'}
+]
 
-bond_prices = pd.read_excel(prices_file_path)
-bond_yields = pd.read_excel(yields_file_path)
-
-bond_quant = pd.read_csv('data/BondQuant.csv')
-dates = bond_quant.columns[2:]
-bond_quant_long = pd.melt(bond_quant, id_vars=['L1 ID', 'Series'], value_vars=dates, var_name='Date', value_name='Quantity')
-bond_quant_long['Date'] = pd.to_datetime(bond_quant_long['Date'])
-bond_quant_filtered = bond_quant_long[(bond_quant_long['L1 ID'] == 40007) & (bond_quant_long['Series'] == 'Total Outstanding')]
-bond_quant_filtered2 = bond_quant_long[(bond_quant_long['L1 ID'] == 40007) & (bond_quant_long['Series'] == 'Public Holdings')]
-
-# function to clean data by dropping first row, creating a year column, converting columns to numeric and more.
-def clean_bond_data(df):
-    df = df.drop(0)
-    df['Unnamed: 0'].fillna(method='ffill', inplace=True)
-    df.rename(columns={'Unnamed: 0': 'Year'}, inplace=True) 
-    df['No.'] = df['No.'].str.replace('Febuary', 'February')
-    df['Date'] = pd.to_datetime(df['Year'].astype(str) + ' ' + df['No.'], errors='coerce')
-    numeric_columns = [col for col in df.columns if col not in ['Year', 'No.', 'Date', 'Unnamed: 89']]
-    df[numeric_columns] = df[numeric_columns].apply(pd.to_numeric, errors='coerce')
+# adding notable events to bond prices and yields dataframes
+def add_notable_events(df, events):
+    for event in events:
+        if pd.to_datetime(event['date']) not in df['Date'].values:
+            df = pd.concat([df, pd.DataFrame({'Date': [pd.to_datetime(event['date'])]})], ignore_index=True)
+    df = df.sort_values(by='Date').reset_index(drop=True)
+    df = df.interpolate()
     return df
 
-bond_prices = clean_bond_data(bond_prices)
-bond_yields = clean_bond_data(bond_yields)
+bond_prices = add_notable_events(bond_prices, notable_events)
+bond_yields = add_notable_events(bond_yields, notable_events)
 ------------------
 
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-File [0;32m/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas/compat/_optional.py:135[0m, in [0;36mimport_optional_dependency[0;34m(name, extra, errors, min_version)[0m
-[1;32m    134[0m [38;5;28;01mtry[39;00m:
-[0;32m--> 135[0m     module [38;5;241m=[39m [43mimportlib[49m[38;5;241;43m.[39;49m[43mimport_module[49m[43m([49m[43mname[49m[43m)[49m
-[1;32m    136[0m [38;5;28;01mexcept[39;00m [38;5;167;01mImportError[39;00m:
+[0;31mValueError[0m                                Traceback (most recent call last)
+Cell [0;32mIn[3], line 17[0m
+[1;32m     14[0m     df [38;5;241m=[39m df[38;5;241m.[39minterpolate()
+[1;32m     15[0m     [38;5;28;01mreturn[39;00m df
+[0;32m---> 17[0m bond_prices [38;5;241m=[39m [43madd_notable_events[49m[43m([49m[43mbond_prices[49m[43m,[49m[43m [49m[43mnotable_events[49m[43m)[49m
+[1;32m     18[0m bond_yields [38;5;241m=[39m add_notable_events(bond_yields, notable_events)
 
-File [0;32m/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/importlib/__init__.py:90[0m, in [0;36mimport_module[0;34m(name, package)[0m
-[1;32m     89[0m         level [38;5;241m+[39m[38;5;241m=[39m [38;5;241m1[39m
-[0;32m---> 90[0m [38;5;28;01mreturn[39;00m [43m_bootstrap[49m[38;5;241;43m.[39;49m[43m_gcd_import[49m[43m([49m[43mname[49m[43m[[49m[43mlevel[49m[43m:[49m[43m][49m[43m,[49m[43m [49m[43mpackage[49m[43m,[49m[43m [49m[43mlevel[49m[43m)[49m
+Cell [0;32mIn[3], line 14[0m, in [0;36madd_notable_events[0;34m(df, events)[0m
+[1;32m     12[0m         df [38;5;241m=[39m pd[38;5;241m.[39mconcat([df, pd[38;5;241m.[39mDataFrame({[38;5;124m'[39m[38;5;124mDate[39m[38;5;124m'[39m: [pd[38;5;241m.[39mto_datetime(event[[38;5;124m'[39m[38;5;124mdate[39m[38;5;124m'[39m])]})], ignore_index[38;5;241m=[39m[38;5;28;01mTrue[39;00m)
+[1;32m     13[0m df [38;5;241m=[39m df[38;5;241m.[39msort_values(by[38;5;241m=[39m[38;5;124m'[39m[38;5;124mDate[39m[38;5;124m'[39m)[38;5;241m.[39mreset_index(drop[38;5;241m=[39m[38;5;28;01mTrue[39;00m)
+[0;32m---> 14[0m df [38;5;241m=[39m [43mdf[49m[38;5;241;43m.[39;49m[43minterpolate[49m[43m([49m[43m)[49m
+[1;32m     15[0m [38;5;28;01mreturn[39;00m df
 
-File [0;32m<frozen importlib._bootstrap>:1387[0m, in [0;36m_gcd_import[0;34m(name, package, level)[0m
+File [0;32m/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas/util/_decorators.py:331[0m, in [0;36mdeprecate_nonkeyword_arguments.<locals>.decorate.<locals>.wrapper[0;34m(*args, **kwargs)[0m
+[1;32m    325[0m [38;5;28;01mif[39;00m [38;5;28mlen[39m(args) [38;5;241m>[39m num_allow_args:
+[1;32m    326[0m     warnings[38;5;241m.[39mwarn(
+[1;32m    327[0m         msg[38;5;241m.[39mformat(arguments[38;5;241m=[39m_format_argument_list(allow_args)),
+[1;32m    328[0m         [38;5;167;01mFutureWarning[39;00m,
+[1;32m    329[0m         stacklevel[38;5;241m=[39mfind_stack_level(),
+[1;32m    330[0m     )
+[0;32m--> 331[0m [38;5;28;01mreturn[39;00m [43mfunc[49m[43m([49m[38;5;241;43m*[39;49m[43margs[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
 
-File [0;32m<frozen importlib._bootstrap>:1360[0m, in [0;36m_find_and_load[0;34m(name, import_)[0m
-
-File [0;32m<frozen importlib._bootstrap>:1324[0m, in [0;36m_find_and_load_unlocked[0;34m(name, import_)[0m
-
-[0;31mModuleNotFoundError[0m: No module named 'openpyxl'
-
-During handling of the above exception, another exception occurred:
-
-[0;31mImportError[0m                               Traceback (most recent call last)
-Cell [0;32mIn[2], line 4[0m
-[1;32m      1[0m prices_file_path [38;5;241m=[39m [38;5;124m'[39m[38;5;124mdata/Macaulay_table2_railroad_bond_prices.xlsx[39m[38;5;124m'[39m
-[1;32m      2[0m yields_file_path [38;5;241m=[39m [38;5;124m'[39m[38;5;124mdata/Macaulay_table3_railroad_bond_yields.xlsx[39m[38;5;124m'[39m
-[0;32m----> 4[0m bond_prices [38;5;241m=[39m [43mpd[49m[38;5;241;43m.[39;49m[43mread_excel[49m[43m([49m[43mprices_file_path[49m[43m)[49m
-[1;32m      5[0m bond_yields [38;5;241m=[39m pd[38;5;241m.[39mread_excel(yields_file_path)
-[1;32m      7[0m bond_quant [38;5;241m=[39m pd[38;5;241m.[39mread_csv([38;5;124m'[39m[38;5;124mdata/BondQuant.csv[39m[38;5;124m'[39m)
-
-File [0;32m/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas/io/excel/_base.py:495[0m, in [0;36mread_excel[0;34m(io, sheet_name, header, names, index_col, usecols, dtype, engine, converters, true_values, false_values, skiprows, nrows, na_values, keep_default_na, na_filter, verbose, parse_dates, date_parser, date_format, thousands, decimal, comment, skipfooter, storage_options, dtype_backend, engine_kwargs)[0m
-[1;32m    493[0m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m [38;5;28misinstance[39m(io, ExcelFile):
-[1;32m    494[0m     should_close [38;5;241m=[39m [38;5;28;01mTrue[39;00m
-[0;32m--> 495[0m     io [38;5;241m=[39m [43mExcelFile[49m[43m([49m
-[1;32m    496[0m [43m        [49m[43mio[49m[43m,[49m
-[1;32m    497[0m [43m        [49m[43mstorage_options[49m[38;5;241;43m=[39;49m[43mstorage_options[49m[43m,[49m
-[1;32m    498[0m [43m        [49m[43mengine[49m[38;5;241;43m=[39;49m[43mengine[49m[43m,[49m
-[1;32m    499[0m [43m        [49m[43mengine_kwargs[49m[38;5;241;43m=[39;49m[43mengine_kwargs[49m[43m,[49m
-[1;32m    500[0m [43m    [49m[43m)[49m
-[1;32m    501[0m [38;5;28;01melif[39;00m engine [38;5;129;01mand[39;00m engine [38;5;241m!=[39m io[38;5;241m.[39mengine:
-[1;32m    502[0m     [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m(
-[1;32m    503[0m         [38;5;124m"[39m[38;5;124mEngine should not be specified when passing [39m[38;5;124m"[39m
-[1;32m    504[0m         [38;5;124m"[39m[38;5;124man ExcelFile - ExcelFile already has the engine set[39m[38;5;124m"[39m
-[1;32m    505[0m     )
-
-File [0;32m/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas/io/excel/_base.py:1567[0m, in [0;36mExcelFile.__init__[0;34m(self, path_or_buffer, engine, storage_options, engine_kwargs)[0m
-[1;32m   1564[0m [38;5;28mself[39m[38;5;241m.[39mengine [38;5;241m=[39m engine
-[1;32m   1565[0m [38;5;28mself[39m[38;5;241m.[39mstorage_options [38;5;241m=[39m storage_options
-[0;32m-> 1567[0m [38;5;28mself[39m[38;5;241m.[39m_reader [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_engines[49m[43m[[49m[43mengine[49m[43m][49m[43m([49m
-[1;32m   1568[0m [43m    [49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_io[49m[43m,[49m
-[1;32m   1569[0m [43m    [49m[43mstorage_options[49m[38;5;241;43m=[39;49m[43mstorage_options[49m[43m,[49m
-[1;32m   1570[0m [43m    [49m[43mengine_kwargs[49m[38;5;241;43m=[39;49m[43mengine_kwargs[49m[43m,[49m
-[1;32m   1571[0m [43m[49m[43m)[49m
-
-File [0;32m/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas/io/excel/_openpyxl.py:552[0m, in [0;36mOpenpyxlReader.__init__[0;34m(self, filepath_or_buffer, storage_options, engine_kwargs)[0m
-[1;32m    534[0m [38;5;129m@doc[39m(storage_options[38;5;241m=[39m_shared_docs[[38;5;124m"[39m[38;5;124mstorage_options[39m[38;5;124m"[39m])
-[1;32m    535[0m [38;5;28;01mdef[39;00m [38;5;21m__init__[39m(
-[1;32m    536[0m     [38;5;28mself[39m,
+File [0;32m/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas/core/frame.py:11855[0m, in [0;36mDataFrame.interpolate[0;34m(self, method, axis, limit, inplace, limit_direction, limit_area, downcast, **kwargs)[0m
+[1;32m  11843[0m [38;5;129m@deprecate_nonkeyword_arguments[39m(version[38;5;241m=[39m[38;5;28;01mNone[39;00m, allowed_args[38;5;241m=[39m[[38;5;124m"[39m[38;5;124mself[39m[38;5;124m"[39m, [38;5;124m"[39m[38;5;124mmethod[39m[38;5;124m"[39m])
+[1;32m  11844[0m [38;5;28;01mdef[39;00m [38;5;21minterpolate[39m(
+[1;32m  11845[0m     [38;5;28mself[39m: DataFrame,
 [0;32m   (...)[0m
-[1;32m    539[0m     engine_kwargs: [38;5;28mdict[39m [38;5;241m|[39m [38;5;28;01mNone[39;00m [38;5;241m=[39m [38;5;28;01mNone[39;00m,
-[1;32m    540[0m ) [38;5;241m-[39m[38;5;241m>[39m [38;5;28;01mNone[39;00m:
-[1;32m    541[0m [38;5;250m    [39m[38;5;124;03m"""[39;00m
-[1;32m    542[0m [38;5;124;03m    Reader using openpyxl engine.[39;00m
-[1;32m    543[0m 
-[0;32m   (...)[0m
-[1;32m    550[0m [38;5;124;03m        Arbitrary keyword arguments passed to excel engine.[39;00m
-[1;32m    551[0m [38;5;124;03m    """[39;00m
-[0;32m--> 552[0m     [43mimport_optional_dependency[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43mopenpyxl[39;49m[38;5;124;43m"[39;49m[43m)[49m
-[1;32m    553[0m     [38;5;28msuper[39m()[38;5;241m.[39m[38;5;21m__init__[39m(
-[1;32m    554[0m         filepath_or_buffer,
-[1;32m    555[0m         storage_options[38;5;241m=[39mstorage_options,
-[1;32m    556[0m         engine_kwargs[38;5;241m=[39mengine_kwargs,
-[1;32m    557[0m     )
+[1;32m  11853[0m     [38;5;241m*[39m[38;5;241m*[39mkwargs,
+[1;32m  11854[0m ) [38;5;241m-[39m[38;5;241m>[39m DataFrame [38;5;241m|[39m [38;5;28;01mNone[39;00m:
+[0;32m> 11855[0m     [38;5;28;01mreturn[39;00m [38;5;28;43msuper[39;49m[43m([49m[43m)[49m[38;5;241;43m.[39;49m[43minterpolate[49m[43m([49m
+[1;32m  11856[0m [43m        [49m[43mmethod[49m[43m,[49m
+[1;32m  11857[0m [43m        [49m[43maxis[49m[43m,[49m
+[1;32m  11858[0m [43m        [49m[43mlimit[49m[43m,[49m
+[1;32m  11859[0m [43m        [49m[43minplace[49m[43m,[49m
+[1;32m  11860[0m [43m        [49m[43mlimit_direction[49m[43m,[49m
+[1;32m  11861[0m [43m        [49m[43mlimit_area[49m[43m,[49m
+[1;32m  11862[0m [43m        [49m[43mdowncast[49m[43m,[49m
+[1;32m  11863[0m [43m        [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m,[49m
+[1;32m  11864[0m [43m    [49m[43m)[49m
 
-File [0;32m/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas/compat/_optional.py:138[0m, in [0;36mimport_optional_dependency[0;34m(name, extra, errors, min_version)[0m
-[1;32m    136[0m [38;5;28;01mexcept[39;00m [38;5;167;01mImportError[39;00m:
-[1;32m    137[0m     [38;5;28;01mif[39;00m errors [38;5;241m==[39m [38;5;124m"[39m[38;5;124mraise[39m[38;5;124m"[39m:
-[0;32m--> 138[0m         [38;5;28;01mraise[39;00m [38;5;167;01mImportError[39;00m(msg)
-[1;32m    139[0m     [38;5;28;01mreturn[39;00m [38;5;28;01mNone[39;00m
-[1;32m    141[0m [38;5;66;03m# Handle submodules: if we have submodule, grab parent module from sys.modules[39;00m
+File [0;32m/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas/core/generic.py:7568[0m, in [0;36mNDFrame.interpolate[0;34m(self, method, axis, limit, inplace, limit_direction, limit_area, downcast, **kwargs)[0m
+[1;32m   7562[0m [38;5;28;01mif[39;00m isna(index)[38;5;241m.[39many():
+[1;32m   7563[0m     [38;5;28;01mraise[39;00m [38;5;167;01mNotImplementedError[39;00m(
+[1;32m   7564[0m         [38;5;124m"[39m[38;5;124mInterpolation with NaNs in the index [39m[38;5;124m"[39m
+[1;32m   7565[0m         [38;5;124m"[39m[38;5;124mhas not been implemented. Try filling [39m[38;5;124m"[39m
+[1;32m   7566[0m         [38;5;124m"[39m[38;5;124mthose NaNs before interpolating.[39m[38;5;124m"[39m
+[1;32m   7567[0m     )
+[0;32m-> 7568[0m new_data [38;5;241m=[39m [43mobj[49m[38;5;241;43m.[39;49m[43m_mgr[49m[38;5;241;43m.[39;49m[43minterpolate[49m[43m([49m
+[1;32m   7569[0m [43m    [49m[43mmethod[49m[38;5;241;43m=[39;49m[43mmethod[49m[43m,[49m
+[1;32m   7570[0m [43m    [49m[43maxis[49m[38;5;241;43m=[39;49m[43maxis[49m[43m,[49m
+[1;32m   7571[0m [43m    [49m[43mindex[49m[38;5;241;43m=[39;49m[43mindex[49m[43m,[49m
+[1;32m   7572[0m [43m    [49m[43mlimit[49m[38;5;241;43m=[39;49m[43mlimit[49m[43m,[49m
+[1;32m   7573[0m [43m    [49m[43mlimit_direction[49m[38;5;241;43m=[39;49m[43mlimit_direction[49m[43m,[49m
+[1;32m   7574[0m [43m    [49m[43mlimit_area[49m[38;5;241;43m=[39;49m[43mlimit_area[49m[43m,[49m
+[1;32m   7575[0m [43m    [49m[43minplace[49m[38;5;241;43m=[39;49m[43minplace[49m[43m,[49m
+[1;32m   7576[0m [43m    [49m[43mdowncast[49m[38;5;241;43m=[39;49m[43mdowncast[49m[43m,[49m
+[1;32m   7577[0m [43m    [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m,[49m
+[1;32m   7578[0m [43m[49m[43m)[49m
+[1;32m   7580[0m result [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39m_constructor(new_data)
+[1;32m   7581[0m [38;5;28;01mif[39;00m should_transpose:
 
-[0;31mImportError[0m: Missing optional dependency 'openpyxl'.  Use pip or conda to install openpyxl.
+File [0;32m/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas/core/internals/managers.py:422[0m, in [0;36mBaseBlockManager.interpolate[0;34m(self, **kwargs)[0m
+[1;32m    421[0m [38;5;28;01mdef[39;00m [38;5;21minterpolate[39m([38;5;28mself[39m: T, [38;5;241m*[39m[38;5;241m*[39mkwargs) [38;5;241m-[39m[38;5;241m>[39m T:
+[0;32m--> 422[0m     [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mapply[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43minterpolate[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
+
+File [0;32m/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas/core/internals/managers.py:352[0m, in [0;36mBaseBlockManager.apply[0;34m(self, f, align_keys, ignore_failures, **kwargs)[0m
+[1;32m    350[0m         applied [38;5;241m=[39m b[38;5;241m.[39mapply(f, [38;5;241m*[39m[38;5;241m*[39mkwargs)
+[1;32m    351[0m     [38;5;28;01melse[39;00m:
+[0;32m--> 352[0m         applied [38;5;241m=[39m [38;5;28;43mgetattr[39;49m[43m([49m[43mb[49m[43m,[49m[43m [49m[43mf[49m[43m)[49m[43m([49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
+[1;32m    353[0m [38;5;28;01mexcept[39;00m ([38;5;167;01mTypeError[39;00m, [38;5;167;01mNotImplementedError[39;00m):
+[1;32m    354[0m     [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m ignore_failures:
+
+File [0;32m/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas/core/internals/blocks.py:1619[0m, in [0;36mEABackedBlock.interpolate[0;34m(self, method, axis, inplace, limit, fill_value, **kwargs)[0m
+[1;32m   1617[0m     new_values [38;5;241m=[39m values[38;5;241m.[39mT[38;5;241m.[39mfillna(value[38;5;241m=[39mfill_value, method[38;5;241m=[39mmethod, limit[38;5;241m=[39mlimit)[38;5;241m.[39mT
+[1;32m   1618[0m [38;5;28;01melse[39;00m:
+[0;32m-> 1619[0m     new_values [38;5;241m=[39m [43mvalues[49m[38;5;241;43m.[39;49m[43mfillna[49m[43m([49m[43mvalue[49m[38;5;241;43m=[39;49m[43mfill_value[49m[43m,[49m[43m [49m[43mmethod[49m[38;5;241;43m=[39;49m[43mmethod[49m[43m,[49m[43m [49m[43mlimit[49m[38;5;241;43m=[39;49m[43mlimit[49m[43m)[49m
+[1;32m   1620[0m [38;5;28;01mreturn[39;00m [38;5;28mself[39m[38;5;241m.[39mmake_block_same_class(new_values)
+
+File [0;32m/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas/core/arrays/_mixins.py:317[0m, in [0;36mNDArrayBackedExtensionArray.fillna[0;34m(self, value, method, limit)[0m
+[1;32m    313[0m [38;5;129m@doc[39m(ExtensionArray[38;5;241m.[39mfillna)
+[1;32m    314[0m [38;5;28;01mdef[39;00m [38;5;21mfillna[39m(
+[1;32m    315[0m     [38;5;28mself[39m: NDArrayBackedExtensionArrayT, value[38;5;241m=[39m[38;5;28;01mNone[39;00m, method[38;5;241m=[39m[38;5;28;01mNone[39;00m, limit[38;5;241m=[39m[38;5;28;01mNone[39;00m
+[1;32m    316[0m ) [38;5;241m-[39m[38;5;241m>[39m NDArrayBackedExtensionArrayT:
+[0;32m--> 317[0m     value, method [38;5;241m=[39m [43mvalidate_fillna_kwargs[49m[43m([49m
+[1;32m    318[0m [43m        [49m[43mvalue[49m[43m,[49m[43m [49m[43mmethod[49m[43m,[49m[43m [49m[43mvalidate_scalar_dict_value[49m[38;5;241;43m=[39;49m[38;5;28;43;01mFalse[39;49;00m
+[1;32m    319[0m [43m    [49m[43m)[49m
+[1;32m    321[0m     mask [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39misna()
+[1;32m    322[0m     [38;5;66;03m# error: Argument 2 to "check_value_size" has incompatible type[39;00m
+[1;32m    323[0m     [38;5;66;03m# "ExtensionArray"; expected "ndarray"[39;00m
+
+File [0;32m/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas/util/_validators.py:390[0m, in [0;36mvalidate_fillna_kwargs[0;34m(value, method, validate_scalar_dict_value)[0m
+[1;32m    388[0m     [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m([38;5;124m"[39m[38;5;124mMust specify a fill [39m[38;5;124m'[39m[38;5;124mvalue[39m[38;5;124m'[39m[38;5;124m or [39m[38;5;124m'[39m[38;5;124mmethod[39m[38;5;124m'[39m[38;5;124m.[39m[38;5;124m"[39m)
+[1;32m    389[0m [38;5;28;01melif[39;00m value [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m [38;5;129;01mand[39;00m method [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m:
+[0;32m--> 390[0m     method [38;5;241m=[39m [43mclean_fill_method[49m[43m([49m[43mmethod[49m[43m)[49m
+[1;32m    392[0m [38;5;28;01melif[39;00m value [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m [38;5;129;01mand[39;00m method [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
+[1;32m    393[0m     [38;5;28;01mif[39;00m validate_scalar_dict_value [38;5;129;01mand[39;00m [38;5;28misinstance[39m(value, ([38;5;28mlist[39m, [38;5;28mtuple[39m)):
+
+File [0;32m/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas/core/missing.py:125[0m, in [0;36mclean_fill_method[0;34m(method, allow_nearest)[0m
+[1;32m    123[0m     expecting [38;5;241m=[39m [38;5;124m"[39m[38;5;124mpad (ffill), backfill (bfill) or nearest[39m[38;5;124m"[39m
+[1;32m    124[0m [38;5;28;01mif[39;00m method [38;5;129;01mnot[39;00m [38;5;129;01min[39;00m valid_methods:
+[0;32m--> 125[0m     [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m([38;5;124mf[39m[38;5;124m"[39m[38;5;124mInvalid fill method. Expecting [39m[38;5;132;01m{[39;00mexpecting[38;5;132;01m}[39;00m[38;5;124m. Got [39m[38;5;132;01m{[39;00mmethod[38;5;132;01m}[39;00m[38;5;124m"[39m)
+[1;32m    126[0m [38;5;28;01mreturn[39;00m method
+
+[0;31mValueError[0m: Invalid fill method. Expecting pad (ffill) or backfill (bfill). Got linear
 

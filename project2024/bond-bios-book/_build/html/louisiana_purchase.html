@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Bond Biography: Louisiana Purchase &#8212; 2024 Summer Fiscal History Team Bond-Bios</title>
+    <title>Louisiana Purchase Bonds &#8212; 2024 Summer Fiscal History Team Bond-Bios</title>
   
   
   
@@ -321,7 +321,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Bond Biography: Louisiana Purchase</h1>
+    <h1>Louisiana Purchase Bonds</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -358,8 +358,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="bond-biography-louisiana-purchase">
-<h1>Bond Biography: Louisiana Purchase<a class="headerlink" href="#bond-biography-louisiana-purchase" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="louisiana-purchase-bonds">
+<h1>Louisiana Purchase Bonds<a class="headerlink" href="#louisiana-purchase-bonds" title="Link to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -404,60 +404,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">BondData</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">HDFStore</span><span class="p">(</span><span class="s2">&quot;Data/BondDF.h5&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="n">BondData</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">BondList</span> <span class="o">=</span> <span class="n">BondData</span><span class="p">[</span><span class="s2">&quot;BondList&quot;</span><span class="p">]</span>
-
-<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas/io/pytables.py:566,</span> in <span class="ni">HDFStore.__init__</span><span class="nt">(self, path, mode, complevel, complib, fletcher32, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">563</span> <span class="k">if</span> <span class="s2">&quot;format&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">564</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;format is not a defined argument for HDFStore&quot;</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">566</span> <span class="n">tables</span> <span class="o">=</span> <span class="n">import_optional_dependency</span><span class="p">(</span><span class="s2">&quot;tables&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">568</span> <span class="k">if</span> <span class="n">complib</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">complib</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">tables</span><span class="o">.</span><span class="n">filters</span><span class="o">.</span><span class="n">all_complibs</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">569</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">570</span>         <span class="sa">f</span><span class="s2">&quot;complib only supports </span><span class="si">{</span><span class="n">tables</span><span class="o">.</span><span class="n">filters</span><span class="o">.</span><span class="n">all_complibs</span><span class="si">}</span><span class="s2"> compression.&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">571</span>     <span class="p">)</span>
-
-<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas/compat/_optional.py:135,</span> in <span class="ni">import_optional_dependency</span><span class="nt">(name, extra, errors, min_version)</span>
-<span class="g g-Whitespace">    </span><span class="mi">130</span> <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">131</span>     <span class="sa">f</span><span class="s2">&quot;Missing optional dependency &#39;</span><span class="si">{</span><span class="n">install_name</span><span class="si">}</span><span class="s2">&#39;. </span><span class="si">{</span><span class="n">extra</span><span class="si">}</span><span class="s2"> &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">132</span>     <span class="sa">f</span><span class="s2">&quot;Use pip or conda to install </span><span class="si">{</span><span class="n">install_name</span><span class="si">}</span><span class="s2">.&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">133</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">134</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">135</span>     <span class="n">module</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">136</span> <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">137</span>     <span class="k">if</span> <span class="n">errors</span> <span class="o">==</span> <span class="s2">&quot;raise&quot;</span><span class="p">:</span>
-
-<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/importlib/__init__.py:90,</span> in <span class="ni">import_module</span><span class="nt">(name, package)</span>
-<span class="g g-Whitespace">     </span><span class="mi">88</span>             <span class="k">break</span>
-<span class="g g-Whitespace">     </span><span class="mi">89</span>         <span class="n">level</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="ne">---&gt; </span><span class="mi">90</span> <span class="k">return</span> <span class="n">_bootstrap</span><span class="o">.</span><span class="n">_gcd_import</span><span class="p">(</span><span class="n">name</span><span class="p">[</span><span class="n">level</span><span class="p">:],</span> <span class="n">package</span><span class="p">,</span> <span class="n">level</span><span class="p">)</span>
-
-<span class="nn">File &lt;frozen importlib._bootstrap&gt;:1387,</span> in <span class="ni">_gcd_import</span><span class="nt">(name, package, level)</span>
-
-<span class="nn">File &lt;frozen importlib._bootstrap&gt;:1360,</span> in <span class="ni">_find_and_load</span><span class="nt">(name, import_)</span>
-
-<span class="nn">File &lt;frozen importlib._bootstrap&gt;:1331,</span> in <span class="ni">_find_and_load_unlocked</span><span class="nt">(name, import_)</span>
-
-<span class="nn">File &lt;frozen importlib._bootstrap&gt;:935,</span> in <span class="ni">_load_unlocked</span><span class="nt">(spec)</span>
-
-<span class="nn">File &lt;frozen importlib._bootstrap_external&gt;:995,</span> in <span class="ni">exec_module</span><span class="nt">(self, module)</span>
-
-<span class="nn">File &lt;frozen importlib._bootstrap&gt;:488,</span> in <span class="ni">_call_with_frames_removed</span><span class="nt">(f, *args, **kwds)</span>
-
-<span class="n">File</span> <span class="o">/</span><span class="n">Library</span><span class="o">/</span><span class="n">Frameworks</span><span class="o">/</span><span class="n">Python</span><span class="o">.</span><span class="n">framework</span><span class="o">/</span><span class="n">Versions</span><span class="o">/</span><span class="mf">3.12</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.12</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">tables</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">44</span>
-<span class="g g-Whitespace">     </span><span class="mi">40</span>     <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Blosc2 library not found. &quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">41</span>                        <span class="sa">f</span><span class="s2">&quot;I looked for </span><span class="se">\&quot;</span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">blosc2_search_paths</span><span class="p">)</span><span class="si">}</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">43</span> <span class="c1"># Necessary imports to get versions stored on the cython extension</span>
-<span class="ne">---&gt; </span><span class="mi">44</span> <span class="kn">from</span> <span class="nn">.utilsextension</span> <span class="kn">import</span> <span class="n">get_hdf5_version</span> <span class="k">as</span> <span class="n">_get_hdf5_version</span>
-<span class="g g-Whitespace">     </span><span class="mi">46</span> <span class="kn">from</span> <span class="nn">._version</span> <span class="kn">import</span> <span class="n">__version__</span>
-<span class="g g-Whitespace">     </span><span class="mi">48</span> <span class="n">hdf5_version</span> <span class="o">=</span> <span class="n">_get_hdf5_version</span><span class="p">()</span>
-
-<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/tables/utilsextension.pyx:1,</span> in <span class="ni">init tables.utilsextension</span><span class="nt">()</span>
-
-<span class="ne">ValueError</span>: numpy.dtype size changed, may indicate binary incompatibility. Expected 96 from C header, got 88 from PyObject
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.io.pytables.HDFStore&#39;&gt;
+File path: Data/BondDF.h5
 </pre></div>
 </div>
 </div>
@@ -642,7 +590,7 @@ dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/f819a480b486884d59690513a5e93fdea395b98820b1ac193d5273a8aee610f7.png" src="_images/f819a480b486884d59690513a5e93fdea395b98820b1ac193d5273a8aee610f7.png" />
+<img alt="_images/4583d3d8d6dce4a213be7132dfa2f2863b4a89410c8657f23b50b1becfe83717.png" src="_images/4583d3d8d6dce4a213be7132dfa2f2863b4a89410c8657f23b50b1becfe83717.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -652,7 +600,7 @@ dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/b2e35060b36385cef1d92d2076ea8ae4c82188961e9116770337190fc0544293.png" src="_images/b2e35060b36385cef1d92d2076ea8ae4c82188961e9116770337190fc0544293.png" />
+<img alt="_images/a2cddc695c2f7a6fd7fea867592f9608470bbc7212fa56de8f11120d86d0bd49.png" src="_images/a2cddc695c2f7a6fd7fea867592f9608470bbc7212fa56de8f11120d86d0bd49.png" />
 </div>
 </div>
 </section>

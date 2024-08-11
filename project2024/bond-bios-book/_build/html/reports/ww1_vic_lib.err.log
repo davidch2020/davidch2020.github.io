@@ -18,66 +18,100 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-Bondh5 = pd.HDFStore("data/BondDF.h5", mode="r")
-BondList = Bondh5["BondList"]
-BondQuant = Bondh5["BondQuant"]
-BondPrice = Bondh5["BondPrice"]
-Bondh5.close()
+#%matplotlib ipympl
+bond_ids = []
+def summarize_only_first(bond_row):
+    noi = bond_row["Treasury's Name Of Issue"]
+    if "1st Liberty Loan" in noi:
+        bond_ids.append(bond_row["Issue L1 ID"] + 20000)
+        return summarize_bond(bond_row)
+    return bond_row
+
+liberty_loans.sort_index().apply(summarize_only_first, axis=1)
+
+graph_public_for_bqs(bond_ids, title="First Liberty Loan(s) Public Holdings")
+print("Done")
+graph_avg_price(bond_ids, title="First Liberty Loan(s) Secondary Market Price")
+print("Done")
 ------------------
 
+----- stdout -----
+Bond #162: 1st Liberty Loan of 1917 (3.5%), issued 1917-06-30 00:00:00
+   Term: 30 years, Redeemable: 1932-06-15 00:00:00, Payable: 1947-06-15 00:00:00
+   Coupon: 3.5, Frequency: 2.0/year, Scheduled Month: June
+---------------------------------------------------
+Bond #163: 1st Liberty Loan Converted to 4%, issued 1918-11-30 00:00:00
+   Term: 30 years, Redeemable: 1932-06-15 00:00:00, Payable: 1947-06-15 00:00:00
+   Coupon: 4.0, Frequency: 2.0/year, Scheduled Month: June
+---------------------------------------------------
+Bond #164: 1st Liberty Loan Converted to 4.25%, issued 1918-11-30 00:00:00
+   Term: 30 years, Redeemable: 1932-06-15 00:00:00, Payable: 1947-06-15 00:00:00
+   Coupon: 4.25, Frequency: 2.0/year, Scheduled Month: June
+---------------------------------------------------
+Bond #165: 1st Liberty Loan Second Converted to 4.25%, issued 1918-10-24 00:00:00
+   Term: 30 years, Redeemable: 1932-06-15 00:00:00, Payable: 1947-06-15 00:00:00
+   Coupon: 4.25, Frequency: 2.0/year, Scheduled Month: June
+---------------------------------------------------
+------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mValueError[0m                                Traceback (most recent call last)
-Cell [0;32mIn[2], line 1[0m
-[0;32m----> 1[0m Bondh5 [38;5;241m=[39m [43mpd[49m[38;5;241;43m.[39;49m[43mHDFStore[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43mdata/BondDF.h5[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[43mmode[49m[38;5;241;43m=[39;49m[38;5;124;43m"[39;49m[38;5;124;43mr[39;49m[38;5;124;43m"[39;49m[43m)[49m
-[1;32m      2[0m BondList [38;5;241m=[39m Bondh5[[38;5;124m"[39m[38;5;124mBondList[39m[38;5;124m"[39m]
-[1;32m      3[0m BondQuant [38;5;241m=[39m Bondh5[[38;5;124m"[39m[38;5;124mBondQuant[39m[38;5;124m"[39m]
+[0;31mAttributeError[0m                            Traceback (most recent call last)
+Cell [0;32mIn[8], line 12[0m
+[1;32m      8[0m     [38;5;28;01mreturn[39;00m bond_row
+[1;32m     10[0m liberty_loans[38;5;241m.[39msort_index()[38;5;241m.[39mapply(summarize_only_first, axis[38;5;241m=[39m[38;5;241m1[39m)
+[0;32m---> 12[0m [43mgraph_public_for_bqs[49m[43m([49m[43mbond_ids[49m[43m,[49m[43m [49m[43mtitle[49m[38;5;241;43m=[39;49m[38;5;124;43m"[39;49m[38;5;124;43mFirst Liberty Loan(s) Public Holdings[39;49m[38;5;124;43m"[39;49m[43m)[49m
+[1;32m     13[0m [38;5;28mprint[39m([38;5;124m"[39m[38;5;124mDone[39m[38;5;124m"[39m)
+[1;32m     14[0m graph_avg_price(bond_ids, title[38;5;241m=[39m[38;5;124m"[39m[38;5;124mFirst Liberty Loan(s) Secondary Market Price[39m[38;5;124m"[39m)
 
-File [0;32m/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas/io/pytables.py:566[0m, in [0;36mHDFStore.__init__[0;34m(self, path, mode, complevel, complib, fletcher32, **kwargs)[0m
-[1;32m    563[0m [38;5;28;01mif[39;00m [38;5;124m"[39m[38;5;124mformat[39m[38;5;124m"[39m [38;5;129;01min[39;00m kwargs:
-[1;32m    564[0m     [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m([38;5;124m"[39m[38;5;124mformat is not a defined argument for HDFStore[39m[38;5;124m"[39m)
-[0;32m--> 566[0m tables [38;5;241m=[39m [43mimport_optional_dependency[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43mtables[39;49m[38;5;124;43m"[39;49m[43m)[49m
-[1;32m    568[0m [38;5;28;01mif[39;00m complib [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m [38;5;129;01mand[39;00m complib [38;5;129;01mnot[39;00m [38;5;129;01min[39;00m tables[38;5;241m.[39mfilters[38;5;241m.[39mall_complibs:
-[1;32m    569[0m     [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m(
-[1;32m    570[0m         [38;5;124mf[39m[38;5;124m"[39m[38;5;124mcomplib only supports [39m[38;5;132;01m{[39;00mtables[38;5;241m.[39mfilters[38;5;241m.[39mall_complibs[38;5;132;01m}[39;00m[38;5;124m compression.[39m[38;5;124m"[39m
-[1;32m    571[0m     )
+Cell [0;32mIn[6], line 10[0m, in [0;36mgraph_public_for_bqs[0;34m(bond_ids, axes, title)[0m
+[1;32m      8[0m series [38;5;241m=[39m BondQuant_Transposed[38;5;241m.[39mloc[([38;5;28mid[39m, [38;5;124m'[39m[38;5;124mPublic Holdings[39m[38;5;124m'[39m)]
+[1;32m      9[0m series [38;5;241m=[39m series[series[38;5;241m.[39mnotna()]
+[0;32m---> 10[0m ax [38;5;241m=[39m [43mseries[49m[38;5;241;43m.[39;49m[43mplot[49m[38;5;241;43m.[39;49m[43mline[49m[43m([49m[43max[49m[38;5;241;43m=[39;49m[43mcurrent_ax[49m[43m,[49m[43m [49m[43mtitle[49m[38;5;241;43m=[39;49m[43mtitle[49m[43m,[49m
+[1;32m     11[0m [43m                      [49m[43mlegend[49m[38;5;241;43m=[39;49m[38;5;28;43;01mTrue[39;49;00m[43m,[49m[43m [49m[43msharex[49m[38;5;241;43m=[39;49m[38;5;28;43;01mTrue[39;49;00m[43m,[49m[43m [49m[43msharey[49m[38;5;241;43m=[39;49m[38;5;28;43;01mTrue[39;49;00m[43m,[49m[43m [49m[43mxlabel[49m[38;5;241;43m=[39;49m[38;5;124;43m"[39;49m[38;5;124;43mTime[39;49m[38;5;124;43m"[39;49m[43m,[49m
+[1;32m     12[0m [43m                      [49m[43mylabel[49m[38;5;241;43m=[39;49m[38;5;124;43m"[39;49m[38;5;124;43mQuantity of Bonds[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43m{[49m[38;5;124;43m'[39;49m[38;5;124;43mmarker[39;49m[38;5;124;43m'[39;49m[43m:[49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43m.[39;49m[38;5;124;43m'[39;49m[43m}[49m[43m)[49m
+[1;32m     13[0m [38;5;28;01mif[39;00m current_ax [38;5;241m==[39m [38;5;28;01mNone[39;00m: current_ax [38;5;241m=[39m ax
+[1;32m     14[0m closer_date [38;5;241m=[39m series[38;5;241m.[39mindex[[38;5;28mlen[39m(series)[38;5;241m-[39m[38;5;241m1[39m] [38;5;28;01mif[39;00m series[38;5;241m.[39mindex[[38;5;28mlen[39m(series)[38;5;241m-[39m[38;5;241m1[39m] [38;5;241m>[39m closer_date [38;5;28;01melse[39;00m closer_date
 
-File [0;32m/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas/compat/_optional.py:135[0m, in [0;36mimport_optional_dependency[0;34m(name, extra, errors, min_version)[0m
-[1;32m    130[0m msg [38;5;241m=[39m (
-[1;32m    131[0m     [38;5;124mf[39m[38;5;124m"[39m[38;5;124mMissing optional dependency [39m[38;5;124m'[39m[38;5;132;01m{[39;00minstall_name[38;5;132;01m}[39;00m[38;5;124m'[39m[38;5;124m. [39m[38;5;132;01m{[39;00mextra[38;5;132;01m}[39;00m[38;5;124m [39m[38;5;124m"[39m
-[1;32m    132[0m     [38;5;124mf[39m[38;5;124m"[39m[38;5;124mUse pip or conda to install [39m[38;5;132;01m{[39;00minstall_name[38;5;132;01m}[39;00m[38;5;124m.[39m[38;5;124m"[39m
-[1;32m    133[0m )
-[1;32m    134[0m [38;5;28;01mtry[39;00m:
-[0;32m--> 135[0m     module [38;5;241m=[39m [43mimportlib[49m[38;5;241;43m.[39;49m[43mimport_module[49m[43m([49m[43mname[49m[43m)[49m
-[1;32m    136[0m [38;5;28;01mexcept[39;00m [38;5;167;01mImportError[39;00m:
-[1;32m    137[0m     [38;5;28;01mif[39;00m errors [38;5;241m==[39m [38;5;124m"[39m[38;5;124mraise[39m[38;5;124m"[39m:
+File [0;32m/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas/plotting/_core.py:1069[0m, in [0;36mPlotAccessor.line[0;34m(self, x, y, **kwargs)[0m
+[1;32m   1004[0m [38;5;129m@Appender[39m(
+[1;32m   1005[0m [38;5;250m    [39m[38;5;124;03m"""[39;00m
+[1;32m   1006[0m [38;5;124;03m    See Also[39;00m
+[0;32m   (...)[0m
+[1;32m   1061[0m [38;5;129m@Appender[39m(_bar_or_line_doc)
+[1;32m   1062[0m [38;5;28;01mdef[39;00m [38;5;21mline[39m([38;5;28mself[39m, x[38;5;241m=[39m[38;5;28;01mNone[39;00m, y[38;5;241m=[39m[38;5;28;01mNone[39;00m, [38;5;241m*[39m[38;5;241m*[39mkwargs) [38;5;241m-[39m[38;5;241m>[39m PlotAccessor:
+[1;32m   1063[0m [38;5;250m    [39m[38;5;124;03m"""[39;00m
+[1;32m   1064[0m [38;5;124;03m    Plot Series or DataFrame as lines.[39;00m
+[1;32m   1065[0m 
+[1;32m   1066[0m [38;5;124;03m    This function is useful to plot lines using DataFrame's values[39;00m
+[1;32m   1067[0m [38;5;124;03m    as coordinates.[39;00m
+[1;32m   1068[0m [38;5;124;03m    """[39;00m
+[0;32m-> 1069[0m     [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[43m([49m[43mkind[49m[38;5;241;43m=[39;49m[38;5;124;43m"[39;49m[38;5;124;43mline[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[43mx[49m[38;5;241;43m=[39;49m[43mx[49m[43m,[49m[43m [49m[43my[49m[38;5;241;43m=[39;49m[43my[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
 
-File [0;32m/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/importlib/__init__.py:90[0m, in [0;36mimport_module[0;34m(name, package)[0m
-[1;32m     88[0m             [38;5;28;01mbreak[39;00m
-[1;32m     89[0m         level [38;5;241m+[39m[38;5;241m=[39m [38;5;241m1[39m
-[0;32m---> 90[0m [38;5;28;01mreturn[39;00m [43m_bootstrap[49m[38;5;241;43m.[39;49m[43m_gcd_import[49m[43m([49m[43mname[49m[43m[[49m[43mlevel[49m[43m:[49m[43m][49m[43m,[49m[43m [49m[43mpackage[49m[43m,[49m[43m [49m[43mlevel[49m[43m)[49m
+File [0;32m/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas/plotting/_core.py:1000[0m, in [0;36mPlotAccessor.__call__[0;34m(self, *args, **kwargs)[0m
+[1;32m    997[0m             label_name [38;5;241m=[39m label_kw [38;5;129;01mor[39;00m data[38;5;241m.[39mcolumns
+[1;32m    998[0m             data[38;5;241m.[39mcolumns [38;5;241m=[39m label_name
+[0;32m-> 1000[0m [38;5;28;01mreturn[39;00m [43mplot_backend[49m[38;5;241;43m.[39;49m[43mplot[49m[43m([49m[43mdata[49m[43m,[49m[43m [49m[43mkind[49m[38;5;241;43m=[39;49m[43mkind[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
 
-File [0;32m<frozen importlib._bootstrap>:1387[0m, in [0;36m_gcd_import[0;34m(name, package, level)[0m
+File [0;32m/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas/plotting/_matplotlib/__init__.py:71[0m, in [0;36mplot[0;34m(data, kind, **kwargs)[0m
+[1;32m     69[0m         kwargs[[38;5;124m"[39m[38;5;124max[39m[38;5;124m"[39m] [38;5;241m=[39m [38;5;28mgetattr[39m(ax, [38;5;124m"[39m[38;5;124mleft_ax[39m[38;5;124m"[39m, ax)
+[1;32m     70[0m plot_obj [38;5;241m=[39m PLOT_CLASSES[kind](data, [38;5;241m*[39m[38;5;241m*[39mkwargs)
+[0;32m---> 71[0m [43mplot_obj[49m[38;5;241;43m.[39;49m[43mgenerate[49m[43m([49m[43m)[49m
+[1;32m     72[0m plot_obj[38;5;241m.[39mdraw()
+[1;32m     73[0m [38;5;28;01mreturn[39;00m plot_obj[38;5;241m.[39mresult
 
-File [0;32m<frozen importlib._bootstrap>:1360[0m, in [0;36m_find_and_load[0;34m(name, import_)[0m
+File [0;32m/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas/plotting/_matplotlib/core.py:454[0m, in [0;36mMPLPlot.generate[0;34m(self)[0m
+[1;32m    452[0m [38;5;28mself[39m[38;5;241m.[39m_make_plot()
+[1;32m    453[0m [38;5;28mself[39m[38;5;241m.[39m_add_table()
+[0;32m--> 454[0m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_make_legend[49m[43m([49m[43m)[49m
+[1;32m    455[0m [38;5;28mself[39m[38;5;241m.[39m_adorn_subplots()
+[1;32m    457[0m [38;5;28;01mfor[39;00m ax [38;5;129;01min[39;00m [38;5;28mself[39m[38;5;241m.[39maxes:
 
-File [0;32m<frozen importlib._bootstrap>:1331[0m, in [0;36m_find_and_load_unlocked[0;34m(name, import_)[0m
+File [0;32m/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas/plotting/_matplotlib/core.py:792[0m, in [0;36mMPLPlot._make_legend[0;34m(self)[0m
+[1;32m    790[0m     title [38;5;241m=[39m leg[38;5;241m.[39mget_title()[38;5;241m.[39mget_text()
+[1;32m    791[0m     [38;5;66;03m# Replace leg.LegendHandles because it misses marker info[39;00m
+[0;32m--> 792[0m     handles [38;5;241m=[39m [43mleg[49m[38;5;241;43m.[39;49m[43mlegendHandles[49m
+[1;32m    793[0m     labels [38;5;241m=[39m [x[38;5;241m.[39mget_text() [38;5;28;01mfor[39;00m x [38;5;129;01min[39;00m leg[38;5;241m.[39mget_texts()]
+[1;32m    795[0m [38;5;28;01mif[39;00m [38;5;28mself[39m[38;5;241m.[39mlegend:
 
-File [0;32m<frozen importlib._bootstrap>:935[0m, in [0;36m_load_unlocked[0;34m(spec)[0m
-
-File [0;32m<frozen importlib._bootstrap_external>:995[0m, in [0;36mexec_module[0;34m(self, module)[0m
-
-File [0;32m<frozen importlib._bootstrap>:488[0m, in [0;36m_call_with_frames_removed[0;34m(f, *args, **kwds)[0m
-
-File [0;32m/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/tables/__init__.py:44[0m
-[1;32m     40[0m     [38;5;28;01mraise[39;00m [38;5;167;01mRuntimeError[39;00m([38;5;124m"[39m[38;5;124mBlosc2 library not found. [39m[38;5;124m"[39m
-[1;32m     41[0m                        [38;5;124mf[39m[38;5;124m"[39m[38;5;124mI looked for [39m[38;5;130;01m\"[39;00m[38;5;132;01m{[39;00m[38;5;124m'[39m[38;5;124m, [39m[38;5;124m'[39m[38;5;241m.[39mjoin(blosc2_search_paths)[38;5;132;01m}[39;00m[38;5;130;01m\"[39;00m[38;5;124m"[39m)
-[1;32m     43[0m [38;5;66;03m# Necessary imports to get versions stored on the cython extension[39;00m
-[0;32m---> 44[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01mutilsextension[39;00m [38;5;28;01mimport[39;00m get_hdf5_version [38;5;28;01mas[39;00m _get_hdf5_version
-[1;32m     46[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01m_version[39;00m [38;5;28;01mimport[39;00m __version__
-[1;32m     48[0m hdf5_version [38;5;241m=[39m _get_hdf5_version()
-
-File [0;32m/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/tables/utilsextension.pyx:1[0m, in [0;36minit tables.utilsextension[0;34m()[0m
-
-[0;31mValueError[0m: numpy.dtype size changed, may indicate binary incompatibility. Expected 96 from C header, got 88 from PyObject
+[0;31mAttributeError[0m: 'Legend' object has no attribute 'legendHandles'
 

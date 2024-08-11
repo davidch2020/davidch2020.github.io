@@ -60,8 +60,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'war_1812';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Bond Biography: The Currency Sixes" href="currency_sixes.html" />
-    <link rel="prev" title="Bond Biography: Louisiana Purchase" href="louisiana_purchase.html" />
+    <link rel="next" title="The Currency Sixes" href="currency_sixes.html" />
+    <link rel="prev" title="Louisiana Purchase Bonds" href="louisiana_purchase.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -1521,10 +1521,67 @@ The outcome of the act was the issuance of stock certificates totaling $12,288,1
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas/_libs/tslibs/offsets.pyx:3878,</span> in <span class="ni">pandas._libs.tslibs.offsets._get_offset</span><span class="nt">()</span>
+
+<span class="ne">KeyError</span>: &#39;YE&#39;
+
+<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
+
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas/_libs/tslibs/offsets.pyx:3979,</span> in <span class="ni">pandas._libs.tslibs.offsets.to_offset</span><span class="nt">()</span>
+
+<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas/_libs/tslibs/offsets.pyx:3884,</span> in <span class="ni">pandas._libs.tslibs.offsets._get_offset</span><span class="nt">()</span>
+
+<span class="ne">ValueError</span>: Invalid frequency: YE
+
+<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
+
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">27</span><span class="p">],</span> <span class="n">line</span> <span class="mi">40</span>
+<span class="g g-Whitespace">     </span><span class="mi">37</span> <span class="n">f_plot</span> <span class="o">=</span> <span class="n">combined</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;Timestamp&quot;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;area&#39;</span><span class="p">,</span> <span class="n">stacked</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">legend</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;#fd7f6f&quot;</span><span class="p">,</span> <span class="s2">&quot;#7eb0d5&quot;</span><span class="p">,</span> <span class="s2">&quot;#b2e061&quot;</span><span class="p">,</span> <span class="s2">&quot;#bd7ebe&quot;</span><span class="p">])</span>
+<span class="g g-Whitespace">     </span><span class="mi">39</span> <span class="c1"># set x axis tick marks manually</span>
+<span class="ne">---&gt; </span><span class="mi">40</span> <span class="n">years</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="s1">&#39;1812&#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;1839&#39;</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;2YE&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">year</span>
+<span class="g g-Whitespace">     </span><span class="mi">41</span> <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">years</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;%Y&#39;</span><span class="p">))</span>
+<span class="g g-Whitespace">     </span><span class="mi">42</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+
+<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas/core/indexes/datetimes.py:1125,</span> in <span class="ni">date_range</span><span class="nt">(start, end, periods, freq, tz, normalize, name, closed, inclusive, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1122</span> <span class="k">if</span> <span class="n">freq</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">com</span><span class="o">.</span><span class="n">any_none</span><span class="p">(</span><span class="n">periods</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1123</span>     <span class="n">freq</span> <span class="o">=</span> <span class="s2">&quot;D&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1125</span> <span class="n">dtarr</span> <span class="o">=</span> <span class="n">DatetimeArray</span><span class="o">.</span><span class="n">_generate_range</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1126</span>     <span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1127</span>     <span class="n">end</span><span class="o">=</span><span class="n">end</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1128</span>     <span class="n">periods</span><span class="o">=</span><span class="n">periods</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1129</span>     <span class="n">freq</span><span class="o">=</span><span class="n">freq</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1130</span>     <span class="n">tz</span><span class="o">=</span><span class="n">tz</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1131</span>     <span class="n">normalize</span><span class="o">=</span><span class="n">normalize</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1132</span>     <span class="n">inclusive</span><span class="o">=</span><span class="n">inclusive</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1133</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1134</span> <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1135</span> <span class="k">return</span> <span class="n">DatetimeIndex</span><span class="o">.</span><span class="n">_simple_new</span><span class="p">(</span><span class="n">dtarr</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+
+<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas/core/arrays/datetimes.py:358,</span> in <span class="ni">DatetimeArray._generate_range</span><span class="nt">(cls, start, end, periods, freq, tz, normalize, ambiguous, nonexistent, inclusive)</span>
+<span class="g g-Whitespace">    </span><span class="mi">353</span> <span class="k">if</span> <span class="n">com</span><span class="o">.</span><span class="n">count_not_none</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">periods</span><span class="p">,</span> <span class="n">freq</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">3</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">354</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">355</span>         <span class="s2">&quot;Of the four parameters: start, end, periods, &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">356</span>         <span class="s2">&quot;and freq, exactly three must be specified&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">357</span>     <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">358</span> <span class="n">freq</span> <span class="o">=</span> <span class="n">to_offset</span><span class="p">(</span><span class="n">freq</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">360</span> <span class="k">if</span> <span class="n">start</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">361</span>     <span class="n">start</span> <span class="o">=</span> <span class="n">Timestamp</span><span class="p">(</span><span class="n">start</span><span class="p">)</span>
+
+<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas/_libs/tslibs/offsets.pyx:3891,</span> in <span class="ni">pandas._libs.tslibs.offsets.to_offset</span><span class="nt">()</span>
+
+<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas/_libs/tslibs/offsets.pyx:3987,</span> in <span class="ni">pandas._libs.tslibs.offsets.to_offset</span><span class="nt">()</span>
+
+<span class="ne">ValueError</span>: Invalid frequency: 2YE
+</pre></div>
+</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/a81eb6bd15c3899b1bbc432066a608f4f5e2337c8607fc1ebe5abcc7e63e2047.png" src="_images/a81eb6bd15c3899b1bbc432066a608f4f5e2337c8607fc1ebe5abcc7e63e2047.png" />
+<img alt="_images/f82d2c49a81b398e89cc601fb952ae632636abce3ce687e6ffecc9ec3d5bbf6b.png" src="_images/f82d2c49a81b398e89cc601fb952ae632636abce3ce687e6ffecc9ec3d5bbf6b.png" />
 </div>
 </div>
 </section>
@@ -1576,7 +1633,7 @@ The outcome of the act was the issuance of stock certificates totaling $12,288,1
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Bond Biography: Louisiana Purchase</p>
+        <p class="prev-next-title">Louisiana Purchase Bonds</p>
       </div>
     </a>
     <a class="right-next"
@@ -1584,7 +1641,7 @@ The outcome of the act was the issuance of stock certificates totaling $12,288,1
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Bond Biography: The Currency Sixes</p>
+        <p class="prev-next-title">The Currency Sixes</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

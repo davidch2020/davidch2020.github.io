@@ -61,7 +61,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="5-20s of the Civil War" href="520s.html" />
-    <link rel="prev" title="Bond Biography: The Currency Sixes" href="currency_sixes.html" />
+    <link rel="prev" title="The Currency Sixes" href="currency_sixes.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -409,64 +409,31 @@ document.write(`
 <span class="n">BondQuant</span> <span class="o">=</span> <span class="n">Bondh5</span><span class="p">[</span><span class="s2">&quot;BondQuant&quot;</span><span class="p">]</span>
 <span class="n">BondPrice</span> <span class="o">=</span> <span class="n">Bondh5</span><span class="p">[</span><span class="s2">&quot;BondPrice&quot;</span><span class="p">]</span>
 <span class="n">Bondh5</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">colsfinaldates = [  &quot;Authorizing Act Date&quot;,</span>
+<span class="sd">                    &quot;First Issue Date&quot;,</span>
+<span class="sd">                    &quot;First Redemption Date&quot;,</span>
+<span class="sd">                    &quot;Final Redemption Date&quot;,</span>
+<span class="sd">                    &quot;Redeemable After Date&quot;,</span>
+<span class="sd">                    &quot;Payable Date&quot;</span>
+<span class="sd">                 ]</span>
+<span class="sd">BondList = pd.read_csv(&quot;data/BondList.csv&quot;, index_col=0)</span>
+<span class="sd">for col in colsfinaldates:</span>
+<span class="sd">    BondList[col] = pd.to_datetime(BondList[col])</span>
+
+<span class="sd">BondQuant = pd.read_csv(&quot;data/BondQuant.csv&quot;)</span>
+<span class="sd">BondQuant = BondQuant.set_index([&#39;L1 ID&#39;, &#39;Series&#39;], drop = True)</span>
+<span class="sd">BondQuant.index = pd.to_datetime(BondQuant.index)</span>
+
+<span class="sd">BondPrice = pd.read_csv(&quot;data/BondPrice.csv&quot;)</span>
+<span class="sd">BondPrice = BondPrice.set_index([&#39;L1 ID&#39;, &#39;Series&#39;], drop = True)</span>
+<span class="sd">BondPrice.index = pd.to_datetime(BondPrice.index)</span>
+<span class="sd">&#39;&#39;&#39;</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">Bondh5</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">HDFStore</span><span class="p">(</span><span class="s2">&quot;data/BondDF.h5&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">BondList</span> <span class="o">=</span> <span class="n">Bondh5</span><span class="p">[</span><span class="s2">&quot;BondList&quot;</span><span class="p">]</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">BondQuant</span> <span class="o">=</span> <span class="n">Bondh5</span><span class="p">[</span><span class="s2">&quot;BondQuant&quot;</span><span class="p">]</span>
-
-<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas/io/pytables.py:566,</span> in <span class="ni">HDFStore.__init__</span><span class="nt">(self, path, mode, complevel, complib, fletcher32, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">563</span> <span class="k">if</span> <span class="s2">&quot;format&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">564</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;format is not a defined argument for HDFStore&quot;</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">566</span> <span class="n">tables</span> <span class="o">=</span> <span class="n">import_optional_dependency</span><span class="p">(</span><span class="s2">&quot;tables&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">568</span> <span class="k">if</span> <span class="n">complib</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">complib</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">tables</span><span class="o">.</span><span class="n">filters</span><span class="o">.</span><span class="n">all_complibs</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">569</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">570</span>         <span class="sa">f</span><span class="s2">&quot;complib only supports </span><span class="si">{</span><span class="n">tables</span><span class="o">.</span><span class="n">filters</span><span class="o">.</span><span class="n">all_complibs</span><span class="si">}</span><span class="s2"> compression.&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">571</span>     <span class="p">)</span>
-
-<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas/compat/_optional.py:135,</span> in <span class="ni">import_optional_dependency</span><span class="nt">(name, extra, errors, min_version)</span>
-<span class="g g-Whitespace">    </span><span class="mi">130</span> <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">131</span>     <span class="sa">f</span><span class="s2">&quot;Missing optional dependency &#39;</span><span class="si">{</span><span class="n">install_name</span><span class="si">}</span><span class="s2">&#39;. </span><span class="si">{</span><span class="n">extra</span><span class="si">}</span><span class="s2"> &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">132</span>     <span class="sa">f</span><span class="s2">&quot;Use pip or conda to install </span><span class="si">{</span><span class="n">install_name</span><span class="si">}</span><span class="s2">.&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">133</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">134</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">135</span>     <span class="n">module</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">136</span> <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">137</span>     <span class="k">if</span> <span class="n">errors</span> <span class="o">==</span> <span class="s2">&quot;raise&quot;</span><span class="p">:</span>
-
-<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/importlib/__init__.py:90,</span> in <span class="ni">import_module</span><span class="nt">(name, package)</span>
-<span class="g g-Whitespace">     </span><span class="mi">88</span>             <span class="k">break</span>
-<span class="g g-Whitespace">     </span><span class="mi">89</span>         <span class="n">level</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="ne">---&gt; </span><span class="mi">90</span> <span class="k">return</span> <span class="n">_bootstrap</span><span class="o">.</span><span class="n">_gcd_import</span><span class="p">(</span><span class="n">name</span><span class="p">[</span><span class="n">level</span><span class="p">:],</span> <span class="n">package</span><span class="p">,</span> <span class="n">level</span><span class="p">)</span>
-
-<span class="nn">File &lt;frozen importlib._bootstrap&gt;:1387,</span> in <span class="ni">_gcd_import</span><span class="nt">(name, package, level)</span>
-
-<span class="nn">File &lt;frozen importlib._bootstrap&gt;:1360,</span> in <span class="ni">_find_and_load</span><span class="nt">(name, import_)</span>
-
-<span class="nn">File &lt;frozen importlib._bootstrap&gt;:1331,</span> in <span class="ni">_find_and_load_unlocked</span><span class="nt">(name, import_)</span>
-
-<span class="nn">File &lt;frozen importlib._bootstrap&gt;:935,</span> in <span class="ni">_load_unlocked</span><span class="nt">(spec)</span>
-
-<span class="nn">File &lt;frozen importlib._bootstrap_external&gt;:995,</span> in <span class="ni">exec_module</span><span class="nt">(self, module)</span>
-
-<span class="nn">File &lt;frozen importlib._bootstrap&gt;:488,</span> in <span class="ni">_call_with_frames_removed</span><span class="nt">(f, *args, **kwds)</span>
-
-<span class="n">File</span> <span class="o">/</span><span class="n">Library</span><span class="o">/</span><span class="n">Frameworks</span><span class="o">/</span><span class="n">Python</span><span class="o">.</span><span class="n">framework</span><span class="o">/</span><span class="n">Versions</span><span class="o">/</span><span class="mf">3.12</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.12</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">tables</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">44</span>
-<span class="g g-Whitespace">     </span><span class="mi">40</span>     <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Blosc2 library not found. &quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">41</span>                        <span class="sa">f</span><span class="s2">&quot;I looked for </span><span class="se">\&quot;</span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">blosc2_search_paths</span><span class="p">)</span><span class="si">}</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">43</span> <span class="c1"># Necessary imports to get versions stored on the cython extension</span>
-<span class="ne">---&gt; </span><span class="mi">44</span> <span class="kn">from</span> <span class="nn">.utilsextension</span> <span class="kn">import</span> <span class="n">get_hdf5_version</span> <span class="k">as</span> <span class="n">_get_hdf5_version</span>
-<span class="g g-Whitespace">     </span><span class="mi">46</span> <span class="kn">from</span> <span class="nn">._version</span> <span class="kn">import</span> <span class="n">__version__</span>
-<span class="g g-Whitespace">     </span><span class="mi">48</span> <span class="n">hdf5_version</span> <span class="o">=</span> <span class="n">_get_hdf5_version</span><span class="p">()</span>
-
-<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/tables/utilsextension.pyx:1,</span> in <span class="ni">init tables.utilsextension</span><span class="nt">()</span>
-
-<span class="ne">ValueError</span>: numpy.dtype size changed, may indicate binary incompatibility. Expected 96 from C header, got 88 from PyObject
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;\ncolsfinaldates = [  &quot;Authorizing Act Date&quot;,\n                    &quot;First Issue Date&quot;,\n                    &quot;First Redemption Date&quot;,\n                    &quot;Final Redemption Date&quot;,\n                    &quot;Redeemable After Date&quot;,\n                    &quot;Payable Date&quot;\n                 ]\nBondList = pd.read_csv(&quot;data/BondList.csv&quot;, index_col=0)\nfor col in colsfinaldates:\n    BondList[col] = pd.to_datetime(BondList[col])\n\nBondQuant = pd.read_csv(&quot;data/BondQuant.csv&quot;)\nBondQuant = BondQuant.set_index([\&#39;L1 ID\&#39;, \&#39;Series\&#39;], drop = True)\nBondQuant.index = pd.to_datetime(BondQuant.index)\n\nBondPrice = pd.read_csv(&quot;data/BondPrice.csv&quot;)\nBondPrice = BondPrice.set_index([\&#39;L1 ID\&#39;, \&#39;Series\&#39;], drop = True)\nBondPrice.index = pd.to_datetime(BondPrice.index)\n&#39;
 </pre></div>
 </div>
 </div>
@@ -536,20 +503,6 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">float_format</span> <span class="o">=</span> <span class="s1">&#39;$</span><span class="si">{:,.0f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1">#Define the liberty loans sub-dataframe</span>
-<span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">BondList</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;First Issue Date&quot;</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">liberty_loans</span> <span class="o">=</span> <span class="n">BondList</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">BondList</span><span class="p">[</span><span class="s1">&#39;Category L3&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Liberty Loan&quot;</span><span class="p">)]</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">BondList</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
-
-<span class="ne">NameError</span>: name &#39;BondList&#39; is not defined
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -593,20 +546,6 @@ document.write(`
     <span class="n">twinx</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="o">=</span><span class="p">[</span><span class="n">war_patch</span><span class="p">,</span> <span class="n">depression_patch</span><span class="p">],</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mf">0.2</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Events&quot;</span><span class="p">)</span>
     <span class="n">twinx</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">14</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span>     <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;$</span><span class="si">{</span><span class="n">big_numbers_format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kc">None</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="c1">#BondQuant_Transposed is months x bond, as opposed to bond x months</span>
-<span class="ne">---&gt; </span><span class="mi">14</span> <span class="n">BondQuant_Transposed</span> <span class="o">=</span> <span class="n">BondQuant</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="c1">#Do the same for BondPrice</span>
-<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="n">BondPrice_Transposed</span> <span class="o">=</span> <span class="n">BondPrice</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
-
-<span class="ne">NameError</span>: name &#39;BondQuant&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -671,7 +610,7 @@ document.write(`
 <p>This loan was the first bond used to fund World War I. It also featured the option to convert it so that it would have a higher coupon rate. Generally, convertible bonds are normally corporate bonds. However, in this case, when a bond is <strong>convertible</strong>, it is able to be converted into an issue with a higher coupon rate (Kang, 2015). Thus, it was converted to having a coupon rate of 4% once and 4.25% twice in 1918. This loan had 4 million subscribers, and offered 2 billion dollars while 3.035 billion dollars were subscribed, but only 2 billion dollars were accepted (Rockoff, 2012). An average of 759 dollars were subscribed (Kang, 2015).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> ipympl
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#%matplotlib ipympl</span>
 <span class="n">bond_ids</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">def</span> <span class="nf">summarize_only_first</span><span class="p">(</span><span class="n">bond_row</span><span class="p">):</span>
     <span class="n">noi</span> <span class="o">=</span> <span class="n">bond_row</span><span class="p">[</span><span class="s2">&quot;Treasury&#39;s Name Of Issue&quot;</span><span class="p">]</span>
@@ -690,18 +629,87 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="n">line</span> <span class="mi">10</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span>         <span class="k">return</span> <span class="n">summarize_bond</span><span class="p">(</span><span class="n">bond_row</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="k">return</span> <span class="n">bond_row</span>
-<span class="ne">---&gt; </span><span class="mi">10</span> <span class="n">liberty_loans</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">summarize_only_first</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="n">graph_public_for_bqs</span><span class="p">(</span><span class="n">bond_ids</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;First Liberty Loan(s) Public Holdings&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Done&quot;</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;liberty_loans&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bond #162: 1st Liberty Loan of 1917 (3.5%), issued 1917-06-30 00:00:00
+   Term: 30 years, Redeemable: 1932-06-15 00:00:00, Payable: 1947-06-15 00:00:00
+   Coupon: 3.5, Frequency: 2.0/year, Scheduled Month: June
+---------------------------------------------------
+Bond #163: 1st Liberty Loan Converted to 4%, issued 1918-11-30 00:00:00
+   Term: 30 years, Redeemable: 1932-06-15 00:00:00, Payable: 1947-06-15 00:00:00
+   Coupon: 4.0, Frequency: 2.0/year, Scheduled Month: June
+---------------------------------------------------
+Bond #164: 1st Liberty Loan Converted to 4.25%, issued 1918-11-30 00:00:00
+   Term: 30 years, Redeemable: 1932-06-15 00:00:00, Payable: 1947-06-15 00:00:00
+   Coupon: 4.25, Frequency: 2.0/year, Scheduled Month: June
+---------------------------------------------------
+Bond #165: 1st Liberty Loan Second Converted to 4.25%, issued 1918-10-24 00:00:00
+   Term: 30 years, Redeemable: 1932-06-15 00:00:00, Payable: 1947-06-15 00:00:00
+   Coupon: 4.25, Frequency: 2.0/year, Scheduled Month: June
+---------------------------------------------------
 </pre></div>
 </div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">12</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="k">return</span> <span class="n">bond_row</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">liberty_loans</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">summarize_only_first</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">12</span> <span class="n">graph_public_for_bqs</span><span class="p">(</span><span class="n">bond_ids</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;First Liberty Loan(s) Public Holdings&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Done&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="n">graph_avg_price</span><span class="p">(</span><span class="n">bond_ids</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;First Liberty Loan(s) Secondary Market Price&quot;</span><span class="p">)</span>
+
+<span class="nn">Cell In[6], line 10,</span> in <span class="ni">graph_public_for_bqs</span><span class="nt">(bond_ids, axes, title)</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">series</span> <span class="o">=</span> <span class="n">BondQuant_Transposed</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="nb">id</span><span class="p">,</span> <span class="s1">&#39;Public Holdings&#39;</span><span class="p">)]</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="n">series</span> <span class="o">=</span> <span class="n">series</span><span class="p">[</span><span class="n">series</span><span class="o">.</span><span class="n">notna</span><span class="p">()]</span>
+<span class="ne">---&gt; </span><span class="mi">10</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">series</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">current_ax</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span>                       <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;Time&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span>                       <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;Quantity of Bonds&quot;</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="s1">&#39;marker&#39;</span><span class="p">:</span> <span class="s1">&#39;.&#39;</span><span class="p">})</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="k">if</span> <span class="n">current_ax</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span> <span class="n">current_ax</span> <span class="o">=</span> <span class="n">ax</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="n">closer_date</span> <span class="o">=</span> <span class="n">series</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">series</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="n">series</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">series</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">closer_date</span> <span class="k">else</span> <span class="n">closer_date</span>
+
+<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas/plotting/_core.py:1069,</span> in <span class="ni">PlotAccessor.line</span><span class="nt">(self, x, y, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1004</span> <span class="nd">@Appender</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1005</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1006</span><span class="sd">     See Also</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1061</span><span class="sd"> @Appender(_bar_or_line_doc)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1062</span><span class="sd"> def line(self, x=None, y=None, **kwargs) -&gt; PlotAccessor:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1063</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1064</span>     <span class="n">Plot</span> <span class="n">Series</span> <span class="ow">or</span> <span class="n">DataFrame</span> <span class="k">as</span> <span class="n">lines</span><span class="o">.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1065</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1066</span>     <span class="n">This</span> <span class="n">function</span> <span class="ow">is</span> <span class="n">useful</span> <span class="n">to</span> <span class="n">plot</span> <span class="n">lines</span> <span class="n">using</span> <span class="n">DataFrame</span><span class="s1">&#39;s values</span>
+<span class="g g-Whitespace">   </span><span class="mi">1067</span>     <span class="k">as</span> <span class="n">coordinates</span><span class="o">.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1068</span>     <span class="s2">&quot;&quot;&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1069</span><span class="s2">     return self(kind=&quot;line&quot;, x=x, y=y, **kwargs)</span>
+
+<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas/plotting/_core.py:1000,</span> in <span class="ni">PlotAccessor.__call__</span><span class="nt">(self, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">997</span><span class="s2">             label_name = label_kw or data.columns</span>
+<span class="g g-Whitespace">    </span><span class="mi">998</span><span class="s2">             data.columns = label_name</span>
+<span class="ne">-&gt; </span><span class="mi">1000</span><span class="s2"> return plot_backend.plot(data, kind=kind, **kwargs)</span>
+
+<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas/plotting/_matplotlib/__init__.py:71,</span> in <span class="ni">plot</span><span class="nt">(data, kind, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">69</span><span class="s2">         kwargs[&quot;ax&quot;] = getattr(ax, &quot;left_ax&quot;, ax)</span>
+<span class="g g-Whitespace">     </span><span class="mi">70</span><span class="s2"> plot_obj = PLOT_CLASSES[kind](data, **kwargs)</span>
+<span class="ne">---&gt; </span><span class="mi">71</span><span class="s2"> plot_obj.generate()</span>
+<span class="g g-Whitespace">     </span><span class="mi">72</span><span class="s2"> plot_obj.draw()</span>
+<span class="g g-Whitespace">     </span><span class="mi">73</span><span class="s2"> return plot_obj.result</span>
+
+<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas/plotting/_matplotlib/core.py:454,</span> in <span class="ni">MPLPlot.generate</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">452</span><span class="s2"> self._make_plot()</span>
+<span class="g g-Whitespace">    </span><span class="mi">453</span><span class="s2"> self._add_table()</span>
+<span class="ne">--&gt; </span><span class="mi">454</span><span class="s2"> self._make_legend()</span>
+<span class="g g-Whitespace">    </span><span class="mi">455</span><span class="s2"> self._adorn_subplots()</span>
+<span class="g g-Whitespace">    </span><span class="mi">457</span><span class="s2"> for ax in self.axes:</span>
+
+<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas/plotting/_matplotlib/core.py:792,</span> in <span class="ni">MPLPlot._make_legend</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">790</span><span class="s2">     title = leg.get_title().get_text()</span>
+<span class="g g-Whitespace">    </span><span class="mi">791</span><span class="s2">     # Replace leg.LegendHandles because it misses marker info</span>
+<span class="ne">--&gt; </span><span class="mi">792</span><span class="s2">     handles = leg.legendHandles</span>
+<span class="g g-Whitespace">    </span><span class="mi">793</span><span class="s2">     labels = [x.get_text() for x in leg.get_texts()]</span>
+<span class="g g-Whitespace">    </span><span class="mi">795</span><span class="s2"> if self.legend:</span>
+
+<span class="ne">AttributeError</span>: &#39;Legend&#39; object has no attribute &#39;legendHandles&#39;
+</pre></div>
+</div>
+<img alt="_images/8f68884ac5f69d8caf1acfe56b7440e5f4414aedb67ab3afa050f446250e618f.png" src="_images/8f68884ac5f69d8caf1acfe56b7440e5f4414aedb67ab3afa050f446250e618f.png" />
 </div>
 </div>
 <p>Here, it is shown that in 1917, the quantity outstanding was at 1,466,335,094, before increasing to nearly 2,000,000,000 and staying around that price before decreasing to around 1,400,000,000 in 1919, staying at around that amount before suddenly decreasing to around 189,928,800.
@@ -712,7 +720,7 @@ The increase at the beginning can be attributed to many liberty bonds being sold
 <p>This loan was the second bond used to fund World War I. Much like the 1st bond, it had a convertible option; however, unlike the 1st loan, it could only be converted one time, (Kang, 2015). Thus, it was converted to having a coupon rate of 4.25% once in 1918. This loan had 9.4 Million subscribers, and offered 3 billion dollars while 4.618 billion dollars were subscribed, but only 3.809 billion dollars were accepted (Rockoff, 2012). An average of 491 dollars were subscribed (Kang, 2015).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> ipympl
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#%matplotlib ipympl</span>
 <span class="n">bond_ids</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">def</span> <span class="nf">summarize_only_first</span><span class="p">(</span><span class="n">bond_row</span><span class="p">):</span>
     <span class="n">noi</span> <span class="o">=</span> <span class="n">bond_row</span><span class="p">[</span><span class="s2">&quot;Treasury&#39;s Name Of Issue&quot;</span><span class="p">]</span>
@@ -728,18 +736,6 @@ The increase at the beginning can be attributed to many liberty bonds being sold
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bond #166: 2nd Liberty Loan of 1917 (4%), issued 1917-10-31 00:00:00
-   Term: 25 years, Redeemable: 1927-11-15 00:00:00, Payable: 1942-11-15 00:00:00
-   Coupon: 4.0, Frequency: 2.0/year, Scheduled Month: May
----------------------------------------------------
-Bond #167: 2nd Liberty Loan Converted to 4.25%, issued 1918-11-30 00:00:00
-   Term: 25 years, Redeemable: 1927-11-15 00:00:00, Payable: 1942-11-15 00:00:00
-   Coupon: 4.25, Frequency: 2.0/year, Scheduled Month: May
----------------------------------------------------
-</pre></div>
-</div>
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "a414a117eef94fcdba5347eac334b806", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "503154a5f94341b28fe23ac3593bbf76", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 </section>
 <section id="rd-liberty-loan">
@@ -747,7 +743,7 @@ Bond #167: 2nd Liberty Loan Converted to 4.25%, issued 1918-11-30 00:00:00
 <p>This loan was the third loan used to fund World War I. Unlike the first two loans, it didn’t have a convertible option (Kang, 2015). This loan had 18.377 million subscribers, and offered 3 billion dollars while 4.177 billion dollars were subscribed, and all 4.177 billion dollars were accepted (Rockoff, 2012). An average of 227 dollars were subscribed (Kang, 2015).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> ipympl
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#%matplotlib ipympl</span>
 <span class="n">bond_ids</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">def</span> <span class="nf">summarize_only_first</span><span class="p">(</span><span class="n">bond_row</span><span class="p">):</span>
     <span class="n">noi</span> <span class="o">=</span> <span class="n">bond_row</span><span class="p">[</span><span class="s2">&quot;Treasury&#39;s Name Of Issue&quot;</span><span class="p">]</span>
@@ -763,14 +759,6 @@ Bond #167: 2nd Liberty Loan Converted to 4.25%, issued 1918-11-30 00:00:00
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bond #168: 3rd Liberty Loan, issued 1918-05-31 00:00:00
-   Term: 10 years, Redeemable: NaT, Payable: 1928-09-15 00:00:00
-   Coupon: 4.25, Frequency: 2.0/year, Scheduled Month: March
----------------------------------------------------
-</pre></div>
-</div>
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "f0a2f148df5a427bab2eb9c02dd5962a", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "70f273337e2c4e03b3cdea6b9988a78c", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 </section>
 <section id="th-liberty-loan">
@@ -778,7 +766,7 @@ Bond #167: 2nd Liberty Loan Converted to 4.25%, issued 1918-11-30 00:00:00
 <p>This loan was the fourth loan used to fund World War I. Like the third loan, it didn’t have a convertible option (Kang, 2015). This loan had 22.778 Million subscribers, and offered 6 billion dollars while 6.959 billion dollars were subscribed, and all 6.959 billion dollars were accepted (Rockoff, 2012). An average of 306 dollars were subscribed (Kang, 2015).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> ipympl
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#%matplotlib ipympl</span>
 <span class="n">bond_ids</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">def</span> <span class="nf">summarize_only_first</span><span class="p">(</span><span class="n">bond_row</span><span class="p">):</span>
     <span class="n">noi</span> <span class="o">=</span> <span class="n">bond_row</span><span class="p">[</span><span class="s2">&quot;Treasury&#39;s Name Of Issue&quot;</span><span class="p">]</span>
@@ -794,14 +782,6 @@ Bond #167: 2nd Liberty Loan Converted to 4.25%, issued 1918-11-30 00:00:00
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bond #169: 4th Liberty Loan, issued 1918-09-30 00:00:00
-   Term: 20 years, Redeemable: 1933-10-15 00:00:00, Payable: 1938-10-15 00:00:00
-   Coupon: 4.25, Frequency: 2.0/year, Scheduled Month: April
----------------------------------------------------
-</pre></div>
-</div>
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "5f8497c6d11845998bdf1db777dc2750", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "7b76f8405670488c983eaf0a5597b10b", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 </section>
 <section id="victory-loans">
@@ -809,7 +789,7 @@ Bond #167: 2nd Liberty Loan Converted to 4.25%, issued 1918-11-30 00:00:00
 <p>These were victory loans used after WWI. This differs from the other bonds as they were issued after WWI rather than during it. Like the third and fourth loans, they didn’t have convertible options (Kang, 2015). These loans had 11.803 million subscribers, and offered 4.5 billion dollars while 5.25 billion dollars were subscribed, and only 4.5 billion dollars were accepted (Rockoff, 2012). An average of 445 dollars were subscribed (Kang, 2015).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> ipympl
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#%matplotlib ipympl</span>
 <span class="n">bond_ids</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">def</span> <span class="nf">summarize_only_first</span><span class="p">(</span><span class="n">bond_row</span><span class="p">):</span>
     <span class="n">noi</span> <span class="o">=</span> <span class="n">bond_row</span><span class="p">[</span><span class="s2">&quot;Treasury&#39;s Name Of Issue&quot;</span><span class="p">]</span>
@@ -825,27 +805,6 @@ Bond #167: 2nd Liberty Loan Converted to 4.25%, issued 1918-11-30 00:00:00
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bond #170: Victory Liberty Loan (4 3/4%), issued 1919-05-20 00:00:00
-   Term: 4 years, Redeemable: 1922-06-15 00:00:00, Payable: 1923-05-20 00:00:00
-   Coupon: 4.75, Frequency: 2.0/year, Scheduled Month: June
----------------------------------------------------
-Bond #171: Victory Liberty Loan (3 3/4%), issued 1919-05-20 00:00:00
-   Term: 4 years, Redeemable: 1922-12-15 00:00:00, Payable: 1923-05-20 00:00:00
-   Coupon: 3.75, Frequency: 2.0/year, Scheduled Month: June
----------------------------------------------------
-Bond #176: Vic Lib Loan 4.75s, called, issued 1919-05-20 00:00:00
-   No further information
-Bond #177: Vic Lib Loan 4.75s, 1922-23, issued 1919-05-20 00:00:00
-   No further information
-Bond #178: Vic Lib Loan 4.75 of 1922-1923 and 3.75 of 1922-1923, issued 1919-05-20 00:00:00
-   No further information
-</pre></div>
-</div>
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "7ae4112d128c4021b5bf315827e708f3", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning: bond Vic Lib Loan 4.75 of 1922-1923 and 3.75 of 1922-1923 could not be graphed, no prices are recorded
-</pre></div>
-</div>
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "bd795d0a19fe49418732ae064cb7fef9", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 </section>
 <section id="price-drop-in-1920-1921">
@@ -1103,7 +1062,7 @@ Bond #178: Vic Lib Loan 4.75 of 1922-1923 and 3.75 of 1922-1923, issued 1919-05-
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Bond Biography: The Currency Sixes</p>
+        <p class="prev-next-title">The Currency Sixes</p>
       </div>
     </a>
     <a class="right-next"
