@@ -11,5 +11,5 @@ Explore the team's analyses of US Treasury bonds through the following sections.
 - [The Liberty and Victory Loans Issued to Fund World War I](./ww1_vic_lib.ipynb) by Liam and Elan
 
 <iframe width="640" height="480"
-    src="https://www.youtube.com/watch?v=VhE1DWHOvQQ">
+    src="https://www.youtube.com/embed/VhE1DWHOvQQ">
 </iframe>
