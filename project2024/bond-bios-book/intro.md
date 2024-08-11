@@ -5,11 +5,11 @@ This Jupyter Book is crafted to explore the bond biographies compiled by the 202
 ## Bond Bios
 
 Explore the team's analyses of US Treasury bonds through the following sections. These notebooks are listed in chronological order. 
-- [Louisiana Purchase Bonds](./Final%20Louisiana%20Purchase%20Bonds%20Notebook.ipynb) by Sid and Jihan
-- [The Currency Sixes](./BondBios%20-%20The%20Currency%20Sixes.ipynb) by Sanjeev and Elizabeth
+- [Louisiana Purchase Bonds](./louisiana_purchase.ipynb) by Sid and Jihan
+- [The Currency Sixes](./currency_sixes.ipynb) by Sanjeev and Elizabeth
 - [War of 1812 Bonds and Treasury Notes](./war_1812.ipynb) by David and Alex
 - [The Liberty and Victory Loans Issued to Fund World War I](./ww1_vic_lib.ipynb) by Liam and Elan
-- [5-20s of the Civil War](./5-20s%20bonds%20(1).ipynb)
+- [5-20s of the Civil War](./520s.ipynb)
 
 <iframe width="640" height="480"
     src="https://www.youtube.com/embed/VhE1DWHOvQQ">
