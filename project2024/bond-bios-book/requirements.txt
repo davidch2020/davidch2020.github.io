@@ -1,6 +1,5 @@
 jupyter-book
-matplotlib
-numpy==1.26.4
+numpy
 pandas
 ipywidgets
 mplcursors
@@ -10,5 +9,5 @@ matplotlib==3.8.2
 seaborn
 openpyxl
 ipympl
-Functions
+
 

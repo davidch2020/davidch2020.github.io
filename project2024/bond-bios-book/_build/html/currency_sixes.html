@@ -57,6 +57,9 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script type="application/vnd.jupyter.widget-state+json">{"state": {"d736b2e0228c4bff85168ea6e7ba138d": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "dad7deaa831f463ea48d5f3245c6999b": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "description_width": ""}}, "95717ec5b7f04f508482170952bed47b": {"model_name": "DropdownModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "DropdownModel", "_options_labels": ["Combined Price", "Combined Yield", "Individual Price", "Individual Yield"], "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "DropdownView", "description": "View:", "description_allow_html": false, "disabled": false, "index": 0, "layout": "IPY_MODEL_d736b2e0228c4bff85168ea6e7ba138d", "style": "IPY_MODEL_dad7deaa831f463ea48d5f3245c6999b", "tabbable": null, "tooltip": null}}}, "version_major": 2, "version_minor": 0}</script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script crossorigin="anonymous" data-jupyter-widgets-cdn="https://cdn.jsdelivr.net/npm/" src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@1.0.6/dist/embed-amd.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'currency_sixes';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -454,120 +457,11 @@ document.write(`
         <span class="k">if</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">event</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">])</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">:</span>
             <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Date&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">event</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">])]})],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;Date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">interpolate</span><span class="p">()</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;ffill&#39;</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">df</span>
 
 <span class="n">bond_prices</span> <span class="o">=</span> <span class="n">add_notable_events</span><span class="p">(</span><span class="n">bond_prices</span><span class="p">,</span> <span class="n">notable_events</span><span class="p">)</span>
 <span class="n">bond_yields</span> <span class="o">=</span> <span class="n">add_notable_events</span><span class="p">(</span><span class="n">bond_yields</span><span class="p">,</span> <span class="n">notable_events</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">17</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span>     <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">interpolate</span><span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">15</span>     <span class="k">return</span> <span class="n">df</span>
-<span class="ne">---&gt; </span><span class="mi">17</span> <span class="n">bond_prices</span> <span class="o">=</span> <span class="n">add_notable_events</span><span class="p">(</span><span class="n">bond_prices</span><span class="p">,</span> <span class="n">notable_events</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="n">bond_yields</span> <span class="o">=</span> <span class="n">add_notable_events</span><span class="p">(</span><span class="n">bond_yields</span><span class="p">,</span> <span class="n">notable_events</span><span class="p">)</span>
-
-<span class="nn">Cell In[3], line 14,</span> in <span class="ni">add_notable_events</span><span class="nt">(df, events)</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span>         <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Date&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">event</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">])]})],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;Date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">14</span> <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">interpolate</span><span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="k">return</span> <span class="n">df</span>
-
-<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas/util/_decorators.py:331,</span> in <span class="ni">deprecate_nonkeyword_arguments.&lt;locals&gt;.decorate.&lt;locals&gt;.wrapper</span><span class="nt">(*args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">325</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">num_allow_args</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">326</span>     <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">327</span>         <span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">arguments</span><span class="o">=</span><span class="n">_format_argument_list</span><span class="p">(</span><span class="n">allow_args</span><span class="p">)),</span>
-<span class="g g-Whitespace">    </span><span class="mi">328</span>         <span class="ne">FutureWarning</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">329</span>         <span class="n">stacklevel</span><span class="o">=</span><span class="n">find_stack_level</span><span class="p">(),</span>
-<span class="g g-Whitespace">    </span><span class="mi">330</span>     <span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">331</span> <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas/core/frame.py:11855,</span> in <span class="ni">DataFrame.interpolate</span><span class="nt">(self, method, axis, limit, inplace, limit_direction, limit_area, downcast, **kwargs)</span>
-<span class="g g-Whitespace">  </span><span class="mi">11843</span> <span class="nd">@deprecate_nonkeyword_arguments</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">allowed_args</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;self&quot;</span><span class="p">,</span> <span class="s2">&quot;method&quot;</span><span class="p">])</span>
-<span class="g g-Whitespace">  </span><span class="mi">11844</span> <span class="k">def</span> <span class="nf">interpolate</span><span class="p">(</span>
-<span class="g g-Whitespace">  </span><span class="mi">11845</span>     <span class="bp">self</span><span class="p">:</span> <span class="n">DataFrame</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">  </span><span class="mi">11853</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-<span class="g g-Whitespace">  </span><span class="mi">11854</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
-<span class="ne">&gt; </span><span class="mi">11855</span>     <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span>
-<span class="g g-Whitespace">  </span><span class="mi">11856</span>         <span class="n">method</span><span class="p">,</span>
-<span class="g g-Whitespace">  </span><span class="mi">11857</span>         <span class="n">axis</span><span class="p">,</span>
-<span class="g g-Whitespace">  </span><span class="mi">11858</span>         <span class="n">limit</span><span class="p">,</span>
-<span class="g g-Whitespace">  </span><span class="mi">11859</span>         <span class="n">inplace</span><span class="p">,</span>
-<span class="g g-Whitespace">  </span><span class="mi">11860</span>         <span class="n">limit_direction</span><span class="p">,</span>
-<span class="g g-Whitespace">  </span><span class="mi">11861</span>         <span class="n">limit_area</span><span class="p">,</span>
-<span class="g g-Whitespace">  </span><span class="mi">11862</span>         <span class="n">downcast</span><span class="p">,</span>
-<span class="g g-Whitespace">  </span><span class="mi">11863</span>         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-<span class="g g-Whitespace">  </span><span class="mi">11864</span>     <span class="p">)</span>
-
-<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas/core/generic.py:7568,</span> in <span class="ni">NDFrame.interpolate</span><span class="nt">(self, method, axis, limit, inplace, limit_direction, limit_area, downcast, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">7562</span> <span class="k">if</span> <span class="n">isna</span><span class="p">(</span><span class="n">index</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
-<span class="g g-Whitespace">   </span><span class="mi">7563</span>     <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">7564</span>         <span class="s2">&quot;Interpolation with NaNs in the index &quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">7565</span>         <span class="s2">&quot;has not been implemented. Try filling &quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">7566</span>         <span class="s2">&quot;those NaNs before interpolating.&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">7567</span>     <span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">7568</span> <span class="n">new_data</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">_mgr</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">7569</span>     <span class="n">method</span><span class="o">=</span><span class="n">method</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">7570</span>     <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">7571</span>     <span class="n">index</span><span class="o">=</span><span class="n">index</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">7572</span>     <span class="n">limit</span><span class="o">=</span><span class="n">limit</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">7573</span>     <span class="n">limit_direction</span><span class="o">=</span><span class="n">limit_direction</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">7574</span>     <span class="n">limit_area</span><span class="o">=</span><span class="n">limit_area</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">7575</span>     <span class="n">inplace</span><span class="o">=</span><span class="n">inplace</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">7576</span>     <span class="n">downcast</span><span class="o">=</span><span class="n">downcast</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">7577</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">7578</span> <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">7580</span> <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_constructor</span><span class="p">(</span><span class="n">new_data</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">7581</span> <span class="k">if</span> <span class="n">should_transpose</span><span class="p">:</span>
-
-<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas/core/internals/managers.py:422,</span> in <span class="ni">BaseBlockManager.interpolate</span><span class="nt">(self, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">421</span> <span class="k">def</span> <span class="nf">interpolate</span><span class="p">(</span><span class="bp">self</span><span class="p">:</span> <span class="n">T</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">422</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="s2">&quot;interpolate&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas/core/internals/managers.py:352,</span> in <span class="ni">BaseBlockManager.apply</span><span class="nt">(self, f, align_keys, ignore_failures, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">350</span>         <span class="n">applied</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">351</span>     <span class="k">else</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">352</span>         <span class="n">applied</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">f</span><span class="p">)(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">353</span> <span class="k">except</span> <span class="p">(</span><span class="ne">TypeError</span><span class="p">,</span> <span class="ne">NotImplementedError</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">354</span>     <span class="k">if</span> <span class="ow">not</span> <span class="n">ignore_failures</span><span class="p">:</span>
-
-<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas/core/internals/blocks.py:1619,</span> in <span class="ni">EABackedBlock.interpolate</span><span class="nt">(self, method, axis, inplace, limit, fill_value, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1617</span>     <span class="n">new_values</span> <span class="o">=</span> <span class="n">values</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">fill_value</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="n">method</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="n">limit</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
-<span class="g g-Whitespace">   </span><span class="mi">1618</span> <span class="k">else</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1619</span>     <span class="n">new_values</span> <span class="o">=</span> <span class="n">values</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">fill_value</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="n">method</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="n">limit</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1620</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">make_block_same_class</span><span class="p">(</span><span class="n">new_values</span><span class="p">)</span>
-
-<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas/core/arrays/_mixins.py:317,</span> in <span class="ni">NDArrayBackedExtensionArray.fillna</span><span class="nt">(self, value, method, limit)</span>
-<span class="g g-Whitespace">    </span><span class="mi">313</span> <span class="nd">@doc</span><span class="p">(</span><span class="n">ExtensionArray</span><span class="o">.</span><span class="n">fillna</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">314</span> <span class="k">def</span> <span class="nf">fillna</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">315</span>     <span class="bp">self</span><span class="p">:</span> <span class="n">NDArrayBackedExtensionArrayT</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="kc">None</span>
-<span class="g g-Whitespace">    </span><span class="mi">316</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NDArrayBackedExtensionArrayT</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">317</span>     <span class="n">value</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="n">validate_fillna_kwargs</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">318</span>         <span class="n">value</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">validate_scalar_dict_value</span><span class="o">=</span><span class="kc">False</span>
-<span class="g g-Whitespace">    </span><span class="mi">319</span>     <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">321</span>     <span class="n">mask</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">322</span>     <span class="c1"># error: Argument 2 to &quot;check_value_size&quot; has incompatible type</span>
-<span class="g g-Whitespace">    </span><span class="mi">323</span>     <span class="c1"># &quot;ExtensionArray&quot;; expected &quot;ndarray&quot;</span>
-
-<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas/util/_validators.py:390,</span> in <span class="ni">validate_fillna_kwargs</span><span class="nt">(value, method, validate_scalar_dict_value)</span>
-<span class="g g-Whitespace">    </span><span class="mi">388</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Must specify a fill &#39;value&#39; or &#39;method&#39;.&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">389</span> <span class="k">elif</span> <span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">method</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">390</span>     <span class="n">method</span> <span class="o">=</span> <span class="n">clean_fill_method</span><span class="p">(</span><span class="n">method</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">392</span> <span class="k">elif</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">method</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">393</span>     <span class="k">if</span> <span class="n">validate_scalar_dict_value</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)):</span>
-
-<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas/core/missing.py:125,</span> in <span class="ni">clean_fill_method</span><span class="nt">(method, allow_nearest)</span>
-<span class="g g-Whitespace">    </span><span class="mi">123</span>     <span class="n">expecting</span> <span class="o">=</span> <span class="s2">&quot;pad (ffill), backfill (bfill) or nearest&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">124</span> <span class="k">if</span> <span class="n">method</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">valid_methods</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">125</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Invalid fill method. Expecting </span><span class="si">{</span><span class="n">expecting</span><span class="si">}</span><span class="s2">. Got </span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">126</span> <span class="k">return</span> <span class="n">method</span>
-
-<span class="ne">ValueError</span>: Invalid fill method. Expecting pad (ffill) or backfill (bfill). Got linear
 </pre></div>
 </div>
 </div>
@@ -613,8 +507,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6e1f08178ba8b46cd40a3b29f9825340e8f22973c4ea08a6621d403a7da9f918.png" src="_images/6e1f08178ba8b46cd40a3b29f9825340e8f22973c4ea08a6621d403a7da9f918.png" />
-<img alt="_images/f503d053b607f3c695cf72fa45651577b0796d2577733d65073afe86e65e4e39.png" src="_images/f503d053b607f3c695cf72fa45651577b0796d2577733d65073afe86e65e4e39.png" />
+<img alt="_images/1050c8758f28ebd831b81cafecf10eb6af265a661c6a27832794d68f43dbd74f.png" src="_images/1050c8758f28ebd831b81cafecf10eb6af265a661c6a27832794d68f43dbd74f.png" />
+<img alt="_images/90a8563493f98d2d610397115d5379877dfe179085a6b6dce72de6c8f85ef0f9.png" src="_images/90a8563493f98d2d610397115d5379877dfe179085a6b6dce72de6c8f85ef0f9.png" />
 </div>
 </div>
 </section>
@@ -670,7 +564,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ecbb4d534391b3d4af9228db93f4389cb7376303e5455e26645848c6db45bc12.png" src="_images/ecbb4d534391b3d4af9228db93f4389cb7376303e5455e26645848c6db45bc12.png" />
+<img alt="_images/51b05140ba2d46bab3a2cddc63a57ce49c5cc2d4ea1808e970ce0499643157e3.png" src="_images/51b05140ba2d46bab3a2cddc63a57ce49c5cc2d4ea1808e970ce0499643157e3.png" />
 </div>
 </div>
 </section>
@@ -794,8 +688,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/2b7533755733a78ff27668dff01dd82655b764ff63364a4fdd11dc7d700dbea0.png" src="_images/2b7533755733a78ff27668dff01dd82655b764ff63364a4fdd11dc7d700dbea0.png" />
-<img alt="_images/88e825b204dac1b9c8e0954df262f8cf39c9b4b07a2a9c722053ae79bc79e46d.png" src="_images/88e825b204dac1b9c8e0954df262f8cf39c9b4b07a2a9c722053ae79bc79e46d.png" />
+<img alt="_images/944c7b6e81e5169274d41bd0603a3a6ee617a40db4500c55a8e39d62113a4e20.png" src="_images/944c7b6e81e5169274d41bd0603a3a6ee617a40db4500c55a8e39d62113a4e20.png" />
+<img alt="_images/dfac57f56c7e3269183c058663b8d0c84ff0e2fc2f0cf30ba2ad3a5f1233bf87.png" src="_images/dfac57f56c7e3269183c058663b8d0c84ff0e2fc2f0cf30ba2ad3a5f1233bf87.png" />
 </div>
 </div>
 </section>
@@ -882,11 +776,6 @@ document.write(`
 <span class="n">view_options</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Combined Price&#39;</span><span class="p">,</span> <span class="s1">&#39;Combined Yield&#39;</span><span class="p">,</span> <span class="s1">&#39;Individual Price&#39;</span><span class="p">,</span> <span class="s1">&#39;Individual Yield&#39;</span><span class="p">]</span>
 <span class="n">view_dropdown</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span><span class="n">options</span><span class="o">=</span><span class="n">view_options</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;View:&#39;</span><span class="p">)</span>
 <span class="c1">#interact(display_graphs, view_type=view_dropdown)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "db8943b3c8d5422682a33c0a34f97c88", "version_major": 2, "version_minor": 0}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.display_graphs(view_type)&gt;
 </pre></div>
 </div>
 </div>

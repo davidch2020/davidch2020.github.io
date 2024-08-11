@@ -367,26 +367,12 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">datetime</span> <span class="k">as</span> <span class="nn">dt</span>
-<span class="ne">----&gt; </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">Functions</span> <span class="kn">import</span> <span class="p">(</span>  <span class="n">import_csv_BondList</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span>                         <span class="n">import_csv_BondTimeSeries</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;Functions&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <section id="bond-list">
 <h2>Bond List<a class="headerlink" href="#bond-list" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">BondListC</span> <span class="o">=</span> <span class="n">import_csv_BondList</span><span class="p">(</span><span class="s1">&#39;DataFrames/BondList.csv&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">BondListC</span> <span class="o">=</span> <span class="n">import_csv_BondList</span><span class="p">(</span><span class="s1">&#39;data/BondList.csv&#39;</span><span class="p">)</span>
 <span class="n">BondListC</span><span class="p">[</span><span class="s1">&#39;First Issue Date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">();</span>
 <span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">BondListC</span><span class="p">[</span><span class="s1">&#39;First Issue Date&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">1862</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">BondListC</span><span class="p">[</span><span class="s1">&#39;First Issue Date&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">1872</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
 </pre></div>
@@ -411,7 +397,7 @@ document.write(`
 <h2>Bond Quantity<a class="headerlink" href="#bond-quantity" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">BondQuantC</span> <span class="o">=</span> <span class="n">import_csv_BondTimeSeries</span><span class="p">(</span><span class="s1">&#39;DataFrames/BondQuant.csv&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">BondQuantC</span> <span class="o">=</span> <span class="n">import_csv_BondTimeSeries</span><span class="p">(</span><span class="s1">&#39;data/BondQuant.csv&#39;</span><span class="p">)</span>
 <span class="n">BondQuantC</span><span class="o">.</span><span class="n">head</span><span class="p">();</span>
 </pre></div>
 </div>
@@ -440,7 +426,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/184b680601d1d5d9f5feb83377a57686bfefee4f35e3d638c345a796de8536e5.png" src="_images/184b680601d1d5d9f5feb83377a57686bfefee4f35e3d638c345a796de8536e5.png" />
+<img alt="_images/0cd6934a26bbff6ee4716843c4741c8f433f57ff0554c6a3161e9d8bc4b05f09.png" src="_images/0cd6934a26bbff6ee4716843c4741c8f433f57ff0554c6a3161e9d8bc4b05f09.png" />
 </div>
 </div>
 <p>Initial sales were slow but picked up pace when Jay Cooke acted as a broker and advertiser, selling the bonds to the public. Starting in 1869, the government retired most of the 5-20s bonds, refinancing them with 4.5 percent, 30-year bonds and 4 percent, 15-year bonds. By 1877, all the 5-20s bonds had been redeemed.</p>
@@ -491,7 +477,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/14a4be3b96ce9ccc73ea586902e5134aa5ebad5ef4e306c845bbc8a827e268e3.png" src="_images/14a4be3b96ce9ccc73ea586902e5134aa5ebad5ef4e306c845bbc8a827e268e3.png" />
+<img alt="_images/37cdbc191cedb1e279b624b322c0206be2fac5170dcd01a30ff767ac259b3a36.png" src="_images/37cdbc191cedb1e279b624b322c0206be2fac5170dcd01a30ff767ac259b3a36.png" />
 </div>
 </div>
 <p>February 25th - May 1st
@@ -538,7 +524,7 @@ i. There was a succession of Union victories from September 1863 until the yearâ
 <h2>Bond Price<a class="headerlink" href="#bond-price" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">BondPriceC</span> <span class="o">=</span> <span class="n">import_csv_BondTimeSeries</span><span class="p">(</span><span class="s1">&#39;DataFrames/BondPrice.csv&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">BondPriceC</span> <span class="o">=</span> <span class="n">import_csv_BondTimeSeries</span><span class="p">(</span><span class="s1">&#39;data/BondPrice.csv&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -564,7 +550,7 @@ i. There was a succession of Union victories from September 1863 until the yearâ
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6f0ac9c51c6d2948ac9f052ccbe8c3132e494e603b5e2fe9c0c8804faac5a68e.png" src="_images/6f0ac9c51c6d2948ac9f052ccbe8c3132e494e603b5e2fe9c0c8804faac5a68e.png" />
+<img alt="_images/3f72bcded8d4c28988411fed71a550f12e8f3f8e0ab035761bc5adba9f47ae6d.png" src="_images/3f72bcded8d4c28988411fed71a550f12e8f3f8e0ab035761bc5adba9f47ae6d.png" />
 </div>
 </div>
 <p>In the first few years upon issuance, the climb in prices was because the 5-20s were seen as a method of currency exchange (it could be purchased in Greenbacks but was advertised to be redeemable in gold). Thus as the value of greenbacks relative to gold depreciated, the prices of 5-20s rose. In later years, starting from the 1870s, interest rates fell, which made the 5-20s a more attractive investment.</p>
@@ -592,7 +578,7 @@ Because gold was considered more valuable compared to greenbacks the bonds becam
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/9c829ec4ae66b18054dd7d232a94c7bbd17b5248469b161ceaaa78f5e6af751f.png" src="_images/9c829ec4ae66b18054dd7d232a94c7bbd17b5248469b161ceaaa78f5e6af751f.png" />
+<img alt="_images/5616eaa6e9f0c03694e2ae0453d5e9b4424dad6d9a528b86c9b35077ca923106.png" src="_images/5616eaa6e9f0c03694e2ae0453d5e9b4424dad6d9a528b86c9b35077ca923106.png" />
 </div>
 </div>
 <ol class="arabic simple">
