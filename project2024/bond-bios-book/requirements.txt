@@ -9,3 +9,4 @@ tables
 matplotlib
 seaborn
 openpyxl
+ipympl
