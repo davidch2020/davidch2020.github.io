@@ -1,20 +1,20 @@
 Traceback (most recent call last):
-  File "/Users/davidcho/Documents/python_scripts/bond_analysis/lib/python3.12/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
     executenb(
-  File "/Users/davidcho/Documents/python_scripts/bond_analysis/lib/python3.12/site-packages/nbclient/client.py", line 1314, in execute
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/nbclient/client.py", line 1314, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/davidcho/Documents/python_scripts/bond_analysis/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
     return loop.run_until_complete(inner)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
     return future.result()
            ^^^^^^^^^^^^^^^
-  File "/Users/davidcho/Documents/python_scripts/bond_analysis/lib/python3.12/site-packages/nbclient/client.py", line 709, in async_execute
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/nbclient/client.py", line 709, in async_execute
     await self.async_execute_cell(
-  File "/Users/davidcho/Documents/python_scripts/bond_analysis/lib/python3.12/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/nbclient/client.py", line 1062, in async_execute_cell
     await self._check_raise_for_error(cell, cell_index, exec_reply)
-  File "/Users/davidcho/Documents/python_scripts/bond_analysis/lib/python3.12/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
@@ -27,33 +27,13 @@ Bondh5.close()
 
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-File [0;32m~/Documents/python_scripts/bond_analysis/lib/python3.12/site-packages/pandas/compat/_optional.py:135[0m, in [0;36mimport_optional_dependency[0;34m(name, extra, errors, min_version)[0m
-[1;32m    134[0m [38;5;28;01mtry[39;00m:
-[0;32m--> 135[0m     module [38;5;241m=[39m [43mimportlib[49m[38;5;241;43m.[39;49m[43mimport_module[49m[43m([49m[43mname[49m[43m)[49m
-[1;32m    136[0m [38;5;28;01mexcept[39;00m [38;5;167;01mImportError[39;00m:
-
-File [0;32m/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/importlib/__init__.py:90[0m, in [0;36mimport_module[0;34m(name, package)[0m
-[1;32m     89[0m         level [38;5;241m+[39m[38;5;241m=[39m [38;5;241m1[39m
-[0;32m---> 90[0m [38;5;28;01mreturn[39;00m [43m_bootstrap[49m[38;5;241;43m.[39;49m[43m_gcd_import[49m[43m([49m[43mname[49m[43m[[49m[43mlevel[49m[43m:[49m[43m][49m[43m,[49m[43m [49m[43mpackage[49m[43m,[49m[43m [49m[43mlevel[49m[43m)[49m
-
-File [0;32m<frozen importlib._bootstrap>:1387[0m, in [0;36m_gcd_import[0;34m(name, package, level)[0m
-
-File [0;32m<frozen importlib._bootstrap>:1360[0m, in [0;36m_find_and_load[0;34m(name, import_)[0m
-
-File [0;32m<frozen importlib._bootstrap>:1324[0m, in [0;36m_find_and_load_unlocked[0;34m(name, import_)[0m
-
-[0;31mModuleNotFoundError[0m: No module named 'tables'
-
-During handling of the above exception, another exception occurred:
-
-[0;31mImportError[0m                               Traceback (most recent call last)
+[0;31mValueError[0m                                Traceback (most recent call last)
 Cell [0;32mIn[2], line 1[0m
 [0;32m----> 1[0m Bondh5 [38;5;241m=[39m [43mpd[49m[38;5;241;43m.[39;49m[43mHDFStore[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43mdata/BondDF.h5[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[43mmode[49m[38;5;241;43m=[39;49m[38;5;124;43m"[39;49m[38;5;124;43mr[39;49m[38;5;124;43m"[39;49m[43m)[49m
 [1;32m      2[0m BondList [38;5;241m=[39m Bondh5[[38;5;124m"[39m[38;5;124mBondList[39m[38;5;124m"[39m]
 [1;32m      3[0m BondQuant [38;5;241m=[39m Bondh5[[38;5;124m"[39m[38;5;124mBondQuant[39m[38;5;124m"[39m]
 
-File [0;32m~/Documents/python_scripts/bond_analysis/lib/python3.12/site-packages/pandas/io/pytables.py:566[0m, in [0;36mHDFStore.__init__[0;34m(self, path, mode, complevel, complib, fletcher32, **kwargs)[0m
+File [0;32m/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas/io/pytables.py:566[0m, in [0;36mHDFStore.__init__[0;34m(self, path, mode, complevel, complib, fletcher32, **kwargs)[0m
 [1;32m    563[0m [38;5;28;01mif[39;00m [38;5;124m"[39m[38;5;124mformat[39m[38;5;124m"[39m [38;5;129;01min[39;00m kwargs:
 [1;32m    564[0m     [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m([38;5;124m"[39m[38;5;124mformat is not a defined argument for HDFStore[39m[38;5;124m"[39m)
 [0;32m--> 566[0m tables [38;5;241m=[39m [43mimport_optional_dependency[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43mtables[39;49m[38;5;124;43m"[39;49m[43m)[49m
@@ -62,12 +42,42 @@ File [0;32m~/Documents/python_scripts/bond_analysis/lib/python3.12/site-package
 [1;32m    570[0m         [38;5;124mf[39m[38;5;124m"[39m[38;5;124mcomplib only supports [39m[38;5;132;01m{[39;00mtables[38;5;241m.[39mfilters[38;5;241m.[39mall_complibs[38;5;132;01m}[39;00m[38;5;124m compression.[39m[38;5;124m"[39m
 [1;32m    571[0m     )
 
-File [0;32m~/Documents/python_scripts/bond_analysis/lib/python3.12/site-packages/pandas/compat/_optional.py:138[0m, in [0;36mimport_optional_dependency[0;34m(name, extra, errors, min_version)[0m
+File [0;32m/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas/compat/_optional.py:135[0m, in [0;36mimport_optional_dependency[0;34m(name, extra, errors, min_version)[0m
+[1;32m    130[0m msg [38;5;241m=[39m (
+[1;32m    131[0m     [38;5;124mf[39m[38;5;124m"[39m[38;5;124mMissing optional dependency [39m[38;5;124m'[39m[38;5;132;01m{[39;00minstall_name[38;5;132;01m}[39;00m[38;5;124m'[39m[38;5;124m. [39m[38;5;132;01m{[39;00mextra[38;5;132;01m}[39;00m[38;5;124m [39m[38;5;124m"[39m
+[1;32m    132[0m     [38;5;124mf[39m[38;5;124m"[39m[38;5;124mUse pip or conda to install [39m[38;5;132;01m{[39;00minstall_name[38;5;132;01m}[39;00m[38;5;124m.[39m[38;5;124m"[39m
+[1;32m    133[0m )
+[1;32m    134[0m [38;5;28;01mtry[39;00m:
+[0;32m--> 135[0m     module [38;5;241m=[39m [43mimportlib[49m[38;5;241;43m.[39;49m[43mimport_module[49m[43m([49m[43mname[49m[43m)[49m
 [1;32m    136[0m [38;5;28;01mexcept[39;00m [38;5;167;01mImportError[39;00m:
 [1;32m    137[0m     [38;5;28;01mif[39;00m errors [38;5;241m==[39m [38;5;124m"[39m[38;5;124mraise[39m[38;5;124m"[39m:
-[0;32m--> 138[0m         [38;5;28;01mraise[39;00m [38;5;167;01mImportError[39;00m(msg)
-[1;32m    139[0m     [38;5;28;01mreturn[39;00m [38;5;28;01mNone[39;00m
-[1;32m    141[0m [38;5;66;03m# Handle submodules: if we have submodule, grab parent module from sys.modules[39;00m
 
-[0;31mImportError[0m: Missing optional dependency 'pytables'.  Use pip or conda to install pytables.
+File [0;32m/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/importlib/__init__.py:90[0m, in [0;36mimport_module[0;34m(name, package)[0m
+[1;32m     88[0m             [38;5;28;01mbreak[39;00m
+[1;32m     89[0m         level [38;5;241m+[39m[38;5;241m=[39m [38;5;241m1[39m
+[0;32m---> 90[0m [38;5;28;01mreturn[39;00m [43m_bootstrap[49m[38;5;241;43m.[39;49m[43m_gcd_import[49m[43m([49m[43mname[49m[43m[[49m[43mlevel[49m[43m:[49m[43m][49m[43m,[49m[43m [49m[43mpackage[49m[43m,[49m[43m [49m[43mlevel[49m[43m)[49m
+
+File [0;32m<frozen importlib._bootstrap>:1387[0m, in [0;36m_gcd_import[0;34m(name, package, level)[0m
+
+File [0;32m<frozen importlib._bootstrap>:1360[0m, in [0;36m_find_and_load[0;34m(name, import_)[0m
+
+File [0;32m<frozen importlib._bootstrap>:1331[0m, in [0;36m_find_and_load_unlocked[0;34m(name, import_)[0m
+
+File [0;32m<frozen importlib._bootstrap>:935[0m, in [0;36m_load_unlocked[0;34m(spec)[0m
+
+File [0;32m<frozen importlib._bootstrap_external>:995[0m, in [0;36mexec_module[0;34m(self, module)[0m
+
+File [0;32m<frozen importlib._bootstrap>:488[0m, in [0;36m_call_with_frames_removed[0;34m(f, *args, **kwds)[0m
+
+File [0;32m/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/tables/__init__.py:44[0m
+[1;32m     40[0m     [38;5;28;01mraise[39;00m [38;5;167;01mRuntimeError[39;00m([38;5;124m"[39m[38;5;124mBlosc2 library not found. [39m[38;5;124m"[39m
+[1;32m     41[0m                        [38;5;124mf[39m[38;5;124m"[39m[38;5;124mI looked for [39m[38;5;130;01m\"[39;00m[38;5;132;01m{[39;00m[38;5;124m'[39m[38;5;124m, [39m[38;5;124m'[39m[38;5;241m.[39mjoin(blosc2_search_paths)[38;5;132;01m}[39;00m[38;5;130;01m\"[39;00m[38;5;124m"[39m)
+[1;32m     43[0m [38;5;66;03m# Necessary imports to get versions stored on the cython extension[39;00m
+[0;32m---> 44[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01mutilsextension[39;00m [38;5;28;01mimport[39;00m get_hdf5_version [38;5;28;01mas[39;00m _get_hdf5_version
+[1;32m     46[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01m_version[39;00m [38;5;28;01mimport[39;00m __version__
+[1;32m     48[0m hdf5_version [38;5;241m=[39m _get_hdf5_version()
+
+File [0;32m/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/tables/utilsextension.pyx:1[0m, in [0;36minit tables.utilsextension[0;34m()[0m
+
+[0;31mValueError[0m: numpy.dtype size changed, may indicate binary incompatibility. Expected 96 from C header, got 88 from PyObject
 

@@ -432,7 +432,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="nn">File ~/Documents/python_scripts/bond_analysis/lib/python3.12/site-packages/pandas/compat/_optional.py:135,</span> in <span class="ni">import_optional_dependency</span><span class="nt">(name, extra, errors, min_version)</span>
+<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas/compat/_optional.py:135,</span> in <span class="ni">import_optional_dependency</span><span class="nt">(name, extra, errors, min_version)</span>
 <span class="g g-Whitespace">    </span><span class="mi">134</span> <span class="k">try</span><span class="p">:</span>
 <span class="ne">--&gt; </span><span class="mi">135</span>     <span class="n">module</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">136</span> <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
@@ -459,7 +459,7 @@ document.write(`
 <span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">bond_yields</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">yields_file_path</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">bond_quant</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/BondQuant.csv&#39;</span><span class="p">)</span>
 
-<span class="nn">File ~/Documents/python_scripts/bond_analysis/lib/python3.12/site-packages/pandas/io/excel/_base.py:495,</span> in <span class="ni">read_excel</span><span class="nt">(io, sheet_name, header, names, index_col, usecols, dtype, engine, converters, true_values, false_values, skiprows, nrows, na_values, keep_default_na, na_filter, verbose, parse_dates, date_parser, date_format, thousands, decimal, comment, skipfooter, storage_options, dtype_backend, engine_kwargs)</span>
+<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas/io/excel/_base.py:495,</span> in <span class="ni">read_excel</span><span class="nt">(io, sheet_name, header, names, index_col, usecols, dtype, engine, converters, true_values, false_values, skiprows, nrows, na_values, keep_default_na, na_filter, verbose, parse_dates, date_parser, date_format, thousands, decimal, comment, skipfooter, storage_options, dtype_backend, engine_kwargs)</span>
 <span class="g g-Whitespace">    </span><span class="mi">493</span> <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">io</span><span class="p">,</span> <span class="n">ExcelFile</span><span class="p">):</span>
 <span class="g g-Whitespace">    </span><span class="mi">494</span>     <span class="n">should_close</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="ne">--&gt; </span><span class="mi">495</span>     <span class="n">io</span> <span class="o">=</span> <span class="n">ExcelFile</span><span class="p">(</span>
@@ -474,7 +474,7 @@ document.write(`
 <span class="g g-Whitespace">    </span><span class="mi">504</span>         <span class="s2">&quot;an ExcelFile - ExcelFile already has the engine set&quot;</span>
 <span class="g g-Whitespace">    </span><span class="mi">505</span>     <span class="p">)</span>
 
-<span class="nn">File ~/Documents/python_scripts/bond_analysis/lib/python3.12/site-packages/pandas/io/excel/_base.py:1567,</span> in <span class="ni">ExcelFile.__init__</span><span class="nt">(self, path_or_buffer, engine, storage_options, engine_kwargs)</span>
+<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas/io/excel/_base.py:1567,</span> in <span class="ni">ExcelFile.__init__</span><span class="nt">(self, path_or_buffer, engine, storage_options, engine_kwargs)</span>
 <span class="g g-Whitespace">   </span><span class="mi">1564</span> <span class="bp">self</span><span class="o">.</span><span class="n">engine</span> <span class="o">=</span> <span class="n">engine</span>
 <span class="g g-Whitespace">   </span><span class="mi">1565</span> <span class="bp">self</span><span class="o">.</span><span class="n">storage_options</span> <span class="o">=</span> <span class="n">storage_options</span>
 <span class="ne">-&gt; </span><span class="mi">1567</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reader</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engines</span><span class="p">[</span><span class="n">engine</span><span class="p">](</span>
@@ -483,7 +483,7 @@ document.write(`
 <span class="g g-Whitespace">   </span><span class="mi">1570</span>     <span class="n">engine_kwargs</span><span class="o">=</span><span class="n">engine_kwargs</span><span class="p">,</span>
 <span class="g g-Whitespace">   </span><span class="mi">1571</span> <span class="p">)</span>
 
-<span class="nn">File ~/Documents/python_scripts/bond_analysis/lib/python3.12/site-packages/pandas/io/excel/_openpyxl.py:552,</span> in <span class="ni">OpenpyxlReader.__init__</span><span class="nt">(self, filepath_or_buffer, storage_options, engine_kwargs)</span>
+<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas/io/excel/_openpyxl.py:552,</span> in <span class="ni">OpenpyxlReader.__init__</span><span class="nt">(self, filepath_or_buffer, storage_options, engine_kwargs)</span>
 <span class="g g-Whitespace">    </span><span class="mi">534</span> <span class="nd">@doc</span><span class="p">(</span><span class="n">storage_options</span><span class="o">=</span><span class="n">_shared_docs</span><span class="p">[</span><span class="s2">&quot;storage_options&quot;</span><span class="p">])</span>
 <span class="g g-Whitespace">    </span><span class="mi">535</span> <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
 <span class="g g-Whitespace">    </span><span class="mi">536</span>     <span class="bp">self</span><span class="p">,</span>
@@ -503,7 +503,7 @@ document.write(`
 <span class="g g-Whitespace">    </span><span class="mi">556</span>         <span class="n">engine_kwargs</span><span class="o">=</span><span class="n">engine_kwargs</span><span class="p">,</span>
 <span class="g g-Whitespace">    </span><span class="mi">557</span>     <span class="p">)</span>
 
-<span class="nn">File ~/Documents/python_scripts/bond_analysis/lib/python3.12/site-packages/pandas/compat/_optional.py:138,</span> in <span class="ni">import_optional_dependency</span><span class="nt">(name, extra, errors, min_version)</span>
+<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas/compat/_optional.py:138,</span> in <span class="ni">import_optional_dependency</span><span class="nt">(name, extra, errors, min_version)</span>
 <span class="g g-Whitespace">    </span><span class="mi">136</span> <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
 <span class="g g-Whitespace">    </span><span class="mi">137</span>     <span class="k">if</span> <span class="n">errors</span> <span class="o">==</span> <span class="s2">&quot;raise&quot;</span><span class="p">:</span>
 <span class="ne">--&gt; </span><span class="mi">138</span>         <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
@@ -786,7 +786,7 @@ C:\Users\ezlan\AppData\Local\Temp\ipykernel_8052\807474869.py:14: FutureWarning:
 <p>Railway executive Thomas C. Durant stepped in to promote shares of the Union Pacific. He put up the first installment of 10% himself and guaranteed investors against their loss on investment, eventually selling 2,177 shares by October 29, 1863.</p>
 <p>Large private investors, usually the executive leaders of the railroads, were tasked with promoting shares of their own projects. In this way, they were able to convince their acquaintances and others potentially interested to invest.
 <em>(Crocker, 2014), (DeMatos, 2023)</em></p>
-<p><img alt="image.png" src="attachment:image.png" /></p>
+<p><img alt="image.png" src="_images/image.png" /></p>
 </section>
 <section id="congressional-authorization">
 <h2>Congressional Authorization<a class="headerlink" href="#congressional-authorization" title="Link to this heading">#</a></h2>
@@ -856,7 +856,7 @@ C:\Users\ezlan\AppData\Local\Temp\ipykernel_8052\807474869.py:14: FutureWarning:
 
 <span class="n">view_options</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Combined Price&#39;</span><span class="p">,</span> <span class="s1">&#39;Combined Yield&#39;</span><span class="p">,</span> <span class="s1">&#39;Individual Price&#39;</span><span class="p">,</span> <span class="s1">&#39;Individual Yield&#39;</span><span class="p">]</span>
 <span class="n">view_dropdown</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span><span class="n">options</span><span class="o">=</span><span class="n">view_options</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;View:&#39;</span><span class="p">)</span>
-<span class="n">interact</span><span class="p">(</span><span class="n">display_graphs</span><span class="p">,</span> <span class="n">view_type</span><span class="o">=</span><span class="n">view_dropdown</span><span class="p">)</span>
+<span class="c1">#interact(display_graphs, view_type=view_dropdown)</span>
 </pre></div>
 </div>
 </div>

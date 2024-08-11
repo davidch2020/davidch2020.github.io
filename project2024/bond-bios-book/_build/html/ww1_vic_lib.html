@@ -384,7 +384,7 @@ document.write(`
 <span class="kn">import</span> <span class="nn">matplotlib.patches</span> <span class="k">as</span> <span class="nn">mpatches</span>
 <span class="kn">import</span> <span class="nn">matplotlib.colors</span> <span class="k">as</span> <span class="nn">mcolors</span>
 <span class="kn">import</span> <span class="nn">datetime</span>
-<span class="o">%</span><span class="k">matplotlib</span> ipympl
+<span class="c1">#%matplotlib ipympl</span>
 </pre></div>
 </div>
 </div>
@@ -412,33 +412,13 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="nn">File ~/Documents/python_scripts/bond_analysis/lib/python3.12/site-packages/pandas/compat/_optional.py:135,</span> in <span class="ni">import_optional_dependency</span><span class="nt">(name, extra, errors, min_version)</span>
-<span class="g g-Whitespace">    </span><span class="mi">134</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">135</span>     <span class="n">module</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">136</span> <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
-
-<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/importlib/__init__.py:90,</span> in <span class="ni">import_module</span><span class="nt">(name, package)</span>
-<span class="g g-Whitespace">     </span><span class="mi">89</span>         <span class="n">level</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="ne">---&gt; </span><span class="mi">90</span> <span class="k">return</span> <span class="n">_bootstrap</span><span class="o">.</span><span class="n">_gcd_import</span><span class="p">(</span><span class="n">name</span><span class="p">[</span><span class="n">level</span><span class="p">:],</span> <span class="n">package</span><span class="p">,</span> <span class="n">level</span><span class="p">)</span>
-
-<span class="nn">File &lt;frozen importlib._bootstrap&gt;:1387,</span> in <span class="ni">_gcd_import</span><span class="nt">(name, package, level)</span>
-
-<span class="nn">File &lt;frozen importlib._bootstrap&gt;:1360,</span> in <span class="ni">_find_and_load</span><span class="nt">(name, import_)</span>
-
-<span class="nn">File &lt;frozen importlib._bootstrap&gt;:1324,</span> in <span class="ni">_find_and_load_unlocked</span><span class="nt">(name, import_)</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;tables&#39;
-
-<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
-
-<span class="ne">ImportError</span><span class="g g-Whitespace">                               </span>Traceback (most recent call last)
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">Bondh5</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">HDFStore</span><span class="p">(</span><span class="s2">&quot;data/BondDF.h5&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">BondList</span> <span class="o">=</span> <span class="n">Bondh5</span><span class="p">[</span><span class="s2">&quot;BondList&quot;</span><span class="p">]</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">BondQuant</span> <span class="o">=</span> <span class="n">Bondh5</span><span class="p">[</span><span class="s2">&quot;BondQuant&quot;</span><span class="p">]</span>
 
-<span class="nn">File ~/Documents/python_scripts/bond_analysis/lib/python3.12/site-packages/pandas/io/pytables.py:566,</span> in <span class="ni">HDFStore.__init__</span><span class="nt">(self, path, mode, complevel, complib, fletcher32, **kwargs)</span>
+<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas/io/pytables.py:566,</span> in <span class="ni">HDFStore.__init__</span><span class="nt">(self, path, mode, complevel, complib, fletcher32, **kwargs)</span>
 <span class="g g-Whitespace">    </span><span class="mi">563</span> <span class="k">if</span> <span class="s2">&quot;format&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
 <span class="g g-Whitespace">    </span><span class="mi">564</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;format is not a defined argument for HDFStore&quot;</span><span class="p">)</span>
 <span class="ne">--&gt; </span><span class="mi">566</span> <span class="n">tables</span> <span class="o">=</span> <span class="n">import_optional_dependency</span><span class="p">(</span><span class="s2">&quot;tables&quot;</span><span class="p">)</span>
@@ -447,14 +427,44 @@ document.write(`
 <span class="g g-Whitespace">    </span><span class="mi">570</span>         <span class="sa">f</span><span class="s2">&quot;complib only supports </span><span class="si">{</span><span class="n">tables</span><span class="o">.</span><span class="n">filters</span><span class="o">.</span><span class="n">all_complibs</span><span class="si">}</span><span class="s2"> compression.&quot;</span>
 <span class="g g-Whitespace">    </span><span class="mi">571</span>     <span class="p">)</span>
 
-<span class="nn">File ~/Documents/python_scripts/bond_analysis/lib/python3.12/site-packages/pandas/compat/_optional.py:138,</span> in <span class="ni">import_optional_dependency</span><span class="nt">(name, extra, errors, min_version)</span>
+<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas/compat/_optional.py:135,</span> in <span class="ni">import_optional_dependency</span><span class="nt">(name, extra, errors, min_version)</span>
+<span class="g g-Whitespace">    </span><span class="mi">130</span> <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">131</span>     <span class="sa">f</span><span class="s2">&quot;Missing optional dependency &#39;</span><span class="si">{</span><span class="n">install_name</span><span class="si">}</span><span class="s2">&#39;. </span><span class="si">{</span><span class="n">extra</span><span class="si">}</span><span class="s2"> &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">132</span>     <span class="sa">f</span><span class="s2">&quot;Use pip or conda to install </span><span class="si">{</span><span class="n">install_name</span><span class="si">}</span><span class="s2">.&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">133</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">134</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">135</span>     <span class="n">module</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">136</span> <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
 <span class="g g-Whitespace">    </span><span class="mi">137</span>     <span class="k">if</span> <span class="n">errors</span> <span class="o">==</span> <span class="s2">&quot;raise&quot;</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">138</span>         <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">139</span>     <span class="k">return</span> <span class="kc">None</span>
-<span class="g g-Whitespace">    </span><span class="mi">141</span> <span class="c1"># Handle submodules: if we have submodule, grab parent module from sys.modules</span>
 
-<span class="ne">ImportError</span>: Missing optional dependency &#39;pytables&#39;.  Use pip or conda to install pytables.
+<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/importlib/__init__.py:90,</span> in <span class="ni">import_module</span><span class="nt">(name, package)</span>
+<span class="g g-Whitespace">     </span><span class="mi">88</span>             <span class="k">break</span>
+<span class="g g-Whitespace">     </span><span class="mi">89</span>         <span class="n">level</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="ne">---&gt; </span><span class="mi">90</span> <span class="k">return</span> <span class="n">_bootstrap</span><span class="o">.</span><span class="n">_gcd_import</span><span class="p">(</span><span class="n">name</span><span class="p">[</span><span class="n">level</span><span class="p">:],</span> <span class="n">package</span><span class="p">,</span> <span class="n">level</span><span class="p">)</span>
+
+<span class="nn">File &lt;frozen importlib._bootstrap&gt;:1387,</span> in <span class="ni">_gcd_import</span><span class="nt">(name, package, level)</span>
+
+<span class="nn">File &lt;frozen importlib._bootstrap&gt;:1360,</span> in <span class="ni">_find_and_load</span><span class="nt">(name, import_)</span>
+
+<span class="nn">File &lt;frozen importlib._bootstrap&gt;:1331,</span> in <span class="ni">_find_and_load_unlocked</span><span class="nt">(name, import_)</span>
+
+<span class="nn">File &lt;frozen importlib._bootstrap&gt;:935,</span> in <span class="ni">_load_unlocked</span><span class="nt">(spec)</span>
+
+<span class="nn">File &lt;frozen importlib._bootstrap_external&gt;:995,</span> in <span class="ni">exec_module</span><span class="nt">(self, module)</span>
+
+<span class="nn">File &lt;frozen importlib._bootstrap&gt;:488,</span> in <span class="ni">_call_with_frames_removed</span><span class="nt">(f, *args, **kwds)</span>
+
+<span class="n">File</span> <span class="o">/</span><span class="n">Library</span><span class="o">/</span><span class="n">Frameworks</span><span class="o">/</span><span class="n">Python</span><span class="o">.</span><span class="n">framework</span><span class="o">/</span><span class="n">Versions</span><span class="o">/</span><span class="mf">3.12</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.12</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">tables</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">44</span>
+<span class="g g-Whitespace">     </span><span class="mi">40</span>     <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Blosc2 library not found. &quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">41</span>                        <span class="sa">f</span><span class="s2">&quot;I looked for </span><span class="se">\&quot;</span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">blosc2_search_paths</span><span class="p">)</span><span class="si">}</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">43</span> <span class="c1"># Necessary imports to get versions stored on the cython extension</span>
+<span class="ne">---&gt; </span><span class="mi">44</span> <span class="kn">from</span> <span class="nn">.utilsextension</span> <span class="kn">import</span> <span class="n">get_hdf5_version</span> <span class="k">as</span> <span class="n">_get_hdf5_version</span>
+<span class="g g-Whitespace">     </span><span class="mi">46</span> <span class="kn">from</span> <span class="nn">._version</span> <span class="kn">import</span> <span class="n">__version__</span>
+<span class="g g-Whitespace">     </span><span class="mi">48</span> <span class="n">hdf5_version</span> <span class="o">=</span> <span class="n">_get_hdf5_version</span><span class="p">()</span>
+
+<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/tables/utilsextension.pyx:1,</span> in <span class="ni">init tables.utilsextension</span><span class="nt">()</span>
+
+<span class="ne">ValueError</span>: numpy.dtype size changed, may indicate binary incompatibility. Expected 96 from C header, got 88 from PyObject
 </pre></div>
 </div>
 </div>
@@ -608,7 +618,8 @@ document.write(`
         <span class="n">series</span> <span class="o">=</span> <span class="n">BondPrice_Transposed</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="nb">id</span><span class="p">,</span> <span class="s1">&#39;Average&#39;</span><span class="p">)]</span>
         <span class="n">series</span> <span class="o">=</span> <span class="n">series</span><span class="p">[</span><span class="n">series</span><span class="o">.</span><span class="n">notna</span><span class="p">()]</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">series</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Warning: bond </span><span class="si">{</span><span class="n">liberty_loans</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="nb">id</span><span class="p">][</span><span class="s2">&quot;Treasury&#39;s Name Of Issue&quot;</span><span class="p">]</span><span class="si">}</span><span class="s2"> could not be graphed, no prices are recorded&quot;</span><span class="p">)</span>
+            <span class="n">noi</span> <span class="o">=</span> <span class="n">liberty_loans</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="nb">id</span><span class="p">][</span><span class="s2">&quot;Treasury&#39;s Name Of Issue&quot;</span><span class="p">]</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Warning: bond </span><span class="si">{</span><span class="n">noi</span><span class="si">}</span><span class="s2"> could not be graphed, no prices are recorded&quot;</span><span class="p">)</span>
             <span class="k">continue</span>
         <span class="n">ax</span> <span class="o">=</span> <span class="n">series</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">current_ax</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span>
                               <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;Time&quot;</span><span class="p">,</span>
@@ -648,6 +659,32 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bond #162: 1st Liberty Loan of 1917 (3.5%), issued 1917-06-30 00:00:00
+   Term: 30 years, Redeemable: 1932-06-15 00:00:00, Payable: 1947-06-15 00:00:00
+   Coupon: 3.5, Frequency: 2.0/year, Scheduled Month: June
+---------------------------------------------------
+Bond #163: 1st Liberty Loan Converted to 4%, issued 1918-11-30 00:00:00
+   Term: 30 years, Redeemable: 1932-06-15 00:00:00, Payable: 1947-06-15 00:00:00
+   Coupon: 4.0, Frequency: 2.0/year, Scheduled Month: June
+---------------------------------------------------
+Bond #164: 1st Liberty Loan Converted to 4.25%, issued 1918-11-30 00:00:00
+   Term: 30 years, Redeemable: 1932-06-15 00:00:00, Payable: 1947-06-15 00:00:00
+   Coupon: 4.25, Frequency: 2.0/year, Scheduled Month: June
+---------------------------------------------------
+Bond #165: 1st Liberty Loan Second Converted to 4.25%, issued 1918-10-24 00:00:00
+   Term: 30 years, Redeemable: 1932-06-15 00:00:00, Payable: 1947-06-15 00:00:00
+   Coupon: 4.25, Frequency: 2.0/year, Scheduled Month: June
+---------------------------------------------------
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "377bedf2e97c4d5c82899f8b310cb62a", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Done
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "39a61d8c9b6047ccb8c162736494bb72", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Done
+</pre></div>
+</div>
+</div>
 </div>
 <p>Here, it is shown that in 1917, the quantity outstanding was at 1,466,335,094, before increasing to nearly 2,000,000,000 and staying around that price before decreasing to around 1,400,000,000 in 1919, staying at around that amount before suddenly decreasing to around 189,928,800.
 The increase at the beginning can be attributed to many liberty bonds being sold at that time to finance WWI. As this resulted in more citizens and households deciding to own financial assets, the decrease soon after this in late 1919 can be attributed to the increase in discount rates used to curb the increase of bond prices, resulting in depreciation of bond prices. By 1935, most of the debt had already been paid back.</p>
@@ -673,6 +710,18 @@ The increase at the beginning can be attributed to many liberty bonds being sold
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bond #166: 2nd Liberty Loan of 1917 (4%), issued 1917-10-31 00:00:00
+   Term: 25 years, Redeemable: 1927-11-15 00:00:00, Payable: 1942-11-15 00:00:00
+   Coupon: 4.0, Frequency: 2.0/year, Scheduled Month: May
+---------------------------------------------------
+Bond #167: 2nd Liberty Loan Converted to 4.25%, issued 1918-11-30 00:00:00
+   Term: 25 years, Redeemable: 1927-11-15 00:00:00, Payable: 1942-11-15 00:00:00
+   Coupon: 4.25, Frequency: 2.0/year, Scheduled Month: May
+---------------------------------------------------
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "a414a117eef94fcdba5347eac334b806", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "503154a5f94341b28fe23ac3593bbf76", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 </section>
 <section id="rd-liberty-loan">
@@ -696,6 +745,14 @@ The increase at the beginning can be attributed to many liberty bonds being sold
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bond #168: 3rd Liberty Loan, issued 1918-05-31 00:00:00
+   Term: 10 years, Redeemable: NaT, Payable: 1928-09-15 00:00:00
+   Coupon: 4.25, Frequency: 2.0/year, Scheduled Month: March
+---------------------------------------------------
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "f0a2f148df5a427bab2eb9c02dd5962a", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "70f273337e2c4e03b3cdea6b9988a78c", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 </section>
 <section id="th-liberty-loan">
@@ -719,6 +776,14 @@ The increase at the beginning can be attributed to many liberty bonds being sold
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bond #169: 4th Liberty Loan, issued 1918-09-30 00:00:00
+   Term: 20 years, Redeemable: 1933-10-15 00:00:00, Payable: 1938-10-15 00:00:00
+   Coupon: 4.25, Frequency: 2.0/year, Scheduled Month: April
+---------------------------------------------------
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "5f8497c6d11845998bdf1db777dc2750", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "7b76f8405670488c983eaf0a5597b10b", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 </section>
 <section id="victory-loans">
@@ -742,6 +807,27 @@ The increase at the beginning can be attributed to many liberty bonds being sold
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bond #170: Victory Liberty Loan (4 3/4%), issued 1919-05-20 00:00:00
+   Term: 4 years, Redeemable: 1922-06-15 00:00:00, Payable: 1923-05-20 00:00:00
+   Coupon: 4.75, Frequency: 2.0/year, Scheduled Month: June
+---------------------------------------------------
+Bond #171: Victory Liberty Loan (3 3/4%), issued 1919-05-20 00:00:00
+   Term: 4 years, Redeemable: 1922-12-15 00:00:00, Payable: 1923-05-20 00:00:00
+   Coupon: 3.75, Frequency: 2.0/year, Scheduled Month: June
+---------------------------------------------------
+Bond #176: Vic Lib Loan 4.75s, called, issued 1919-05-20 00:00:00
+   No further information
+Bond #177: Vic Lib Loan 4.75s, 1922-23, issued 1919-05-20 00:00:00
+   No further information
+Bond #178: Vic Lib Loan 4.75 of 1922-1923 and 3.75 of 1922-1923, issued 1919-05-20 00:00:00
+   No further information
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "7ae4112d128c4021b5bf315827e708f3", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning: bond Vic Lib Loan 4.75 of 1922-1923 and 3.75 of 1922-1923 could not be graphed, no prices are recorded
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "bd795d0a19fe49418732ae064cb7fef9", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 </section>
 <section id="price-drop-in-1920-1921">

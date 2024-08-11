@@ -1,20 +1,20 @@
 Traceback (most recent call last):
-  File "/Users/davidcho/Documents/python_scripts/bond_analysis/lib/python3.12/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
     executenb(
-  File "/Users/davidcho/Documents/python_scripts/bond_analysis/lib/python3.12/site-packages/nbclient/client.py", line 1314, in execute
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/nbclient/client.py", line 1314, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/davidcho/Documents/python_scripts/bond_analysis/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
     return loop.run_until_complete(inner)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
     return future.result()
            ^^^^^^^^^^^^^^^
-  File "/Users/davidcho/Documents/python_scripts/bond_analysis/lib/python3.12/site-packages/nbclient/client.py", line 709, in async_execute
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/nbclient/client.py", line 709, in async_execute
     await self.async_execute_cell(
-  File "/Users/davidcho/Documents/python_scripts/bond_analysis/lib/python3.12/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/nbclient/client.py", line 1062, in async_execute_cell
     await self._check_raise_for_error(cell, cell_index, exec_reply)
-  File "/Users/davidcho/Documents/python_scripts/bond_analysis/lib/python3.12/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
@@ -49,7 +49,7 @@ bond_yields = clean_bond_data(bond_yields)
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-File [0;32m~/Documents/python_scripts/bond_analysis/lib/python3.12/site-packages/pandas/compat/_optional.py:135[0m, in [0;36mimport_optional_dependency[0;34m(name, extra, errors, min_version)[0m
+File [0;32m/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas/compat/_optional.py:135[0m, in [0;36mimport_optional_dependency[0;34m(name, extra, errors, min_version)[0m
 [1;32m    134[0m [38;5;28;01mtry[39;00m:
 [0;32m--> 135[0m     module [38;5;241m=[39m [43mimportlib[49m[38;5;241;43m.[39;49m[43mimport_module[49m[43m([49m[43mname[49m[43m)[49m
 [1;32m    136[0m [38;5;28;01mexcept[39;00m [38;5;167;01mImportError[39;00m:
@@ -76,7 +76,7 @@ Cell [0;32mIn[2], line 4[0m
 [1;32m      5[0m bond_yields [38;5;241m=[39m pd[38;5;241m.[39mread_excel(yields_file_path)
 [1;32m      7[0m bond_quant [38;5;241m=[39m pd[38;5;241m.[39mread_csv([38;5;124m'[39m[38;5;124mdata/BondQuant.csv[39m[38;5;124m'[39m)
 
-File [0;32m~/Documents/python_scripts/bond_analysis/lib/python3.12/site-packages/pandas/io/excel/_base.py:495[0m, in [0;36mread_excel[0;34m(io, sheet_name, header, names, index_col, usecols, dtype, engine, converters, true_values, false_values, skiprows, nrows, na_values, keep_default_na, na_filter, verbose, parse_dates, date_parser, date_format, thousands, decimal, comment, skipfooter, storage_options, dtype_backend, engine_kwargs)[0m
+File [0;32m/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas/io/excel/_base.py:495[0m, in [0;36mread_excel[0;34m(io, sheet_name, header, names, index_col, usecols, dtype, engine, converters, true_values, false_values, skiprows, nrows, na_values, keep_default_na, na_filter, verbose, parse_dates, date_parser, date_format, thousands, decimal, comment, skipfooter, storage_options, dtype_backend, engine_kwargs)[0m
 [1;32m    493[0m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m [38;5;28misinstance[39m(io, ExcelFile):
 [1;32m    494[0m     should_close [38;5;241m=[39m [38;5;28;01mTrue[39;00m
 [0;32m--> 495[0m     io [38;5;241m=[39m [43mExcelFile[49m[43m([49m
@@ -91,7 +91,7 @@ File [0;32m~/Documents/python_scripts/bond_analysis/lib/python3.12/site-package
 [1;32m    504[0m         [38;5;124m"[39m[38;5;124man ExcelFile - ExcelFile already has the engine set[39m[38;5;124m"[39m
 [1;32m    505[0m     )
 
-File [0;32m~/Documents/python_scripts/bond_analysis/lib/python3.12/site-packages/pandas/io/excel/_base.py:1567[0m, in [0;36mExcelFile.__init__[0;34m(self, path_or_buffer, engine, storage_options, engine_kwargs)[0m
+File [0;32m/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas/io/excel/_base.py:1567[0m, in [0;36mExcelFile.__init__[0;34m(self, path_or_buffer, engine, storage_options, engine_kwargs)[0m
 [1;32m   1564[0m [38;5;28mself[39m[38;5;241m.[39mengine [38;5;241m=[39m engine
 [1;32m   1565[0m [38;5;28mself[39m[38;5;241m.[39mstorage_options [38;5;241m=[39m storage_options
 [0;32m-> 1567[0m [38;5;28mself[39m[38;5;241m.[39m_reader [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_engines[49m[43m[[49m[43mengine[49m[43m][49m[43m([49m
@@ -100,7 +100,7 @@ File [0;32m~/Documents/python_scripts/bond_analysis/lib/python3.12/site-package
 [1;32m   1570[0m [43m    [49m[43mengine_kwargs[49m[38;5;241;43m=[39;49m[43mengine_kwargs[49m[43m,[49m
 [1;32m   1571[0m [43m[49m[43m)[49m
 
-File [0;32m~/Documents/python_scripts/bond_analysis/lib/python3.12/site-packages/pandas/io/excel/_openpyxl.py:552[0m, in [0;36mOpenpyxlReader.__init__[0;34m(self, filepath_or_buffer, storage_options, engine_kwargs)[0m
+File [0;32m/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas/io/excel/_openpyxl.py:552[0m, in [0;36mOpenpyxlReader.__init__[0;34m(self, filepath_or_buffer, storage_options, engine_kwargs)[0m
 [1;32m    534[0m [38;5;129m@doc[39m(storage_options[38;5;241m=[39m_shared_docs[[38;5;124m"[39m[38;5;124mstorage_options[39m[38;5;124m"[39m])
 [1;32m    535[0m [38;5;28;01mdef[39;00m [38;5;21m__init__[39m(
 [1;32m    536[0m     [38;5;28mself[39m,
@@ -120,7 +120,7 @@ File [0;32m~/Documents/python_scripts/bond_analysis/lib/python3.12/site-package
 [1;32m    556[0m         engine_kwargs[38;5;241m=[39mengine_kwargs,
 [1;32m    557[0m     )
 
-File [0;32m~/Documents/python_scripts/bond_analysis/lib/python3.12/site-packages/pandas/compat/_optional.py:138[0m, in [0;36mimport_optional_dependency[0;34m(name, extra, errors, min_version)[0m
+File [0;32m/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas/compat/_optional.py:138[0m, in [0;36mimport_optional_dependency[0;34m(name, extra, errors, min_version)[0m
 [1;32m    136[0m [38;5;28;01mexcept[39;00m [38;5;167;01mImportError[39;00m:
 [1;32m    137[0m     [38;5;28;01mif[39;00m errors [38;5;241m==[39m [38;5;124m"[39m[38;5;124mraise[39m[38;5;124m"[39m:
 [0;32m--> 138[0m         [38;5;28;01mraise[39;00m [38;5;167;01mImportError[39;00m(msg)
