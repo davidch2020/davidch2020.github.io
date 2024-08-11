@@ -9,7 +9,7 @@ Explore the team's analyses of US Treasury bonds through the following sections.
 - [The Currency Sixes](./currency_sixes.ipynb) by Sanjeev and Elizabeth
 - [War of 1812 Bonds and Treasury Notes](./war_1812.ipynb) by David and Alex
 - [The Liberty and Victory Loans Issued to Fund World War I](./ww1_vic_lib.ipynb) by Liam and Elan
-- [5-20s of the Civil War](./520s.ipynb)
+- [5-20s of the Civil War](./520s.ipynb) by Eric and Jihan
 
 <iframe width="640" height="480"
     src="https://www.youtube.com/embed/VhE1DWHOvQQ">
