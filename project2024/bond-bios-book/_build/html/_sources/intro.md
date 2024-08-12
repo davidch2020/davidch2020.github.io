@@ -21,7 +21,7 @@ Explore the team's analyses of US Treasury bonds through the following sections.
 ## Team Members
 - [David Cho](https://www.linkedin.com/in/david-cho-638101237/)
 - Alexander Dubasov
-- Siddarth Gundapaneni
+- [Siddarth Gundapaneni](https://sites.google.com/view/siddharth-gundapaneni/)
 - Jihan Kapur 
 - Eric Liu 
 - Liam Loughead
