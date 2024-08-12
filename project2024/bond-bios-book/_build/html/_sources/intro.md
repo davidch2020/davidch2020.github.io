@@ -1,7 +1,7 @@
 # Welcome to the Bond Biography Book
 Prior to the end of World War I, Congress was responsible for creating federal securities. These bonds were used to finance wars and infrastructure projects. Our team had access to datasets, which could be used to observe long-term trends in bond prices and bond quantity. By doing so, the team can combine their research regarding the historical context, with the data, to create a story for each bond. The team decided to break up into smaller partnerships to focus on five specific bonds. We originally wrote our code in separate Jupyter notebooks in Python, before combining them into a single Jupyter book. The original notebooks are hosted on a separate Github [repository](https://github.com/davidch2020/Bond-Bios).  
 
-This Jupyter Book is crafted to explore the bond biographies compiled by the team. Our goal is to provide an in-depth look at various bonds issued throughout American history. There are five bonds that the team looked at this summer. 
+This Jupyter book is crafted to explore the bond biographies compiled by the team. Our goal is to provide an in-depth look at various bonds issued throughout American history. There are five bonds that the team looked at this summer. 
 - **Louisiana Purchase Bonds**: The US issued \$11.25 million worth of bonds to fund the Louisiana Purchase in 1803. 
 - **War of 1812 Bonds and Treasury Notes**: The US issued both long-term bonds and short-term bonds, in the form of treasury notes, to fund the War of 1812 throughout 1812 to 1815. 
 - **The 5-20s of the Civil War**: The Union issued the 5-20s to finance the Civil War. The name came from the fact that these bonds had a 20 year maturity and could be redeemed after 5 years. 
@@ -37,7 +37,7 @@ On August 7, the team presented our Jupyter notebooks. Each parternship created 
 - [Siddarth Gundapaneni](https://sites.google.com/view/siddharth-gundapaneni/)
 - [Jihan Kapur](https://www.linkedin.com/in/jihan-kapur-43866a263?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app)
 - Eric Liu 
-- Liam Loughead
+- [Liam Loughead](https://snapwhiz914.github.io/)
 - [Sanjeev Subramanian](https://www.linkedin.com/in/sanjeev-subramanian-a240922b1/) 
 - Elan Wang
 - [Elizabeth Zhang](https://www.linkedin.com/in/elizabeth-zhang-1b1106279/)
