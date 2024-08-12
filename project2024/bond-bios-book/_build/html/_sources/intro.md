@@ -38,6 +38,7 @@ On August 7, the team presented our Jupyter notebooks. Each parternship created 
 
 - [Louisiana Purchase Bonds](https://drive.google.com/file/d/1GW6E92YHQsAQbPdcCYEnipSFXtI9QwYN/view?usp=sharing) 
 - [War of 1812 Bonds and Treasury Notes](https://drive.google.com/file/d/1Z7Swri2Mcs-LFB5gf6N1tJWojxw0ba7K/view?usp=sharing)
+- [5-20s of the Civil War](https://drive.google.com/file/d/1_wBKbdiZBlxWShLsGEhWmIVU08Qd03Oo/view?usp=sharing)
 - [The Currency Sixes](https://drive.google.com/file/d/1bu6GeceRmctqMhvMY-n1JdPgz7hCxNrC/view?usp=sharing) 
 - [The Liberty and Victory Loans Issued to Fund World War I](https://drive.google.com/file/d/1U88U73_ohPCQlC5fzQ2t6dGsZnbPOcGz/view?usp=sharing) 
 
