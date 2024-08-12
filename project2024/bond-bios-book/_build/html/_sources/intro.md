@@ -18,17 +18,6 @@ Explore the team's analyses of US Treasury bonds through the following sections.
 - [The Currency Sixes](./currency_sixes.ipynb) by Sanjeev Subramanian and Elizabeth Zhang
 - [The Liberty and Victory Loans Issued to Fund World War I](./ww1_vic_lib.ipynb) by Liam Loughead and Elan Wang 
 
-## Team Members
-- [David Cho](https://www.linkedin.com/in/david-cho-638101237/)
-- Alexander Dubasov
-- [Siddarth Gundapaneni](https://sites.google.com/view/siddharth-gundapaneni/)
-- Jihan Kapur 
-- Eric Liu 
-- Liam Loughead
-- [Sanjeev Subramanian](https://www.linkedin.com/in/sanjeev-subramanian-a240922b1/) 
-- Elan Wang
-- Elizabeth Zhang 
-
 ## Bond Biography Presentations
 On August 7, the team presented our Jupyter notebooks. Each parternship created a presentation to complement their notebooks, giving an overview of the historical context. They explained the graphs they created and the trends they noticed. Each partnerships presentation can be downloaded below the video. 
 
@@ -41,6 +30,17 @@ On August 7, the team presented our Jupyter notebooks. Each parternship created 
 - [5-20s of the Civil War](https://drive.google.com/file/d/1_wBKbdiZBlxWShLsGEhWmIVU08Qd03Oo/view?usp=sharing)
 - [The Currency Sixes](https://drive.google.com/file/d/1bu6GeceRmctqMhvMY-n1JdPgz7hCxNrC/view?usp=sharing) 
 - [The Liberty and Victory Loans Issued to Fund World War I](https://drive.google.com/file/d/1U88U73_ohPCQlC5fzQ2t6dGsZnbPOcGz/view?usp=sharing) 
+
+## Team Members
+- [David Cho](https://www.linkedin.com/in/david-cho-638101237/)
+- Alexander Dubasov
+- [Siddarth Gundapaneni](https://sites.google.com/view/siddharth-gundapaneni/)
+- Jihan Kapur 
+- Eric Liu 
+- Liam Loughead
+- [Sanjeev Subramanian](https://www.linkedin.com/in/sanjeev-subramanian-a240922b1/) 
+- Elan Wang
+- [Elizabeth Zhang](https://www.linkedin.com/in/elizabeth-zhang-1b1106279/)
 
 ## Thanks
 Thank you to Professor Hall, Professor Sargent, and Chris Liao for their help with the project. 
