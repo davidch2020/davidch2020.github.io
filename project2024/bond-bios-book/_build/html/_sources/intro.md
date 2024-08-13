@@ -34,7 +34,7 @@ On August 7, the team presented our Jupyter notebooks. Each parternship created 
 ## Team Members
 - [David Cho](https://www.linkedin.com/in/david-cho-638101237/)
 - Alexander Dubasov
-- [Siddarth Gundapaneni](https://sites.google.com/view/siddharth-gundapaneni/)
+- [Siddharth Gundapaneni](https://sites.google.com/view/siddharth-gundapaneni/)
 - [Jihan Kapur](https://www.linkedin.com/in/jihan-kapur-43866a263?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app)
 - Eric Liu 
 - [Liam Loughead](https://snapwhiz914.github.io/)
