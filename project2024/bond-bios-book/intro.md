@@ -12,7 +12,7 @@ By looking at the bonds issued throughout American history, the team saw the pro
 
 ## Bond Biography
 Explore the team's analyses of US Treasury bonds through the following sections. These notebooks are listed in chronological order. 
-- [Louisiana Purchase Bonds](./louisiana_purchase.ipynb) by Siddarth Gundapaneni and Jihan Kapur
+- [Louisiana Purchase Bonds](./louisiana_purchase.ipynb) by Siddharth Gundapaneni and Jihan Kapur
 - [War of 1812 Bonds and Treasury Notes](./war_1812.ipynb) by David Cho and Alexander Dubasov
 - [5-20s of the Civil War](./520s.ipynb) by Eric Liu and Jihan Kapur
 - [The Currency Sixes](./currency_sixes.ipynb) by Sanjeev Subramanian and Elizabeth Zhang
