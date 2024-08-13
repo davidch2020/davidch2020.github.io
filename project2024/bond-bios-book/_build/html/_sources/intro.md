@@ -6,6 +6,7 @@ This Jupyter book is crafted to explore the bond biographies compiled by the tea
 - **War of 1812 Bonds and Treasury Notes**: The US issued both long-term bonds and short-term bonds, in the form of treasury notes, to fund the War of 1812 throughout 1812 to 1815. 
 - **The 5-20s of the Civil War**: The Union issued the 5-20s to finance the Civil War. The name came from the fact that these bonds had a 20 year maturity and could be redeemed after 5 years. 
 - **The Currency Sixes**: The US issued these bonds to finance the construction of the trancontinental railroads between 1862 and 1869. 
+- **The Liberty and Victory Loans**: The US issued these bonds to finance the US effort during World War I, from April 1917 to September 1918. 
 
 By looking at the bonds issued throughout American history, the team saw the progression of the nation's finances from the chaotic aftermath of the American Revolution to the end of World War I. Every bond had different purposes, features, and outcomes. However, financial crises, questions over the trust worthiness of the federal government to redeem, and the profit-seeking motives of investors are common threads that flow through all of them. 
 
@@ -16,7 +17,7 @@ Explore the team's analyses of US Treasury bonds through the following sections.
 - [War of 1812 Bonds and Treasury Notes](./war_1812.ipynb) by David Cho and Alexander Dubasov
 - [5-20s of the Civil War](./520s.ipynb) by Eric Liu and Jihan Kapur
 - [The Currency Sixes](./currency_sixes.ipynb) by Sanjeev Subramanian and Elizabeth Zhang
-- [The Liberty and Victory Loans Issued to Fund World War I](./ww1_vic_lib.ipynb) by Liam Loughead and Elan Wang 
+- [The Liberty and Victory Loans](./ww1_vic_lib.ipynb) by Liam Loughead and Elan Wang 
 
 ## Bond Biography Presentations
 On August 7, the team presented our Jupyter notebooks. Each parternship created a presentation to complement their notebooks, giving an overview of the historical context. They explained the graphs they created and the trends they noticed. Each partnerships presentation can be downloaded below the video. 
@@ -29,7 +30,7 @@ On August 7, the team presented our Jupyter notebooks. Each parternship created 
 - [War of 1812 Bonds and Treasury Notes](https://drive.google.com/file/d/1Z7Swri2Mcs-LFB5gf6N1tJWojxw0ba7K/view?usp=sharing)
 - [5-20s of the Civil War](https://drive.google.com/file/d/1_wBKbdiZBlxWShLsGEhWmIVU08Qd03Oo/view?usp=sharing)
 - [The Currency Sixes](https://drive.google.com/file/d/1bu6GeceRmctqMhvMY-n1JdPgz7hCxNrC/view?usp=sharing) 
-- [The Liberty and Victory Loans Issued to Fund World War I](https://drive.google.com/file/d/1U88U73_ohPCQlC5fzQ2t6dGsZnbPOcGz/view?usp=sharing) 
+- [The Liberty and Victory Loans](https://drive.google.com/file/d/1U88U73_ohPCQlC5fzQ2t6dGsZnbPOcGz/view?usp=sharing) 
 
 ## Team Members
 - [David Cho](https://www.linkedin.com/in/david-cho-638101237/)
