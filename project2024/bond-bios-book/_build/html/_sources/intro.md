@@ -26,6 +26,10 @@ On August 7, the team presented our Jupyter notebooks. Each parternship created 
     src="https://www.youtube.com/embed/VejBJuoSUO4">
 </iframe>
 
+<iframe width="640" height="480"
+    src="https://www.youtube.com/embed/0lvp5OkZU98">
+</iframe>
+
 - [Louisiana Purchase Bonds](https://drive.google.com/file/d/1GW6E92YHQsAQbPdcCYEnipSFXtI9QwYN/view?usp=sharing) 
 - [War of 1812 Bonds and Treasury Notes](https://drive.google.com/file/d/1Z7Swri2Mcs-LFB5gf6N1tJWojxw0ba7K/view?usp=sharing)
 - [5-20s of the Civil War](https://drive.google.com/file/d/1_wBKbdiZBlxWShLsGEhWmIVU08Qd03Oo/view?usp=sharing)
@@ -37,7 +41,7 @@ On August 7, the team presented our Jupyter notebooks. Each parternship created 
 - Alexander Dubasov
 - [Siddharth Gundapaneni](https://sites.google.com/view/siddharth-gundapaneni/)
 - [Jihan Kapur](https://www.linkedin.com/in/jihan-kapur-43866a263?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app)
-- Eric Liu 
+- [Eric Liu](https://www.linkedin.com/in/eric-liu-609875312) 
 - [Liam Loughead](https://snapwhiz914.github.io/)
 - [Sanjeev Subramanian](https://www.linkedin.com/in/sanjeev-subramanian-a240922b1/) 
 - Elan Wang
