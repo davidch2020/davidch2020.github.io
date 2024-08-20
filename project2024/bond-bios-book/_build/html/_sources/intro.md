@@ -36,6 +36,13 @@ On August 7, the team presented our Jupyter notebooks. Each parternship created 
 - [The Currency Sixes](https://drive.google.com/file/d/1bu6GeceRmctqMhvMY-n1JdPgz7hCxNrC/view?usp=sharing) 
 - [The Liberty and Victory Loans](https://drive.google.com/file/d/1U88U73_ohPCQlC5fzQ2t6dGsZnbPOcGz/view?usp=sharing) 
 
+# The Second Bank Project 
+<object data="https://drive.google.com/file/d/1YZVwZ82CN1gRYR-rXR3y1o9RSEnQxj8l/view" type="application/pdf" width="700px" height="700px">
+    <embed src="https://drive.google.com/file/d/1YZVwZ82CN1gRYR-rXR3y1o9RSEnQxj8l/view">
+        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="https://drive.google.com/file/d/1YZVwZ82CN1gRYR-rXR3y1o9RSEnQxj8l/view">Download PDF</a>.</p>
+    </embed>
+</object>
+
 ## Team Members
 - [David Cho](https://www.linkedin.com/in/david-cho-638101237/)
 - Alexander Dubasov
