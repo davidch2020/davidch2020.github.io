@@ -37,11 +37,12 @@ On August 7, the team presented our Jupyter notebooks. Each parternship created 
 - [The Liberty and Victory Loans](https://drive.google.com/file/d/1U88U73_ohPCQlC5fzQ2t6dGsZnbPOcGz/view?usp=sharing) 
 
 # The Second Bank Project 
-<object data="https://drive.google.com/file/d/1YZVwZ82CN1gRYR-rXR3y1o9RSEnQxj8l/view" type="application/pdf" width="700px" height="700px">
-    <embed src="https://drive.google.com/file/d/1YZVwZ82CN1gRYR-rXR3y1o9RSEnQxj8l/view">
-        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="https://drive.google.com/file/d/1YZVwZ82CN1gRYR-rXR3y1o9RSEnQxj8l/view">Download PDF</a>.</p>
-    </embed>
-</object>
+The Second Bank team continued the work from the War of 1812 bonds and treasury notes bond biography. The goal of the project was to see whether bondholders of War of 1812 stock used the Second Bank of the US to increase bond prices after the war ended. Our work on this project is based off of Patrick Newman's book *Cronyism: Liberty versus Power in Early America, 1607–1849* (2021). In his book, he claims that the bondholders created the Bank for the purpose of raising the six percent bond price. The team wanted to find evidence that could support or disagree with Newman's claim and write them down in the report. The full report can be downloaded [here](https://drive.google.com/file/d/1YZVwZ82CN1gRYR-rXR3y1o9RSEnQxj8l/view?usp=sharing). The team also used Python, Matplotlib, and Pandas to create graphs and tables analyzing the bondholders of the war stock. By analyzing bondholders, the team aimed to discover the banks, individuals, and states that held the most subscriptions, and look into their biographies. 
+
+- **Source Code:**
+    - <u>[Second Bank Graphs - Sanjeev Subramanian](https://github.com/davidch2020/Second-Bank/blob/main/Second%20Bank%20Graphs.ipynb)</u>
+    - <u>[Wealth Analysis - David Cho](https://github.com/davidch2020/Second-Bank/blob/main/wealth_analysis.ipynb)</u>
+- **Dataset of Bondholders:** <u>[davidch2020/Second-Bank/data](https://github.com/davidch2020/Second-Bank/blob/main/data/Bondholders%20and%20the%20Second%20bank%20-%20Sheet1.csv)</u>
 
 ## Team Members
 - [David Cho](https://www.linkedin.com/in/david-cho-638101237/)
