@@ -4,6 +4,7 @@ Prior to the end of World War I, Congress was responsible for creating federal s
 This Jupyter book is crafted to explore the bond biographies compiled by the team. Our goal is to provide an in-depth look at various bonds issued throughout American history. There are five bonds that the team looked at this summer. 
 - **Louisiana Purchase Bonds**: The US issued \$11.25 million worth of bonds to fund the Louisiana Purchase in 1803. 
 - **War of 1812 Bonds and Treasury Notes**: The US issued both long-term bonds and short-term bonds, in the form of treasury notes, to fund the War of 1812 throughout 1812 to 1815. 
+    - **Second Bank Project**: The goal of the project was to see whether bondholders of War of 1812 stock used the Second Bank of the US to increase bond prices after the war ended. Our work on this project is based off of Patrick Newman's book *Cronyism: Liberty versus Power in Early America, 1607–1849* (2021). In his book, he claims that the bondholders created the Bank for the purpose of raising the six percent bond price. The team wanted to find evidence that could support or disagree with Newman's claim and write them down in the report. The team also used Python, Matplotlib, and Pandas to create graphs and tables analyzing the bondholders of the war stock. By analyzing bondholders, the team aimed to discover the banks, individuals, and states that held the most subscriptions, and look into their biographies.
 - **The 5-20s of the Civil War**: The Union issued the 5-20s to finance the Civil War. The name came from the fact that these bonds had a 20 year maturity and could be redeemed after 5 years. 
 - **The Currency Sixes**: The US issued these bonds to finance the construction of the trancontinental railroads between 1862 and 1869. 
 - **The Liberty and Victory Loans**: The US issued these bonds to finance the US effort during World War I, from April 1917 to September 1918. 
@@ -15,6 +16,12 @@ By looking at the bonds issued throughout American history, the team saw the pro
 Explore the team's analyses of US Treasury bonds through the following sections. These notebooks are listed in chronological order. 
 - [Louisiana Purchase Bonds](./louisiana_purchase.ipynb) by Siddharth Gundapaneni and Jihan Kapur
 - [War of 1812 Bonds and Treasury Notes](./war_1812.ipynb) by David Cho and Alexander Dubasov
+- **Second Bank Project**
+<object type="application/pdf" data="_images/The_2nd_Bank_Final_Report_Final.pdf" width="740" height="700"></object>
+    - **Second Bank Project Source Code**
+        - <u>[Second Bank Graphs - Sanjeev Subramanian](https://github.com/davidch2020/Second-Bank/blob/main/Second%20Bank%20Graphs.ipynb)</u>
+        - <u>[Wealth Analysis - David Cho](https://github.com/davidch2020/Second-Bank/blob/main/wealth_analysis.ipynb)</u>
+    - **Dataset of Bondholders:** <u>[davidch2020/Second-Bank/data](https://github.com/davidch2020/Second-Bank/blob/main/data/Bondholders%20and%20the%20Second%20bank%20-%20Sheet1.csv)</u>
 - [5-20s of the Civil War](./520s.ipynb) by Eric Liu and Jihan Kapur
 - [The Currency Sixes](./currency_sixes.ipynb) by Sanjeev Subramanian and Elizabeth Zhang
 - [The Liberty and Victory Loans](./ww1_vic_lib.ipynb) by Liam Loughead and Elan Wang 
@@ -35,14 +42,6 @@ On August 7, the team presented our Jupyter notebooks. Each parternship created 
 - [5-20s of the Civil War](https://drive.google.com/file/d/1_wBKbdiZBlxWShLsGEhWmIVU08Qd03Oo/view?usp=sharing)
 - [The Currency Sixes](https://drive.google.com/file/d/1bu6GeceRmctqMhvMY-n1JdPgz7hCxNrC/view?usp=sharing) 
 - [The Liberty and Victory Loans](https://drive.google.com/file/d/1U88U73_ohPCQlC5fzQ2t6dGsZnbPOcGz/view?usp=sharing) 
-
-# The Second Bank Project 
-The Second Bank team continued the work from the War of 1812 bonds and treasury notes bond biography. The goal of the project was to see whether bondholders of War of 1812 stock used the Second Bank of the US to increase bond prices after the war ended. Our work on this project is based off of Patrick Newman's book *Cronyism: Liberty versus Power in Early America, 1607–1849* (2021). In his book, he claims that the bondholders created the Bank for the purpose of raising the six percent bond price. The team wanted to find evidence that could support or disagree with Newman's claim and write them down in the report. The full report can be downloaded [here](https://drive.google.com/file/d/1YZVwZ82CN1gRYR-rXR3y1o9RSEnQxj8l/view?usp=sharing). The team also used Python, Matplotlib, and Pandas to create graphs and tables analyzing the bondholders of the war stock. By analyzing bondholders, the team aimed to discover the banks, individuals, and states that held the most subscriptions, and look into their biographies. 
-
-- **Source Code:**
-    - <u>[Second Bank Graphs - Sanjeev Subramanian](https://github.com/davidch2020/Second-Bank/blob/main/Second%20Bank%20Graphs.ipynb)</u>
-    - <u>[Wealth Analysis - David Cho](https://github.com/davidch2020/Second-Bank/blob/main/wealth_analysis.ipynb)</u>
-- **Dataset of Bondholders:** <u>[davidch2020/Second-Bank/data](https://github.com/davidch2020/Second-Bank/blob/main/data/Bondholders%20and%20the%20Second%20bank%20-%20Sheet1.csv)</u>
 
 ## Team Members
 - [David Cho](https://www.linkedin.com/in/david-cho-638101237/)

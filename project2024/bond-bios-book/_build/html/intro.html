@@ -334,18 +334,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Welcome to the Bond Biography Book</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bond-biography">Bond Biography</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bond-biography-presentations">Bond Biography Presentations</a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#the-second-bank-project">The Second Bank Project</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#team-members">Team Members</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thanks">Thanks</a></li>
 </ul>
-</li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -362,7 +355,11 @@ document.write(`
 <p>This Jupyter book is crafted to explore the bond biographies compiled by the team. Our goal is to provide an in-depth look at various bonds issued throughout American history. There are five bonds that the team looked at this summer.</p>
 <ul class="simple">
 <li><p><strong>Louisiana Purchase Bonds</strong>: The US issued $11.25 million worth of bonds to fund the Louisiana Purchase in 1803.</p></li>
-<li><p><strong>War of 1812 Bonds and Treasury Notes</strong>: The US issued both long-term bonds and short-term bonds, in the form of treasury notes, to fund the War of 1812 throughout 1812 to 1815.</p></li>
+<li><p><strong>War of 1812 Bonds and Treasury Notes</strong>: The US issued both long-term bonds and short-term bonds, in the form of treasury notes, to fund the War of 1812 throughout 1812 to 1815.</p>
+<ul>
+<li><p><strong>Second Bank Project</strong>: The goal of the project was to see whether bondholders of War of 1812 stock used the Second Bank of the US to increase bond prices after the war ended. Our work on this project is based off of Patrick Newman’s book <em>Cronyism: Liberty versus Power in Early America, 1607–1849</em> (2021). In his book, he claims that the bondholders created the Bank for the purpose of raising the six percent bond price. The team wanted to find evidence that could support or disagree with Newman’s claim and write them down in the report. The team also used Python, Matplotlib, and Pandas to create graphs and tables analyzing the bondholders of the war stock. By analyzing bondholders, the team aimed to discover the banks, individuals, and states that held the most subscriptions, and look into their biographies.</p></li>
+</ul>
+</li>
 <li><p><strong>The 5-20s of the Civil War</strong>: The Union issued the 5-20s to finance the Civil War. The name came from the fact that these bonds had a 20 year maturity and could be redeemed after 5 years.</p></li>
 <li><p><strong>The Currency Sixes</strong>: The US issued these bonds to finance the construction of the trancontinental railroads between 1862 and 1869.</p></li>
 <li><p><strong>The Liberty and Victory Loans</strong>: The US issued these bonds to finance the US effort during World War I, from April 1917 to September 1918.</p></li>
@@ -374,6 +371,18 @@ document.write(`
 <ul class="simple">
 <li><p><a class="reference internal" href="louisiana_purchase.html"><span class="std std-doc">Louisiana Purchase Bonds</span></a> by Siddharth Gundapaneni and Jihan Kapur</p></li>
 <li><p><a class="reference internal" href="war_1812.html"><span class="std std-doc">War of 1812 Bonds and Treasury Notes</span></a> by David Cho and Alexander Dubasov</p></li>
+<li><p><strong>Second Bank Project</strong>
+<object type="application/pdf" data="_images/The_2nd_Bank_Final_Report_Final.pdf" width="740" height="700"></object></p>
+<ul>
+<li><p><strong>Second Bank Project Source Code</strong></p>
+<ul>
+<li><p><u><a class="reference external" href="https://github.com/davidch2020/Second-Bank/blob/main/Second%20Bank%20Graphs.ipynb">Second Bank Graphs - Sanjeev Subramanian</a></u></p></li>
+<li><p><u><a class="reference external" href="https://github.com/davidch2020/Second-Bank/blob/main/wealth_analysis.ipynb">Wealth Analysis - David Cho</a></u></p></li>
+</ul>
+</li>
+<li><p><strong>Dataset of Bondholders:</strong> <u><a class="reference external" href="https://github.com/davidch2020/Second-Bank/blob/main/data/Bondholders%20and%20the%20Second%20bank%20-%20Sheet1.csv">davidch2020/Second-Bank/data</a></u></p></li>
+</ul>
+</li>
 <li><p><a class="reference internal" href="520s.html"><span class="std std-doc">5-20s of the Civil War</span></a> by Eric Liu and Jihan Kapur</p></li>
 <li><p><a class="reference internal" href="currency_sixes.html"><span class="std std-doc">The Currency Sixes</span></a> by Sanjeev Subramanian and Elizabeth Zhang</p></li>
 <li><p><a class="reference internal" href="ww1_vic_lib.html"><span class="std std-doc">The Liberty and Victory Loans</span></a> by Liam Loughead and Elan Wang</p></li>
@@ -396,19 +405,6 @@ document.write(`
 <li><p><a class="reference external" href="https://drive.google.com/file/d/1U88U73_ohPCQlC5fzQ2t6dGsZnbPOcGz/view?usp=sharing">The Liberty and Victory Loans</a></p></li>
 </ul>
 </section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="the-second-bank-project">
-<h1>The Second Bank Project<a class="headerlink" href="#the-second-bank-project" title="Link to this heading">#</a></h1>
-<p>The Second Bank team continued the work from the War of 1812 bonds and treasury notes bond biography. The goal of the project was to see whether bondholders of War of 1812 stock used the Second Bank of the US to increase bond prices after the war ended. Our work on this project is based off of Patrick Newman’s book <em>Cronyism: Liberty versus Power in Early America, 1607–1849</em> (2021). In his book, he claims that the bondholders created the Bank for the purpose of raising the six percent bond price. The team wanted to find evidence that could support or disagree with Newman’s claim and write them down in the report. The full report can be downloaded <a class="reference external" href="https://drive.google.com/file/d/1YZVwZ82CN1gRYR-rXR3y1o9RSEnQxj8l/view?usp=sharing">here</a>. The team also used Python, Matplotlib, and Pandas to create graphs and tables analyzing the bondholders of the war stock. By analyzing bondholders, the team aimed to discover the banks, individuals, and states that held the most subscriptions, and look into their biographies.</p>
-<ul class="simple">
-<li><p><strong>Source Code:</strong></p>
-<ul>
-<li><p><u><a class="reference external" href="https://github.com/davidch2020/Second-Bank/blob/main/Second%20Bank%20Graphs.ipynb">Second Bank Graphs - Sanjeev Subramanian</a></u></p></li>
-<li><p><u><a class="reference external" href="https://github.com/davidch2020/Second-Bank/blob/main/wealth_analysis.ipynb">Wealth Analysis - David Cho</a></u></p></li>
-</ul>
-</li>
-<li><p><strong>Dataset of Bondholders:</strong> <u><a class="reference external" href="https://github.com/davidch2020/Second-Bank/blob/main/data/Bondholders%20and%20the%20Second%20bank%20-%20Sheet1.csv">davidch2020/Second-Bank/data</a></u></p></li>
-</ul>
 <section id="team-members">
 <h2>Team Members<a class="headerlink" href="#team-members" title="Link to this heading">#</a></h2>
 <ul class="simple">
@@ -486,18 +482,11 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Welcome to the Bond Biography Book</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bond-biography">Bond Biography</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bond-biography-presentations">Bond Biography Presentations</a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#the-second-bank-project">The Second Bank Project</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#team-members">Team Members</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thanks">Thanks</a></li>
 </ul>
-</li>
-</ul>
-
   </nav></div>
 
 </div></div>
