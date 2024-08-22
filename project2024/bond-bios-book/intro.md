@@ -17,7 +17,7 @@ Explore the team's analyses of US Treasury bonds through the following sections.
 - [Louisiana Purchase Bonds](./louisiana_purchase.ipynb) by Siddharth Gundapaneni and Jihan Kapur
 - [War of 1812 Bonds and Treasury Notes](./war_1812.ipynb) by David Cho and Alexander Dubasov
 - **Second Bank Project**
-<object type="application/pdf" data="_images/The_2nd_Bank_Final_Report_Final.pdf" width="740" height="700"></object>
+<object type="application/pdf" data="_images/The_2nd_Bank_Final_Report_Final.pdf" width="740" height="500"></object>
     - **Second Bank Project Source Code**
         - <u>[Second Bank Graphs - Sanjeev Subramanian](https://github.com/davidch2020/Second-Bank/blob/main/Second%20Bank%20Graphs.ipynb)</u>
         - <u>[Wealth Analysis - David Cho](https://github.com/davidch2020/Second-Bank/blob/main/wealth_analysis.ipynb)</u>
