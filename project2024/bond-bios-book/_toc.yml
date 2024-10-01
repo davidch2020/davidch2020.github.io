@@ -4,6 +4,7 @@ root: intro
 parts:
   - caption: Bond Bios 
     chapters:
+    - file: hamilton_bond_bio
     - file: louisiana_purchase
     - file: war_1812
     - file: currency_sixes
