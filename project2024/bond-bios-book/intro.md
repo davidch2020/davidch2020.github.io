@@ -2,6 +2,7 @@
 Prior to the end of World War I, Congress was responsible for creating federal securities. These bonds were used to finance wars and infrastructure projects. Our team had access to datasets, which could be used to observe long-term trends in bond prices and bond quantity. By doing so, the team can combine their research regarding the historical context, with the data, to create a story for each bond. The team decided to break up into smaller partnerships to focus on five specific bonds. We originally wrote our code in separate Jupyter notebooks in Python, before combining them into a single Jupyter book. The original notebooks are hosted on a separate Github [repository](https://github.com/davidch2020/Bond-Bios).  
 
 This Jupyter book is crafted to explore the bond biographies compiled by the team. Our goal is to provide an in-depth look at various bonds issued throughout American history. There are five bonds that the team looked at this summer. 
+- **American Revolution Stocks and Hamilton Bonds**: In order to fight the American Revolution, the Continental Congress needed to procure supplies, equipment and money for soldiers' wages. This notebook documents the various ways the Continental Congress funded the Revolution and the subsequent effort by Hamilton to repay the debt. 
 - **Louisiana Purchase Bonds**: The US issued \$11.25 million worth of bonds to fund the Louisiana Purchase in 1803. 
 - **War of 1812 Bonds and Treasury Notes**: The US issued both long-term bonds and short-term bonds, in the form of treasury notes, to fund the War of 1812 throughout 1812 to 1815. 
     - **Second Bank Project**: The goal of the project was to see whether bondholders of War of 1812 stock used the Second Bank of the US to increase bond prices after the war ended. Our work on this project is based off of Patrick Newman's book *Cronyism: Liberty versus Power in Early America, 1607–1849* (2021). In his book, he claims that the bondholders created the Bank for the purpose of raising the six percent bond price. The team wanted to find evidence that could support or disagree with Newman's claim and write them down in the report. The team also used Python, Matplotlib, and Pandas to create graphs and tables analyzing the bondholders of the war stock. By analyzing bondholders, the team aimed to discover the banks, individuals, and states that held the most subscriptions, and look into their biographies.
@@ -14,6 +15,7 @@ By looking at the bonds issued throughout American history, the team saw the pro
 
 ## Bond Biography
 Explore the team's analyses of US Treasury bonds through the following sections. These notebooks are listed in chronological order. 
+- [American Revolution Stocks and Hamilton Bonds](./hamilton_bond_bio.ipynb) by Mritika Omkumar, Isabella Smojver, Sanjeev Subramanian, Elizabeth Zhang
 - [Louisiana Purchase Bonds](./louisiana_purchase.ipynb) by Siddharth Gundapaneni and Jihan Kapur
 - [War of 1812 Bonds and Treasury Notes](./war_1812.ipynb) by David Cho and Alexander Dubasov
 - **Second Bank Project**
@@ -37,6 +39,7 @@ On August 7, the team presented our Jupyter notebooks. Each parternship created 
     src="https://www.youtube.com/embed/0lvp5OkZU98">
 </iframe>
 
+- No slides available for the **American Revolution Stocks and Hamilton Bonds**
 - [Louisiana Purchase Bonds](https://drive.google.com/file/d/1GW6E92YHQsAQbPdcCYEnipSFXtI9QwYN/view?usp=sharing) 
 - [War of 1812 Bonds and Treasury Notes](https://drive.google.com/file/d/1Z7Swri2Mcs-LFB5gf6N1tJWojxw0ba7K/view?usp=sharing)
 - [5-20s of the Civil War](https://drive.google.com/file/d/1_wBKbdiZBlxWShLsGEhWmIVU08Qd03Oo/view?usp=sharing)
@@ -50,9 +53,11 @@ On August 7, the team presented our Jupyter notebooks. Each parternship created 
 - [Jihan Kapur](https://www.linkedin.com/in/jihan-kapur-43866a263?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app)
 - [Eric Liu](https://www.linkedin.com/in/eric-liu-609875312) 
 - [Liam Loughead](https://snapwhiz914.github.io/)
+- [Mritika Omkumar](https://www.linkedin.com/in/mritika-omkumar-1103992aa/)
+- [Isabella Smojver](https://www.linkedin.com/in/isabella-smojver-b32bab1a5/)
 - [Sanjeev Subramanian](https://www.linkedin.com/in/sanjeev-subramanian-a240922b1/) 
 - Elan Wang
 - [Elizabeth Zhang](https://www.linkedin.com/in/elizabeth-zhang-1b1106279/)
 
 ## Thanks
-Thank you to Professor Hall, Professor Sargent, and Chris Liao for their help with the project. 
+Thank you to Professor Hall, Professor Sargent, and [Chris Liao](https://www.linkedin.com/in/chris-liao-8865b219a/) for their help with the project. 
